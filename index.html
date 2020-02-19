@@ -1,141 +1,66 @@
 <!DOCTYPE html>
 <html>
 <title>Studio Syro Homepage</title>
-<link rel="icon" type="image/gif" href="http://sauntic.com/Images/Dat_boi.gif"/>
+<link rel="icon" type="image/gif" href="./images/tiny-logo.ico"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: "Comic Sans MS", sans-serif; background-color:black; color: white;}
-h1,h2,h3,h4,h5,h6,p {font-family: "Comic Sans MS", sans-serif; color: white;}
+<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
 
-h1{
-	height:100%; 
-	font-size:40px;
-	padding-left: 30px;
-	padding-right: 30px;
-}
-.topGifs{
-	height: 60px;
-}
-.bottomGif{
-	background: url("https://studiosyro.github.io/images/vrEyes.gif");
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
-	height: 100px;
-	left: 0px;
-	background-repeat: repeat-x;
-	background-size: 100px 100px;
-}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-.rightLogo{
-	position:absolute;
-	width: 25%;
-	top: 550px;
-	right: 90px;
-}
-.leftLogo{
-	position:absolute;
-	width: 30%;
-	top: 550px;
-	left: 50px;
-}
-
-.centerTop {
-	text-align: center;
-	width: 100%;
-	background-image: url("https://studiosyro.github.io/images/Money.webp");
-	height: 20%;
-}
-
-.center {
-	text-align: center;
-	margin: auto;
-	width: 100%;
-}
-.video{
-	width:90%;
-	height:400px;
-}
-
-@media only screen and (min-width: 770px) {  
-	h1{ height:100%; 
-	  font-size:80px;
-	}
-	.topGifs{
-		height:100px;
-	}
-	.video{
-		height:400px;
-	}
-	.rightLogo{
-		position:absolute;
-		width: 15%;
-		top: 425px;
-		right: 40px;
-	}
-	.leftLogo{
-		position:absolute;
-		width: 20%;
-		top: 425px;
-		left: 0px;
-	}	
-}
-
-@media only screen and (min-width: 771px) {  
-
-	h1{ height:100%; 
-	  font-size:80px;
-	}
-	.topGifs{
-		height:100px;
-	}
-	.video{
-		height:400px;
-		width:60%;
-	}
-	.rightLogo{
-		position:absolute;
-		width: 15%;
-		top: 425px;
-		right: 40px;
-	}
-	.leftLogo{
-		position:absolute;
-		width: 20%;
-		top: 400px;
-		left: 0px;
-	}	
-}
-
-</style>
+	<nav>
+	<div class="navbar">
+		<a class="navbar-brand" href="#">
+		<img src = "./images/image.png"  width="60" height="60" alt="" z-index:"1">
+		</a>
+	</div>
+</nav>
 <body style="height: 100%;">
 
-<!-- Work Section -->
-<div class= "centerTop">
 
-<h1>Studio Syro</h1>
-<image class="topGifs" src = "https://studiosyro.github.io/images/syro.gif">
-<image class="topGifs" src = "https://studiosyro.github.io/images/instantNoodles.gif">
-<image class="topGifs" src = "https://studiosyro.github.io/images/dancingCat.gif">
-<image class="topGifs" src = "https://studiosyro.github.io/images/instantNoodles.gif">
-<image class="topGifs" src = "https://studiosyro.github.io/images/syro.gif">
+<!-- <div class="l-header"> -->
+	<div class="videoContainer">
+
+		<video autoplay="autoplay" loop="loop" onstart="this.play();" onended="this.play();">
+		<source  src="DemoReel.mp4" type="video/mp4">
+		</video>
+
+<!-- <iframe width="1920" height="1080" src="https://www.youtube.com/embed/EZSOgMG5YCo?controls=0&autoplay=1&loop=1&hd=1" allow="autoplay; loop" frameborder="0" allowfullscreen></iframe> -->
+
+
+<!-- <iframe src="https://www.youtube.com/embed/EZSOgMG5YCo?&autoplay=1&loop=1&controls=0&showinfo=0&autohide=1&hd=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/EZSOgMG5YCo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+</div>
+<!-- </div> -->
+
+<!-- Work Section -->
+<!-- <div class= "centerTop">
+
+<h1>Studio Syro</h1> -->
+<!-- <image class="topGifs" src = "./images/syro.gif">
+<image class="topGifs" src = "./images/instantNoodles.gif">
+<image class="topGifs" src = "./images/dancingCat.gif">
+<image class="topGifs" src = "./images/instantNoodles.gif">
+<image class="topGifs" src = "./images/syro.gif">
 </div>
 
 <div class="center">
-<image class="leftLogo" src = "https://studiosyro.github.io/images/quillLogo.png">
+<image class="leftLogo" src = "./images/quillLogo.png">
 <iframe class="video"  src="https://www.youtube.com/embed/KXYCr2pGTfw" frameborder="0" allow="accelerometer; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<image class="rightLogo" src = "https://studiosyro.github.io/images/unityLogo.png">
+<image class="rightLogo" src = "./images/unityLogo.png">
 </div>
 
-<div class = "bottomGif"></div>
+<div class = "bottomGif"></div> -->
 
-<script>
+<!-- <script>
 
 // Modal Image Gallery
-function onClick(element) {
+// function onClick(element) {
+//
+// }
 
-}
-
-</script>
+</script> -->
 </body>
 </html>
