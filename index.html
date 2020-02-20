@@ -22,11 +22,22 @@
 	//background-color: white;
 }
 
+#backgroundVideo{
+	position: absolute;
+	//width: 100%;
+}
 #bottomText{
 	position: absolute;
 	bottom: 100px;
 	//background-color: white;
 	width: 100%;
+}
+#topText{
+	position: absolute;
+	top: 0px;
+	right: 40px;
+	width: 100%;
+	//background-color: white;
 }
 
 .icon{
@@ -45,9 +56,10 @@
 	opacity: 0;
 }
 
-h1{
+p{
 	text-align: center;
 	text-shadow: 3px 3px 5px black;
+	font-size: 50px;
 }
 </style>
 <!--
@@ -59,17 +71,18 @@ h1{
 	</div>
 </nav>
 -->
-<body style="height: 100%; overflow:hidden;">
+<body style="height: 100%; overflow:hidden;" onresize="ChangeSize()" onload="ChangeSize()">
 
 <!-- Background Video -->
-<div class="videoContainer">
-<video autoplay muted loop>
+<div id="videoContainer">
+<video autoplay muted loop id="backgroundVideo">
 <source  src="images/videos/DemoReel8Mbps.mp4" type="video/mp4">
 </video>
 <div id="video1" class="previewVideo" style="background-image: url('images/videos/deadmau5.PNG');"></div>
 <div id="video2" class="previewVideo" style="background-image: url('images/videos/slushii.PNG');"></div>
 <div id="video3" class="previewVideo" style="background-image: url('images/videos/spider.PNG');"></div>
-<div id="bottomText"><h1 id="mainText"></h1></div>
+<div id="bottomText"><p id="mainText"></p></div>
+<div id="topText"><p style="text-align:right; font-size:30px;">hello@studiosyro.com</p></div>
 </div>
 <!---------------------->
 
@@ -98,8 +111,32 @@ h1{
 <img class="icon"  src = "images/icons/email.png" alt="logo">
 </div>
 
-
 <script>
+var newTop = 0;
+$("#backgroundVideo").css({width: "100%"});
+
+function ChangeSize(){
+	
+	if($("#videoContainer").width()/1.777777777 > $("#videoContainer").height()){
+		$("#backgroundVideo").css({width: "100%"});
+		$("#backgroundVideo").offset({top: -$("#backgroundVideo").height()/2 +  $("#videoContainer").height()/2 , left: 0});
+	}
+	
+	if($("#videoContainer").width()/1.777777777 < $("#videoContainer").height()){
+		$("#backgroundVideo").css({width: $("#videoContainer").height() * 1.77777777});
+		$("#backgroundVideo").offset({top: 0, left: -$("#backgroundVideo").width()/2 +  $("#videoContainer").width()/2});
+	}
+	
+}
+
+
+$("body").mousedown(function(){
+	
+//	newTop = newTop - 10;
+//	$("#backgroundVideo").offset({top: newTop});
+//	document.getElementById("info2").innerHTML = "video width: " + $("#backgroundVideo").width() + " | " + "height: " + $("#backgroundVideo").height() + " | top: " + $("#backgroundVideo").offset().top;
+
+});
 
 var expanded = false;
 
