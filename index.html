@@ -4,6 +4,7 @@
 <link rel="icon" type="image/gif" href="./images/tiny-logo.ico"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <!--
@@ -24,14 +25,26 @@
 
 .backgroundVideo{
 	position: absolute;
+	opacity: 0;
 	//width: 100%;
 }
-#bottomText{
+#titleText{
 	position: absolute;
-	bottom: 100px;
+	//bottom: 100px;
 	//background-color: white;
-	width: 100%;
+	width: 200px;
+	height: 60px;
+	//box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24),0 8px 20px 0 rgba(0,0,0,0.19);
 }
+#mainText{
+	margin-left: 10px;
+	margin-top: 10px
+	top: 30px;
+	text-align: left;
+	//position: absolute;
+	//z-index: 2;
+}
+
 #topText{
 	position: absolute;
 	top: 0px;
@@ -56,10 +69,16 @@
 	opacity: 0;
 }
 
-p{
+p, a{
 	text-align: center;
 	text-shadow: 3px 3px 5px black;
 	font-size: 50px;
+}
+.mobileText{
+	font-size:18px;
+	text-align: left;
+	text-shadow: 3px 3px 5px black;	
+	margin: 10px;
 }
 </style>
 
@@ -70,11 +89,17 @@ p{
 <video autoplay muted loop class="backgroundVideo">
 <source  src="images/videos/DemoReel8Mbps.mp4" type="video/mp4">
 </video>
-<div id="video1" class="previewVideo" style="background-image: url('images/videos/deadmau5.PNG');"></div>
-<div id="video2" class="previewVideo" style="background-image: url('images/videos/slushii.PNG');"></div>
-<div id="video3" class="previewVideo" style="background-image: url('images/videos/spider.PNG');"></div>
-<div id="video4" class="previewVideo" style="background-image: url('images/videos/spider.PNG');"></div>
-<div id="bottomText"><p id="mainText"></p></div>
+<video autoplay muted loop id="video1" class="backgroundVideo">
+<source  src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4">
+</video>
+<video autoplay muted loop id="video2" class="backgroundVideo">
+<source  src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4">
+</video>
+<video autoplay muted loop id="video3" class="backgroundVideo">
+<source  src="images/videos/spiderverseHighlights3Mbps.mp4" type="video/mp4">
+</video>
+
+<div id="titleText"><a id="mainText"></a></div>
 <div id="topText">
 <p style="text-align:right; font-size:30px; margin-right: 20px">hello@studiosyro.com</p>
 </div>
@@ -110,8 +135,9 @@ p{
 
 var iconSpace = 0;
 var expanded = false;
+var isMobile = false;
 
-$(".backgroundVideo").css({width: "100%"});
+$("#videoContainer").find(".backgroundVideo").eq(0).css({width: "100%", opacity: 1});
 
 function ChangeSize(){
 	
@@ -128,6 +154,7 @@ function ChangeSize(){
 	
 	if($("#videoContainer").width() < 500){
 		$("#topText").css({top: $("#videoContainer").height() - $("#topText").height() + 10});
+		$("#mainText").css({fontSize: "19px"});
 		$("#topText").find("p").eq(0).css({fontSize: "30px"});
 	}
 	if($("#videoContainer").width() < 340){
@@ -136,6 +163,8 @@ function ChangeSize(){
 	if($("#videoContainer").width() > 500){
 		$("#topText").css({top: 0});
 		$("#topText").find("p").eq(0).css({fontSize: "30px"});
+		$("#mainText").css({fontSize: "50px"});
+
 	}
 }
 
@@ -144,14 +173,17 @@ function Start(){
 	ChangeSize();
 	if($("#videoContainer").width() < 500){
 		iconSpace = 100;
+		isMobile = true;
 	}
 	if($("#videoContainer").width() < 340){
 		iconSpace = 80;
 	}	
 	if($("#videoContainer").width() > 500){
 		iconSpace = 100;
+		isMobile = false;
 	}
 	Animate();
+	console.log(isMobile);
 
 }
 
@@ -161,82 +193,142 @@ $("body").mousedown(function(){
 });
 
 $("body").find(".iconHolder").each(function(index, element){
-
+	
 	$(element).find(".icon").eq(0).css({opacity: 0 , width: "96px"});
 	
 	if(index > 0){
-	$(element).find(".icon").eq(0).css({opacity: 0 , width: "73px", left: "-4px", top: "-5px"});
-	$(element).css({width: "60px", left: "30px"});
+		$(element).find(".icon").eq(0).css({opacity: 0 , width: "73px", left: "-4px", top: "-5px"});
+		$(element).css({width: "60px", left: "30px"});
 	}
 	
-	$(element).click(function(){
+		$(element).click(function(){
+			if($("#videoContainer").width() < 500)
+				isMobile = true;
+			else
+				isMobile = false;
+				
+			if(index == 0){
+				AnimateRotate(this, 360);
+				$("#titleText").css({ display: "none"}); 
+			}
+			if(!isMobile){
+				if(index == 1){
+					window.open("https://www.youtube.com/watch?v=DFQHD9k5i54");
+				}
+				if(index == 2){
+					window.open("https://www.youtube.com/watch?v=KXYCr2pGTfw");
+				}
+				if(index == 3){
+					window.open("https://www.youtube.com/watch?v=s_CpnMvoNUc");
+				}
+				if(index == 4){
+					window.open("mailto:hello@studiosyro.com");
+				}
+			}
+		});
+	
+	
 		if(index == 0){
-			//expanded = !expanded;
-			AnimateRotate(this, 360);
+		//box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24),0 8px 20px 0 rgba(0,0,0,0.19);
+			$(element).mouseenter(function() {
+				$(element).find(".icon").eq(1).animate({opacity: 0}, 200);
+				$(element).find(".icon").eq(0).animate({opacity: 1}, 100);
+			});
+			$(element).mouseleave(function() {
+				$(element).find(".icon").eq(1).animate({opacity: 1}, 100);
+				$(element).find(".icon").eq(0).animate({opacity: 0}, 200);
+			});
 		}
-		if(index == 1){
-			window.open("https://www.youtube.com/watch?v=DFQHD9k5i54");
-		}
-		if(index == 2){
-			window.open("https://www.youtube.com/watch?v=KXYCr2pGTfw");
-		}
-		if(index == 3){
-			window.open("https://www.youtube.com/watch?v=s_CpnMvoNUc");
-		}
-		if(index == 4){
-			window.open("mailto:hello@studiosyro.com");
-		}
-	});
-	
-	if(index == 0){
-	
-	$(element).mouseenter(function() {
-		$(element).find(".icon").eq(1).animate({opacity: 0}, 200);
-		$(element).find(".icon").eq(0).animate({opacity: 1}, 100);
-	});
-	$(element).mouseleave(function() {
-		$(element).find(".icon").eq(1).animate({opacity: 1}, 100);
-		$(element).find(".icon").eq(0).animate({opacity: 0}, 200);
-	});
-	}
-	else {
-	$(element).css({opacity: 0});
-	$(element).mouseenter(function() {
-		//console.log(expanded +" "+ index);
-		$(element).find(".icon").eq(1).animate({opacity: 0}, 200);
+		else {
+			$(element).css({opacity: 0});
+			$(element).mouseenter(function() {
+			
+				$("#titleText").css({ display: "block"});
+				$("#titleText").offset({ top: $(element).offset().top});
+				$("#titleText").css({ left: "-50%"});
+				$("#titleText").animate({ left: "120px", opacity: 1});		
+				$(element).find(".icon").eq(1).animate({opacity: 0}, 200);
 		
-		if(expanded){
-			$(element).find(".icon").eq(0).animate({opacity: 1}, 100);
-			$("#video" + index).animate({opacity: 1}, 500);
+				if(expanded){
+					$(element).find(".icon").eq(0).animate({opacity: 1}, 100);
+					
+					$("#video" + index).animate({opacity: 1}, 500);
+					if($("#videoContainer").width() < 500)
+						isMobile = true;
+					else
+						isMobile = false;
+					
+					if(!isMobile){	
+						$("#titleText").css({ width: "100%"});	
+						if(index == 1)
+							document.getElementById("mainText").innerHTML = "Deadmau5: 10.8";
+				
+						if(index == 2)
+							document.getElementById("mainText").innerHTML = "Dreaming of You / Far Away";
 			
-			if(index == 1)
-			document.getElementById("mainText").innerHTML = "Deadmau5: 10.8";
+						if(index == 3)
+							document.getElementById("mainText").innerHTML = "SPIDERMAN - VR ANIMATION";
 			
-			if(index == 2)
-			document.getElementById("mainText").innerHTML = "Dreaming of You / Far Away";
+						if(index == 4)
+							document.getElementById("mainText").innerHTML = "hello@studiosyro.com";
+					}
+					
+					if(isMobile){			
+						if(index == 1){
+							document.getElementById("mainText").innerHTML = "Deadmau5: 10.8  <i class='fas fa-arrow-alt-circle-right'></i>";
+							$("#titleText").css({ width: "185px"});
+						}		
+						if(index == 2){
+							document.getElementById("mainText").innerHTML = "Dreaming of You / <p class='mobileText'>Far Away  <i class='fas fa-arrow-alt-circle-right'></i></p>";
+							$("#titleText").css({ width: "185px"});
+						}
+						if(index == 3){
+							document.getElementById("mainText").innerHTML = "SPIDERMAN - <p class='mobileText'>VR ANIMATION  <i class='fas fa-arrow-alt-circle-right'></i></p>";
+							$("#titleText").css({ width: "180px"});
+						}
+						if(index == 4){
+							document.getElementById("mainText").innerHTML = "hello@studiosyro.com <i class='fas fa-arrow-alt-circle-right'></i>";
+							$("#titleText").css({ width: "240px"});
+						}
+					}
+				}
+			});
+			$(element).mouseleave(function() {
 			
-			if(index == 3)
-			document.getElementById("mainText").innerHTML = "SPIDERMAN - VR ANIMATION IN QUILL";
-			
-			if(index == 4)
-			document.getElementById("mainText").innerHTML = "hello@studiosyro.com";
-			
-		}
-	});
-	$(element).mouseleave(function() {
-		$(element).find(".icon").eq(1).animate({opacity: 1}, 100);
+				$(element).find(".icon").eq(1).animate({opacity: 1}, 100);
 		
-		if(expanded){
-			$(element).find(".icon").eq(0).animate({opacity: 0}, 200);
-			$("#video" + index).animate({opacity: 0}, 500);
-			document.getElementById("mainText").innerHTML = "";
+				if(expanded){
+					$(element).find(".icon").eq(0).animate({opacity: 0}, 200);
+					$("#video" + index).animate({opacity: 0}, 500);
+					if(!isMobile)
+						$("#titleText").css({ display: "none"});
+				}
+			});
 		}
-	});
-	}
-	
-
 });	
 
+$("#titleText").click(function(){
+	if($("#videoContainer").width() < 500)
+		isMobile = true;
+	else
+		isMobile = false;
+			
+	if(isMobile){
+		if($("body").find(".iconHolder").eq(1).offset().top == $("#titleText").offset().top){
+			window.open("https://www.youtube.com/watch?v=DFQHD9k5i54");
+		}
+		if($("body").find(".iconHolder").eq(2).offset().top == $("#titleText").offset().top){
+			window.open("https://www.youtube.com/watch?v=KXYCr2pGTfw");
+		}
+		if($("body").find(".iconHolder").eq(3).offset().top == $("#titleText").offset().top){
+			window.open("https://www.youtube.com/watch?v=s_CpnMvoNUc");
+		}
+		if($("body").find(".iconHolder").eq(4).offset().top == $("#titleText").offset().top){
+			window.open("mailto:hello@studiosyro.com");
+		}
+		
+	}			
+});
 
 function AnimateRotate(element, angle) {
 
