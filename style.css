@@ -15,56 +15,6 @@ h1{
 	padding-left: 30px;
 	padding-right: 30px;
 }
-.topGifs{
-	height: 60px;
-}
-.bottomGif{
-	background: url("./images/vrEyes.gif");
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
-	height: 100px;
-	left: 0px;
-	background-repeat: repeat-x;
-	background-size: 100px 100px;
-}
-
-.rightLogo{
-	position:absolute;
-	width: 25%;
-	top: 550px;
-	right: 90px;
-}
-.leftLogo{
-	position:absolute;
-	width: 30%;
-	top: 550px;
-	left: 50px;
-}
-
-.centerTop {
-	text-align: center;
-	width: 100%;
-	/* background-image: url("./images/Money.webp"); */
-	height: 20%;
-}
-
-.center {
-	text-align: center;
-	margin: auto;
-	width: 100%;
-}
-.video{
-//	width:90%;
-//	height:400px;
-}
-
-iframe {
-  /* optional */
-  width: 100%;
-  height: 100%;
-}
-
 
 #videoContainer {
   position: absolute;
@@ -75,58 +25,14 @@ iframe {
   bottom: 0;
   right: 0;
   z-index: -1;
+  overflow: hidden;
 }
 
-.l-header{
-position: relative;
-
-}
 @media only screen and (min-width: 770px) {
-	h1{ height:100%;
-	  font-size:80px;
-	}
-	.topGifs{
-		height:100px;
-	}
-	.video{
-		height:400px;
-	}
-	.rightLogo{
-		position:absolute;
-		width: 15%;
-		top: 425px;
-		right: 40px;
-	}
-	.leftLogo{
-		position:absolute;
-		width: 20%;
-		top: 425px;
-		left: 0px;
-	}
+
 }
 
 @media only screen and (min-width: 771px) {
 
-	h1{ height:100%;
-	  font-size:80px;
-	}
-	.topGifs{
-		height:100px;
-	}
-	.video{
-		height:400px;
-		width:60%;
-	}
-	.rightLogo{
-		position:absolute;
-		width: 15%;
-		top: 425px;
-		right: 40px;
-	}
-	.leftLogo{
-		position:absolute;
-		width: 20%;
-		top: 400px;
-		left: 0px;
-	}
+
 }

@@ -22,7 +22,7 @@
 	//background-color: white;
 }
 
-#backgroundVideo{
+.backgroundVideo{
 	position: absolute;
 	//width: 100%;
 }
@@ -35,7 +35,7 @@
 #topText{
 	position: absolute;
 	top: 0px;
-	right: 40px;
+	right: 0px;
 	width: 100%;
 	//background-color: white;
 }
@@ -62,27 +62,22 @@ p{
 	font-size: 50px;
 }
 </style>
-<!--
-	<nav>
-	<div class="navbar">
-		<a class="navbar-brand" href="#">
-		<img src = "./images/image.png" style="width: 60px;" alt="logo" z-index:"1">
-		</a>
-	</div>
-</nav>
--->
-<body style="height: 100%; overflow:hidden;" onresize="ChangeSize()" onload="ChangeSize()">
+
+<body style="height: 100%; overflow:hidden;" onresize="ChangeSize()" onload=" Start()">
 
 <!-- Background Video -->
 <div id="videoContainer">
-<video autoplay muted loop id="backgroundVideo">
+<video autoplay muted loop class="backgroundVideo">
 <source  src="images/videos/DemoReel8Mbps.mp4" type="video/mp4">
 </video>
 <div id="video1" class="previewVideo" style="background-image: url('images/videos/deadmau5.PNG');"></div>
 <div id="video2" class="previewVideo" style="background-image: url('images/videos/slushii.PNG');"></div>
 <div id="video3" class="previewVideo" style="background-image: url('images/videos/spider.PNG');"></div>
+<div id="video4" class="previewVideo" style="background-image: url('images/videos/spider.PNG');"></div>
 <div id="bottomText"><p id="mainText"></p></div>
-<div id="topText"><p style="text-align:right; font-size:30px;">hello@studiosyro.com</p></div>
+<div id="topText">
+<p style="text-align:right; font-size:30px; margin-right: 20px">hello@studiosyro.com</p>
+</div>
 </div>
 <!---------------------->
 
@@ -113,20 +108,51 @@ p{
 
 <script>
 
-$("#backgroundVideo").css({width: "100%"});
+var iconSpace = 0;
+var expanded = false;
+
+$(".backgroundVideo").css({width: "100%"});
 
 function ChangeSize(){
 	
 	if($("#videoContainer").width()/1.777777777 > $("#videoContainer").height()){
-		$("#backgroundVideo").css({width: "100%"});
-		$("#backgroundVideo").offset({top: -$("#backgroundVideo").height()/2 +  $("#videoContainer").height()/2 , left: 0});
+		$(".backgroundVideo").css({width: "100%"});
+		$(".backgroundVideo").offset({top: -$(".backgroundVideo").height()/2 +  $("#videoContainer").height()/2 , left: 0});
 	}
 	
 	if($("#videoContainer").width()/1.777777777 < $("#videoContainer").height()){
-		$("#backgroundVideo").css({width: $("#videoContainer").height() * 1.77777777});
-		$("#backgroundVideo").offset({top: 0, left: -$("#backgroundVideo").width()/2 +  $("#videoContainer").width()/2});
+		$(".backgroundVideo").css({width: $("#videoContainer").height() * 1.77777777});
+		$(".backgroundVideo").offset({top: 0, left: -$(".backgroundVideo").width()/2 +  $("#videoContainer").width()/2});
 	}
 	
+	
+	if($("#videoContainer").width() < 500){
+		$("#topText").css({top: $("#videoContainer").height() - $("#topText").height() + 10});
+		$("#topText").find("p").eq(0).css({fontSize: "30px"});
+	}
+	if($("#videoContainer").width() < 340){
+		$("#topText").find("p").eq(0).css({fontSize: "25px"});
+	}	
+	if($("#videoContainer").width() > 500){
+		$("#topText").css({top: 0});
+		$("#topText").find("p").eq(0).css({fontSize: "30px"});
+	}
+}
+
+function Start(){
+	expanded = true;
+	ChangeSize();
+	if($("#videoContainer").width() < 500){
+		iconSpace = 100;
+	}
+	if($("#videoContainer").width() < 340){
+		iconSpace = 80;
+	}	
+	if($("#videoContainer").width() > 500){
+		iconSpace = 100;
+	}
+	Animate();
+
 }
 
 
@@ -134,16 +160,19 @@ $("body").mousedown(function(){
 
 });
 
-var expanded = false;
-
 $("body").find(".iconHolder").each(function(index, element){
 
 	$(element).find(".icon").eq(0).css({opacity: 0 , width: "96px"});
 	
+	if(index > 0){
+	$(element).find(".icon").eq(0).css({opacity: 0 , width: "73px", left: "-4px", top: "-5px"});
+	$(element).css({width: "60px", left: "30px"});
+	}
+	
 	$(element).click(function(){
 		if(index == 0){
-			expanded = !expanded;
-			Animate();
+			//expanded = !expanded;
+			AnimateRotate(this, 360);
 		}
 		if(index == 1){
 			window.open("https://www.youtube.com/watch?v=DFQHD9k5i54");
@@ -173,7 +202,7 @@ $("body").find(".iconHolder").each(function(index, element){
 	else {
 	$(element).css({opacity: 0});
 	$(element).mouseenter(function() {
-		console.log(expanded +" "+ index);
+		//console.log(expanded +" "+ index);
 		$(element).find(".icon").eq(1).animate({opacity: 0}, 200);
 		
 		if(expanded){
@@ -208,13 +237,26 @@ $("body").find(".iconHolder").each(function(index, element){
 
 });	
 
+
+function AnimateRotate(element, angle) {
+
+    var $elem = $(element);
+
+	$({deg: 0}).animate({deg: angle}, {
+        duration: 500,
+        step: function(now) {
+            $elem.css({transform: 'rotate(' + now + 'deg)'});
+        },
+    });
+}
+
 function Animate(){
 	$("body").find(".iconHolder").each(function(index, element){
 		if(expanded){
 	
 			if(index > 0){
 				//$(element).animate({top: 110 * index, width: 80, left: 20}, 1000);
-				$(element).animate({top: 120 * index, opacity: 1,}, 800);
+				$(element).animate({top: 20 + iconSpace * index, opacity: 1,}, 800);
 			}
 		}
 		else{
