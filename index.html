@@ -173,6 +173,12 @@ $("#topText").find("p").eq(0).click(function() {
 
 $("#topText").find("p").eq(0).mouseenter(function() {
 	$(this).css({cursor: "pointer"});
+	if($("#videoContainer").width() > 500)
+	$(this).animate({fontSize: 35}, 200);
+});
+$("#topText").find("p").eq(0).mouseleave(function() {
+	if($("#videoContainer").width() > 500)
+	$(this).animate({fontSize: 30}, 200);
 });
 
 
