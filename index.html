@@ -7,12 +7,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<!--
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
--->
+
 <style>
 .iconHolder{
 	position: fixed;
@@ -35,11 +30,10 @@
 	width: 200px;
 	height: 60px;
 	//box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24),0 8px 20px 0 rgba(0,0,0,0.19);
+	
 }
 #mainText{
-	margin-left: 10px;
-	margin-top: 10px
-	top: 30px;
+	margin: 100px 10px;
 	text-align: left;
 	//position: absolute;
 	//z-index: 2;
@@ -47,8 +41,8 @@
 
 #topText{
 	position: absolute;
-	top: 0px;
-	right: 0px;
+	top: 10px;
+	right: 60px;
 	width: 100%;
 	//background-color: white;
 }
@@ -70,16 +64,23 @@
 }
 
 p, a{
+	color: white;
+	text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
 	text-align: center;
-	text-shadow: 3px 3px 5px black;
 	font-size: 50px;
 }
 .mobileText{
 	font-size:18px;
 	text-align: left;
-	text-shadow: 3px 3px 5px black;	
 	margin: 10px;
 }
+#textClip{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	clip: rect(0px, 1000px, 1000px, 60px);
+}
+
 </style>
 
 <body style="height: 100%; overflow:hidden;" onresize="ChangeSize()" onload=" Start()">
@@ -98,10 +99,13 @@ p, a{
 <video autoplay muted loop id="video3" class="backgroundVideo">
 <source  src="images/videos/spiderverseHighlights3Mbps.mp4" type="video/mp4">
 </video>
-
+<clipPath id="textClip">
 <div id="titleText"><a id="mainText"></a></div>
+</clipPath>
+
+
 <div id="topText">
-<p style="text-align:right; font-size:30px; margin-right: 20px">hello@studiosyro.com</p>
+<p style="text-align:right; font-size:30px; margin-right: 0px">hello@studiosyro.com</p>
 </div>
 </div>
 <!---------------------->
@@ -126,11 +130,6 @@ p, a{
 <img class="icon"  src = "images/icons/spider.png" alt="logo">
 </div>
 
-<div style="z-index: -1;" class="iconHolder">
-<img class="icon" style="left:-5px; top:-5px;" src = "images/icons/email_glow.png" alt="logo">
-<img class="icon"  src = "images/icons/email.png" alt="logo">
-</div>
-
 <script>
 
 var iconSpace = 0;
@@ -153,20 +152,29 @@ function ChangeSize(){
 	
 	
 	if($("#videoContainer").width() < 500){
-		$("#topText").css({top: $("#videoContainer").height() - $("#topText").height() + 10});
+		$("#topText").css({top: $("#videoContainer").height() - $("#topText").height() + 10, right: 0, width: "100%"});
 		$("#mainText").css({fontSize: "19px"});
-		$("#topText").find("p").eq(0).css({fontSize: "30px"});
+		$("#topText").find("p").eq(0).css({fontSize: "30px", textAlign: "center"});
 	}
 	if($("#videoContainer").width() < 340){
 		$("#topText").find("p").eq(0).css({fontSize: "25px"});
 	}	
 	if($("#videoContainer").width() > 500){
-		$("#topText").css({top: 0});
-		$("#topText").find("p").eq(0).css({fontSize: "30px"});
-		$("#mainText").css({fontSize: "50px"});
+		$("#topText").css({width: 350, top: 10, right: 60});
+		$("#topText").find("p").eq(0).css({fontSize: "30px", textAlign: "right"});
+		$("#mainText").css({fontSize: "30px"});
 
 	}
 }
+
+$("#topText").find("p").eq(0).click(function() {
+	window.open("mailto:hello@studiosyro.com");
+});
+
+$("#topText").find("p").eq(0).mouseenter(function() {
+	$(this).css({cursor: "pointer"});
+});
+
 
 function Start(){
 	expanded = true;
@@ -186,11 +194,6 @@ function Start(){
 	console.log(isMobile);
 
 }
-
-
-$("body").mousedown(function(){
-
-});
 
 $("body").find(".iconHolder").each(function(index, element){
 	
@@ -244,7 +247,7 @@ $("body").find(".iconHolder").each(function(index, element){
 			$(element).mouseenter(function() {
 			
 				$("#titleText").css({ display: "block"});
-				$("#titleText").offset({ top: $(element).offset().top});
+				$("#titleText").offset({top: $(element).offset().top + 12});
 				$("#titleText").css({ left: "-50%"});
 				$("#titleText").animate({ left: "120px", opacity: 1});		
 				$(element).find(".icon").eq(1).animate({opacity: 0}, 200);
@@ -260,17 +263,21 @@ $("body").find(".iconHolder").each(function(index, element){
 					
 					if(!isMobile){	
 						$("#titleText").css({ width: "100%"});	
-						if(index == 1)
+						if(index == 1){
 							document.getElementById("mainText").innerHTML = "Deadmau5: 10.8";
-				
-						if(index == 2)
+						//	$("#mainText").css({color: "#3CECFF", textShadow: "-2px -2px 0px #FF5285"});
+						}
+						if(index == 2){
 							document.getElementById("mainText").innerHTML = "Dreaming of You / Far Away";
-			
-						if(index == 3)
+						//	$("#mainText").css({color: "#FF5285"});					
+						}
+						if(index == 3){
 							document.getElementById("mainText").innerHTML = "SPIDERMAN - VR ANIMATION";
-			
-						if(index == 4)
+						//	$("#mainText").css({color: "#3CECFF"});
+						}
+						if(index == 4){
 							document.getElementById("mainText").innerHTML = "hello@studiosyro.com";
+						}
 					}
 					
 					if(isMobile){			
@@ -288,7 +295,7 @@ $("body").find(".iconHolder").each(function(index, element){
 						}
 						if(index == 4){
 							document.getElementById("mainText").innerHTML = "hello@studiosyro.com <i class='fas fa-arrow-alt-circle-right'></i>";
-							$("#titleText").css({ width: "240px"});
+							$("#titleText").css({ width: "250px"});
 						}
 					}
 				}
