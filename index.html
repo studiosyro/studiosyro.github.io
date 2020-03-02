@@ -16,6 +16,7 @@
 	width: 80px;	
 	height: 80px;
 	//background-color: white;
+	cursor: pointer;
 }
 
 .backgroundVideo{
@@ -45,6 +46,20 @@
 	right: 60px;
 	width: 100%;
 	//background-color: white;
+	text-shadow: ;
+}
+
+#topText: p {
+	text-shadow: ;
+}
+
+#topText:hover {
+	text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
+	cursor: pointer;	
+}
+
+p, a{
+	text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
 }
 
 .icon{
@@ -63,12 +78,7 @@
 	opacity: 0;
 }
 
-p, a{
-	color: white;
-	text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
-	text-align: center;
-	font-size: 50px;
-}
+
 .mobileText{
 	font-size:18px;
 	text-align: left;
@@ -108,8 +118,8 @@ p, a{
 	#socialHolder{
 		position: absolute;
 		z-index: 1;
-		width: 200px;
-		right: 10px;
+		width: 300px;
+		right: -40px;
 		top: 80px;
 		display: block;
 		align-items: ;
@@ -117,7 +127,7 @@ p, a{
 	}
 
 	.socialIcon{
-		width: 15%;
+		width: 10%;
 		z-index: 1;
 		padding: 10px;
 		cursor: pointer;
@@ -155,6 +165,7 @@ p, a{
 <img class="socialIcon" src = "images/icons/facebookBlue.png" onclick="window.open('https://www.facebook.com/studiosyro/');" alt="facebook">
 <img class="socialIcon" src = "images/icons/instagramBlue.png" onclick="window.open('https://www.instagram.com/studiosyro/');" alt="instagram">
 <img class="socialIcon" src = "images/icons/linkedinBlue.png" onclick="window.open('https://www.linkedin.com/company/studio-syro/');" alt="instagram">
+<img class="socialIcon" src = "images/icons/vimeoBlue.png" onclick="window.open('https://vimeo.com/studiosyro');" alt="vimeo">
 </div>
 </div>
 <!---------------------->
@@ -253,6 +264,13 @@ function Start(){
 $("body").find(".iconHolder").each(function(index, element){
 	
 	$(element).find(".icon").eq(0).css({opacity: 0 , width: "96px"});
+	
+	if($("#videoContainer").width() < 500){
+
+	}
+	else{
+		
+	}
 	
 	if(index > 0){
 		$(element).find(".icon").eq(0).css({opacity: 0 , width: "73px", left: "-4px", top: "-5px"});
