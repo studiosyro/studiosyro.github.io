@@ -4,26 +4,45 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Studio Syro X Wajatta</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WajattaShowcase.json", {onProgress: UnityProgress});
     </script>
   </head>
-  <body>
+<style>
+.fullscreen {
+	position: absolute; 
+	background-image: url('TemplateData/fullscreen.png'); 
+	width: 38px; 
+	height: 38px; 
+	z-index: 2;
+}
+</style>
+  <body onresize="ChangeSize()" onload="ChangeSize()">
+  <img id="homeButton" onclick="document.location = 'https://studiosyro.com/'" style="position: absolute; z-index: 5;width:60px;" src="https://studiosyro.com/images/icons/syro_logo.png">
     <div class="webgl-content">
-      <div id="unityContainer" style="width: 90%; height: 50%;"></div>
-      <div class="footer">
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-      </div>
+      <div id="unityContainer" style="background-color: black; width: 70%; padding:0; margin:0;"></div>
+	   <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>       
     </div>
 	
 <script>
 
+function ChangeSize(){
+$("#unityContainer").css({height: $("#unityContainer").width()/1.7777777, top: "20px", left: $("body").width()/2 - $("#unityContainer").width()/2 + 10});
+$(".fullscreen").css({left: $("body").width()/2 - $("#unityContainer").width()/2, top: $("#unityContainer").height()+ $("#unityContainer").offset().top});
+}
 
+$("#homeButton").mouseenter(function(){
+	$("#homeButton").animate({width: 90});
+});
+$("#homeButton").mouseleave(function(){
+	$("#homeButton").animate({width: 60});
+});
 </script>
 </body>
 </html>
