@@ -198,6 +198,11 @@ p, a{
 <img class="icon"  src = "images/icons/spider.png" alt="logo">
 </div>
 
+<div style="z-index: -1;" class="iconHolder">
+<img class="icon" style="left:-5px; top:-5px;" src = "images/icons/rt_glow.png" alt="logo">
+<img class="icon"  src = "images/icons/rt.png" alt="logo">
+</div>
+
 <script>
 
 var iconSpace = 0;
@@ -295,7 +300,7 @@ $("body").find(".iconHolder").each(function(index, element){
 				AnimateRotate(this, 360);
 				$("#titleText").css({ display: "none"}); 
 			}
-			if(!isMobile){
+			//if(!isMobile){
 				if(index == 1){
 					window.open("https://www.youtube.com/watch?v=DFQHD9k5i54");
 				}
@@ -306,9 +311,9 @@ $("body").find(".iconHolder").each(function(index, element){
 					window.open("https://www.youtube.com/watch?v=s_CpnMvoNUc");
 				}
 				if(index == 4){
-					window.open("mailto:hello@studiosyro.com");
+					window.open("https://www.youtube.com/watch?v=ZKtY6op0Q6M");
 				}
-			}
+			//}
 		});
 	
 	
@@ -357,7 +362,7 @@ $("body").find(".iconHolder").each(function(index, element){
 						//	$("#mainText").css({color: "#3CECFF"});
 						}
 						if(index == 4){
-							document.getElementById("mainText").innerHTML = "hello@studiosyro.com";
+							document.getElementById("mainText").innerHTML = "RUNETERRA - Celebrating 10 Years of League of Legends";
 						}
 					}
 					
@@ -375,7 +380,7 @@ $("body").find(".iconHolder").each(function(index, element){
 							$("#titleText").css({ width: "180px"});
 						}
 						if(index == 4){
-							document.getElementById("mainText").innerHTML = "hello@studiosyro.com <i class='fas fa-arrow-alt-circle-right'></i>";
+							document.getElementById("mainText").innerHTML = "RUNETERRA - Celebrating 10 Years of League of Legends<i class='fas fa-arrow-alt-circle-right'></i>";
 							$("#titleText").css({ width: "250px"});
 						}
 					}
