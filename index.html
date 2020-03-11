@@ -145,6 +145,24 @@ p, a{
 
 </style>
 
+<script>
+
+	$(document).ready(function (){
+		var randy = Math.floor((Math.random() * 3) + 0);
+		
+		if(randy == 0){
+			$("#loadingGif").attr("src", "images/gifs/loading0.gif");
+		}
+		if(randy == 1){
+			$("#loadingGif").attr("src", "images/gifs/loading1.gif");
+		}
+		if(randy == 2){
+			$("#loadingGif").attr("src", "images/gifs/loading2.gif");
+		}
+	});
+	
+</script>
+
 <body style="height: 100%; overflow:hidden;" onresize="ChangeSize()" onload=" Start(); Loaded()">
 
 
@@ -158,14 +176,25 @@ height: 100%;
 z-index: 100;
 background-color: black;
 ">
-<img style="  margin:0; position:absolute; top:50%; left:50%; -ms-transform:translate(-50%, -50%); transform:translate(-50%, -50%);" src="http://sauntic.com/sauntic/images/logoLoadingSmall.gif">
+<div style="
+position: absolute;
+top: 50%;
+left: 50%;
+width: 50%;
+height: 50%;
+z-index: 100;
+-ms-transform:translate(-50%, -50%); 
+transform:translate(-50%, -50%);
+">
+<img id="loadingGif" style=" height: 200px; margin:0; position:absolute; top:50%; left:50%; -ms-transform:translate(-50%, -50%); transform:translate(-50%, -50%);">
+</div>
 </div>
 
 
 <!-- Background Video -->
 <div id="videoContainer">
 <video autoplay muted loop class="backgroundVideo">
-<source  src="images/videos/DemoReelNoTitles3Mbps.mp4" type="video/mp4">
+<source  src="images/videos/DemoReelNoTitles6Mbps.mp4" type="video/mp4">
 </video>
 <video autoplay muted loop id="video1" class="backgroundVideo">
 <source  src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4">
