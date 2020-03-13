@@ -8,12 +8,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
+<head>
+    <!--FACEBOOK-->
+    <meta property="og:image" content="./images/icons/syro_logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.studiosyro.com/"/>
+    <meta property="og:title" content="Studio Syro" />
+    <meta property="og:description" content="We’re a new VR animation studio with a focus on using VR tools like Quill to change the way we work and tell exciting new stories." />
+<head>
+
 <style>
 .iconHolder{
 	position: fixed;
 	top: 20px;
 	left: 20px;
-	width: 80px;	
+	width: 80px;
 	height: 80px;
 	//background-color: white;
 	cursor: pointer;
@@ -31,7 +43,7 @@
 	width: 200px;
 	height: 60px;
 	//box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24),0 8px 20px 0 rgba(0,0,0,0.19);
-	
+
 }
 #mainText{
 	margin: 100px 10px;
@@ -59,7 +71,7 @@
 
 #topText:hover {
 	text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
-	cursor: pointer;	
+	cursor: pointer;
 }
 
 p, a{
@@ -75,7 +87,7 @@ p, a{
 }
 .previewVideo{
 	position:absolute;
-	top:0px; 
+	top:0px;
 	width: 100%;
 	height: 100%;
 	z-index: - 10;
@@ -106,7 +118,7 @@ p, a{
 		bottom: 60px;
 		display: flex;
 		align-items: center;
-		justify-content: center 
+		justify-content: center
 	}
 
 	.socialIcon{
@@ -127,7 +139,7 @@ p, a{
 		top: 80px;
 		display: block;
 		align-items: ;
-		justify-content: ; 
+		justify-content: ;
 	}
 
 	.socialIcon{
@@ -149,7 +161,7 @@ p, a{
 
 	$(document).ready(function (){
 		var randy = Math.floor((Math.random() * 3) + 0);
-		
+
 		if(randy == 0){
 			$("#loadingGif").attr("src", "images/gifs/loading0.gif");
 		}
@@ -160,8 +172,11 @@ p, a{
 			$("#loadingGif").attr("src", "images/gifs/loading2.gif");
 		}
 	});
-	
+
 </script>
+
+
+
 
 <body style="height: 100%; overflow:hidden;" onresize="ChangeSize()" onload=" Start(); Loaded()">
 
@@ -183,7 +198,7 @@ left: 50%;
 width: 50%;
 height: 50%;
 z-index: 100;
--ms-transform:translate(-50%, -50%); 
+-ms-transform:translate(-50%, -50%);
 transform:translate(-50%, -50%);
 ">
 <img id="loadingGif" style=" height: 200px; margin:0; position:absolute; top:50%; left:50%; -ms-transform:translate(-50%, -50%); transform:translate(-50%, -50%);">
@@ -273,18 +288,18 @@ $("#loadingBlock").css({display: "none"});
 }
 
 function ChangeSize(){
-	
+
 	if($("#videoContainer").width()/1.777777777 > $("#videoContainer").height()){
 		$(".backgroundVideo").css({width: "100%"});
 		$(".backgroundVideo").offset({top: -$(".backgroundVideo").height()/2 +  $("#videoContainer").height()/2 , left: 0});
 	}
-	
+
 	if($("#videoContainer").width()/1.777777777 < $("#videoContainer").height()){
 		$(".backgroundVideo").css({width: $("#videoContainer").height() * 1.77777777});
 		$(".backgroundVideo").offset({top: 0, left: -$(".backgroundVideo").width()/2 +  $("#videoContainer").width()/2});
 	}
-	
-	
+
+
 	if($("#videoContainer").width() < 500){
 		$("#topText").css({top: $("#videoContainer").height() - $("#topText").height() + 10, right: 0, width: "100%"});
 		$("#mainText").css({fontSize: "19px"});
@@ -292,7 +307,7 @@ function ChangeSize(){
 	}
 	if($("#videoContainer").width() < 340){
 		$("#topText").find("p").eq(0).css({fontSize: "25px"});
-	}	
+	}
 	if($("#videoContainer").width() > 500){
 		$("#topText").css({width: 350, top: 10, right: 60});
 		$("#topText").find("p").eq(0).css({fontSize: "30px", textAlign: "right"});
@@ -325,7 +340,7 @@ function Start(){
 	}
 	if($("#videoContainer").width() < 340){
 		iconSpace = 80;
-	}	
+	}
 	if($("#videoContainer").width() > 500){
 		iconSpace = 100;
 		isMobile = false;
@@ -336,30 +351,30 @@ function Start(){
 }
 
 $("body").find(".iconHolder").each(function(index, element){
-	
+
 	$(element).find(".icon").eq(0).css({opacity: 0 , width: "96px"});
-	
+
 	if($("#videoContainer").width() < 500){
 
 	}
 	else{
-		
+
 	}
-	
+
 	if(index > 0){
 		$(element).find(".icon").eq(0).css({opacity: 0 , width: "73px", left: "-4px", top: "-5px"});
 		$(element).css({width: "60px", left: "30px"});
 	}
-	
+
 		$(element).click(function(){
 			if($("#videoContainer").width() < 500)
 				isMobile = true;
 			else
 				isMobile = false;
-				
+
 			if(index == 0){
 				AnimateRotate(this, 360);
-				$("#titleText").css({ display: "none"}); 
+				$("#titleText").css({ display: "none"});
 			}
 			//if(!isMobile){
 				if(index == 1){
@@ -376,8 +391,8 @@ $("body").find(".iconHolder").each(function(index, element){
 				}
 			//}
 		});
-	
-	
+
+
 		if(index == 0){
 		//box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24),0 8px 20px 0 rgba(0,0,0,0.19);
 			$(element).mouseenter(function() {
@@ -392,31 +407,31 @@ $("body").find(".iconHolder").each(function(index, element){
 		else {
 			$(element).css({opacity: 0});
 			$(element).mouseenter(function() {
-			
+
 				$("#titleText").css({ display: "block"});
 				$("#titleText").offset({top: $(element).offset().top + 12});
 				$("#titleText").css({ left: "-50%"});
-				$("#titleText").animate({ left: "120px", opacity: 1});		
+				$("#titleText").animate({ left: "120px", opacity: 1});
 				$(element).find(".icon").eq(1).animate({opacity: 0}, 200);
-		
+
 				if(expanded){
 					$(element).find(".icon").eq(0).animate({opacity: 1}, 100);
-					
+
 					$("#video" + index).animate({opacity: 1}, 500);
 					if($("#videoContainer").width() < 500)
 						isMobile = true;
 					else
 						isMobile = false;
-					
-					if(!isMobile){	
-						$("#titleText").css({ width: "100%"});	
+
+					if(!isMobile){
+						$("#titleText").css({ width: "100%"});
 						if(index == 1){
 							document.getElementById("mainText").innerHTML = "Deadmau5 & Mr. Bill - 10.8";
 						//	$("#mainText").css({color: "#3CECFF", textShadow: "-2px -2px 0px #FF5285"});
 						}
 						if(index == 2){
 							document.getElementById("mainText").innerHTML = "Slushii - Dreaming of you / Far away";
-						//	$("#mainText").css({color: "#FF5285"});					
+						//	$("#mainText").css({color: "#FF5285"});
 						}
 						if(index == 3){
 							document.getElementById("mainText").innerHTML = "SPIDERMAN - VR ANIMATION IN QUILL";
@@ -426,12 +441,12 @@ $("body").find(".iconHolder").each(function(index, element){
 							document.getElementById("mainText").innerHTML = "RUNETERRA - Celebrating 10 Years of League of Legends";
 						}
 					}
-					
-					if(isMobile){			
+
+					if(isMobile){
 						if(index == 1){
 							document.getElementById("mainText").innerHTML = "Deadmau5 & Mr. Bill - 10.8  <i class='fas fa-arrow-alt-circle-right'></i>";
 							$("#titleText").css({ width: "200px"});
-						}		
+						}
 						if(index == 2){
 							document.getElementById("mainText").innerHTML = "Slushii - <p class='mobileText'>Dreaming of You   /Far Away  <i class='fas fa-arrow-alt-circle-right'></i></p>";
 							$("#titleText").css({ width: "185px"});
@@ -448,9 +463,9 @@ $("body").find(".iconHolder").each(function(index, element){
 				}
 			});
 			$(element).mouseleave(function() {
-			
+
 				$(element).find(".icon").eq(1).animate({opacity: 1}, 100);
-		
+
 				if(expanded){
 					$(element).find(".icon").eq(0).animate({opacity: 0}, 200);
 					$("#video" + index).animate({opacity: 0}, 500);
@@ -459,14 +474,14 @@ $("body").find(".iconHolder").each(function(index, element){
 				}
 			});
 		}
-});	
+});
 
 /*$("#titleText").click(function(){
 	if($("#videoContainer").width() < 500)
 		isMobile = true;
 	else
 		isMobile = false;
-			
+
 	if(isMobile){
 		if($("body").find(".iconHolder").eq(1).offset().top == $("#titleText").offset().top){
 			window.open("https://www.youtube.com/watch?v=DFQHD9k5i54");
@@ -480,8 +495,8 @@ $("body").find(".iconHolder").each(function(index, element){
 		if($("body").find(".iconHolder").eq(4).offset().top == $("#titleText").offset().top){
 			window.open("mailto:hello@studiosyro.com");
 		}
-		
-	}			
+
+	}
 });*/
 
 function AnimateRotate(element, angle) {
@@ -499,7 +514,7 @@ function AnimateRotate(element, angle) {
 function Animate(){
 	$("body").find(".iconHolder").each(function(index, element){
 		if(expanded){
-	
+
 			if(index > 0){
 				//$(element).animate({top: 110 * index, width: 80, left: 20}, 1000);
 				$(element).animate({top: 20 + iconSpace * index, opacity: 1,}, 800);
@@ -511,10 +526,10 @@ function Animate(){
 			$(element).animate({top: 20, opacity: 0,}, 800);
 			}
 		}
-	});	
+	});
 }
 
 
-</script> 
+</script>
 </body>
 </html>
