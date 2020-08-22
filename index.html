@@ -65,6 +65,19 @@
 	text-shadow: ;
 }
 
+#announcementText{
+	position: absolute;
+	bottom: 150px;
+	right: 0px;
+	width: 100%;
+	//background-color: white;
+	text-shadow: ;
+}
+#announcementText:hover {
+	text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
+	cursor: pointer;
+}
+
 #topText: p {
 	text-shadow: ;
 }
@@ -209,12 +222,15 @@ transform:translate(-50%, -50%);
 <!-- Background Video -->
 <div id="videoContainer">
 <video autoplay muted loop class="backgroundVideo">
-<source  src="images/videos/Bakery_Trailer06.mp4" type="video/mp4">
+<source  src="images/videos/Neon_Jungle_Trailer_Cut.mp4" type="video/mp4">
 </video>
 <video autoplay muted loop id="video1" class="backgroundVideo">
-<source  src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4">
+<source  src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4">
 </video>
 <video autoplay muted loop id="video2" class="backgroundVideo">
+<source  src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4">
+</video>
+<video autoplay muted loop id="video3" class="backgroundVideo">
 <source  src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4">
 </video>
 <!--
@@ -240,12 +256,23 @@ transform:translate(-50%, -50%);
 <img class="socialIcon" src = "images/icons/linkedinBlue.png" onclick="window.open('https://www.linkedin.com/company/studio-syro/');" alt="linkedin">
 <img class="socialIcon" src = "images/icons/vimeoBlue.png" onclick="window.open('https://vimeo.com/studiosyro');" alt="vimeo">
 </div>
+
+<div id ="announcementText" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/');">
+<p style="text-align:center; font-size:30px; margin-right: 0px">Tales from Soda Island - Chapter 2:</p>
+<p style="text-align:center; font-size:30px; margin-right: 0px">The Neon Jungle</p>
+<p style="text-align:center; font-size:30px; margin-right: 0px">Watch now on Oculus TV!</p>
+</div>
 </div>
 <!---------------------->
 
 <div id="logoButton" class="iconHolder">
 <img class="icon" style="left:-5px; top:-5px;" src = "images/icons/syro_logo_glow.png" alt="logo">
 <img class="icon"  src = "images/icons/syro_logo.png" alt="logo">
+</div>
+
+<div style="z-index: -1;" class="iconHolder">
+<img class="icon" style="left:-5px; top:-5px;" src = "images/icons/bakery_glow.png" alt="logo">
+<img class="icon"  src = "images/icons/bakery.png" alt="logo">
 </div>
 
 <div style="z-index: -1;" class="iconHolder">
@@ -306,14 +333,23 @@ function ChangeSize(){
 		$("#topText").css({top: $("#videoContainer").height() - $("#topText").height() + 10, right: 0, width: "100%"});
 		$("#mainText").css({fontSize: "19px"});
 		$("#topText").find("p").eq(0).css({fontSize: "30px", textAlign: "center"});
+		$("#announcementText").find("p").eq(0).css({fontSize: "20px"});
+		$("#announcementText").find("p").eq(1).css({fontSize: "20px"});
+		$("#announcementText").find("p").eq(2).css({fontSize: "20px"});
 	}
 	if($("#videoContainer").width() < 340){
 		$("#topText").find("p").eq(0).css({fontSize: "25px"});
+		$("#announcementText").find("p").eq(0).css({fontSize: "15px"});
+		$("#announcementText").find("p").eq(1).css({fontSize: "15px"});
+		$("#announcementText").find("p").eq(2).css({fontSize: "15px"});
 	}
 	if($("#videoContainer").width() > 500){
 		$("#topText").css({width: 350, top: 10, right: 60});
 		$("#topText").find("p").eq(0).css({fontSize: "30px", textAlign: "right"});
 		$("#mainText").css({fontSize: "30px"});
+		$("#announcementText").find("p").eq(0).css({fontSize: "30px"});
+		$("#announcementText").find("p").eq(1).css({fontSize: "30px"});
+		$("#announcementText").find("p").eq(2).css({fontSize: "30px"});
 
 	}
 }
@@ -428,36 +464,44 @@ $("body").find(".iconHolder").each(function(index, element){
 					if(!isMobile){
 						$("#titleText").css({ width: "100%"});
 						if(index == 1){
-							document.getElementById("mainText").innerHTML = "Deadmau5 & Mr. Bill - 10.8";
+							document.getElementById("mainText").innerHTML = "Tales from Soda Island: The Multiverse Bakery";
 						//	$("#mainText").css({color: "#3CECFF", textShadow: "-2px -2px 0px #FF5285"});
 						}
 						if(index == 2){
+							document.getElementById("mainText").innerHTML = "Deadmau5 & Mr. Bill - 10.8";
+						//	$("#mainText").css({color: "#3CECFF", textShadow: "-2px -2px 0px #FF5285"});
+						}
+						if(index == 3){
 							document.getElementById("mainText").innerHTML = "Slushii - Dreaming of you / Far away";
 						//	$("#mainText").css({color: "#FF5285"});
 						}
-						if(index == 3){
+						if(index == 4){
 							document.getElementById("mainText").innerHTML = "SPIDERMAN - VR ANIMATION IN QUILL";
 						//	$("#mainText").css({color: "#3CECFF"});
 						}
-						if(index == 4){
+						if(index == 5){
 							document.getElementById("mainText").innerHTML = "RUNETERRA - Celebrating 10 Years of League of Legends";
 						}
 					}
 
 					if(isMobile){
 						if(index == 1){
-							document.getElementById("mainText").innerHTML = "Deadmau5 & Mr. Bill - 10.8  <i class='fas fa-arrow-alt-circle-right'></i>";
+							document.getElementById("mainText").innerHTML = "Tales from Soda Island: The Multiverse Bakery  <i class='fas fa-arrow-alt-circle-right'></i>";
 							$("#titleText").css({ width: "200px"});
 						}
 						if(index == 2){
+							document.getElementById("mainText").innerHTML = "Deadmau5 & Mr. Bill - 10.8  <i class='fas fa-arrow-alt-circle-right'></i>";
+							$("#titleText").css({ width: "200px"});
+						}
+						if(index == 3){
 							document.getElementById("mainText").innerHTML = "Slushii - <p class='mobileText'>Dreaming of You   /Far Away  <i class='fas fa-arrow-alt-circle-right'></i></p>";
 							$("#titleText").css({ width: "185px"});
 						}
-						if(index == 3){
+						if(index == 4){
 							document.getElementById("mainText").innerHTML = "SPIDERMAN - <p class='mobileText'>VR ANIMATION IN QUILL<i class='fas fa-arrow-alt-circle-right'></i></p>";
 							$("#titleText").css({ width: "180px"});
 						}
-						if(index == 4){
+						if(index == 5){
 							document.getElementById("mainText").innerHTML = "RUNETERRA - Celebrating 10 Years of League of Legends<i class='fas fa-arrow-alt-circle-right'></i>";
 							$("#titleText").css({ width: "250px"});
 						}
