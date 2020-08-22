@@ -459,6 +459,8 @@ $("body").find(".iconHolder").each(function(index, element){
 					$(element).find(".icon").eq(0).animate({opacity: 1}, 100);
 
 					$("#video" + index).animate({opacity: 1}, 500);
+					$("#announcementText").animate({opacity: 0}, 500);
+					
 					if($("#videoContainer").width() < 500)
 						isMobile = true;
 					else
@@ -489,7 +491,7 @@ $("body").find(".iconHolder").each(function(index, element){
 
 					if(isMobile){
 						if(index == 1){
-							document.getElementById("mainText").innerHTML = "Tales from Soda Island: The Multiverse Bakery  <i class='fas fa-arrow-alt-circle-right'></i>";
+							document.getElementById("mainText").innerHTML = "Tales from Soda Island - The Multiverse Bakery  <i class='fas fa-arrow-alt-circle-right'></i>";
 							$("#titleText").css({ width: "200px"});
 						}
 						if(index == 2){
@@ -514,6 +516,7 @@ $("body").find(".iconHolder").each(function(index, element){
 			$(element).mouseleave(function() {
 
 				$(element).find(".icon").eq(1).animate({opacity: 1}, 100);
+				$("#announcementText").animate({opacity: 1}, 500);
 
 				if(expanded){
 					$(element).find(".icon").eq(0).animate({opacity: 0}, 200);
