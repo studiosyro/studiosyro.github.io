@@ -78,6 +78,22 @@
 	cursor: pointer;
 }
 
+#centerAnnouncement{
+position: absolute;
+top: 50%;
+left: 50%;
+width: 50%;
+height: 50%;
+z-index: 100;
+-ms-transform:translate(-50%, -50%);
+transform:translate(-50%, -50%);
+}
+
+#centerAnnouncement:hover {
+	//text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
+	cursor: pointer;
+}
+
 #topText: p {
 	text-shadow: ;
 }
@@ -257,10 +273,27 @@ transform:translate(-50%, -50%);
 <img class="socialIcon" src = "images/icons/vimeoBlue.png" onclick="window.open('https://vimeo.com/studiosyro');" alt="vimeo">
 </div>
 
-<div id ="announcementText" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/');">
-<p style="text-align:center; font-size:30px; margin-right: 0px">Tales from Soda Island - Chapter 2:</p>
-<p style="text-align:center; font-size:30px; margin-right: 0px">The Neon Jungle</p>
-<p style="text-align:center; font-size:30px; margin-right: 0px">Watch now on Oculus TV!</p>
+<div id ="centerAnnouncement" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/');">
+<img style="
+position: absolute;
+top: 50%;
+left: 50%;
+height: 50%;
+z-index: 100;
+-ms-transform:translate(-50%, -50%);
+transform:translate(-50%, -50%);" 
+
+src="images/NeonJungleTitle.png">
+
+<img style="
+position: absolute;
+top: 80%;
+left: 50%;
+height: 20%;
+z-index: 100;
+-ms-transform:translate(-50%, -50%);
+transform:translate(-50%, -50%);" 
+src="images/watchInVr.png">
 </div>
 </div>
 <!---------------------->
@@ -336,12 +369,14 @@ function ChangeSize(){
 		$("#announcementText").find("p").eq(0).css({fontSize: "20px"});
 		$("#announcementText").find("p").eq(1).css({fontSize: "20px"});
 		$("#announcementText").find("p").eq(2).css({fontSize: "20px"});
+		$("#centerAnnouncement").css({top: "60%"});
 	}
 	if($("#videoContainer").width() < 340){
 		$("#topText").find("p").eq(0).css({fontSize: "25px"});
 		$("#announcementText").find("p").eq(0).css({fontSize: "15px"});
 		$("#announcementText").find("p").eq(1).css({fontSize: "15px"});
 		$("#announcementText").find("p").eq(2).css({fontSize: "15px"});
+		
 	}
 	if($("#videoContainer").width() > 500){
 		$("#topText").css({width: 350, top: 10, right: 60});
@@ -350,6 +385,7 @@ function ChangeSize(){
 		$("#announcementText").find("p").eq(0).css({fontSize: "30px"});
 		$("#announcementText").find("p").eq(1).css({fontSize: "30px"});
 		$("#announcementText").find("p").eq(2).css({fontSize: "30px"});
+		$("#centerAnnouncement").css({top: "50%"});
 
 	}
 }
