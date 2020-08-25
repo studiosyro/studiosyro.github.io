@@ -109,7 +109,7 @@ transform:translate(-50%, -50%);
 }
 
 #topText:hover {
-	text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
+	text-shadow: -3px -3px 0px #FF5285;
 	cursor: pointer;
 }
 
@@ -186,11 +186,14 @@ p, a{
 		z-index: 1;
 		padding: 10px;
 		cursor: pointer;
+		filter: brightness(100%)
 	}
 }
 
 .socialIcon:hover{
-	filter: brightness(400%);
+	//filter: brightness(400%);
+    -webkit-filter: drop-shadow(-2px -2px 0px #FF5285);
+    filter: drop-shadow(-3px -3px 0px #FF5285);
 }
 
 
@@ -274,7 +277,7 @@ transform:translate(-50%, -50%);
 
 
 <div id="topText">
-<p style="text-align:right; font-size:30px; margin-right: 0px">hello@studiosyro.com</p>
+<p style="color: #3CECFF; text-align:right; font-size:30px; margin-right: 0px">hello@studiosyro.com</p>
 </div>
 <div id="socialHolder">
 <img class="socialIcon" src = "images/icons/facebookBlue.png" onclick="window.open('https://www.facebook.com/studiosyro/');" alt="facebook">
