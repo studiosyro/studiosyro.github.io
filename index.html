@@ -91,6 +91,16 @@ transform:translate(-50%, -50%);
 
 #centerAnnouncement:hover {
 	//text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
+	//cursor: pointer;
+}
+
+#linkButton{
+
+
+}
+
+#linkButton:hover {
+	//text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
 	cursor: pointer;
 }
 
@@ -238,7 +248,7 @@ transform:translate(-50%, -50%);
 <!-- Background Video -->
 <div id="videoContainer">
 <video autoplay muted loop class="backgroundVideo">
-<source  src="images/videos/Neon_Jungle_Trailer_Cut.mp4" type="video/mp4">
+<source  src="images/videos/Neon_Jungle_Trailer_Cut_No_Title.mp4" type="video/mp4">
 </video>
 <video autoplay muted loop id="video1" class="backgroundVideo">
 <source  src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4">
@@ -273,23 +283,24 @@ transform:translate(-50%, -50%);
 <img class="socialIcon" src = "images/icons/vimeoBlue.png" onclick="window.open('https://vimeo.com/studiosyro');" alt="vimeo">
 </div>
 
-<div id ="centerAnnouncement" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/');">
+<div id ="centerAnnouncement">
 <img style="
 position: absolute;
-top: 50%;
+top: 60%;
 left: 50%;
-height: 50%;
+height: 40%;
 z-index: 100;
 -ms-transform:translate(-50%, -50%);
 transform:translate(-50%, -50%);" 
 
 src="images/NeonJungleTitle.png">
 
-<img style="
+<img id="linkButton" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/');"
+style="
 position: absolute;
 top: 80%;
 left: 50%;
-height: 20%;
+height: 15%;
 z-index: 100;
 -ms-transform:translate(-50%, -50%);
 transform:translate(-50%, -50%);" 
@@ -385,7 +396,7 @@ function ChangeSize(){
 		$("#announcementText").find("p").eq(0).css({fontSize: "30px"});
 		$("#announcementText").find("p").eq(1).css({fontSize: "30px"});
 		$("#announcementText").find("p").eq(2).css({fontSize: "30px"});
-		$("#centerAnnouncement").css({top: "50%"});
+		$("#centerAnnouncement").css({top: "70%"});
 
 	}
 }
