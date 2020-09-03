@@ -21,7 +21,7 @@ a:link, a:visited {
 }
 
 #loader {
-  background: #2C3146;
+  background: #black;
 }
 
 [data-unity-loaded='true'] #loader {
@@ -47,8 +47,8 @@ a:link, a:visited {
 
 /* loading dots */
 .loading:after {
-  content: ' .';
-  animation: dots 2s steps(5, end) infinite;
+// content: ' .';
+//  animation: dots 2s steps(5, end) infinite;
 }
 
 @keyframes dots {
@@ -131,7 +131,7 @@ a:link, a:visited {
 #progress,
 #enterxr:hover,
 #instruction button {
-  background-color: #198EFB;
+  background-color: #3CECFF;
 }
 
 #instruction {
