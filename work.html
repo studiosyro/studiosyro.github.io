@@ -155,6 +155,16 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
 .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;
@@ -163,17 +173,18 @@
   padding: 0 4px;
 }
 
+/* Create four equal columns that sits next to each other */
 .column {
-  -ms-flex: 25%;
-  flex: 25%;
-  max-width: 25%;
+  -ms-flex: 24.5%; /* IE10 */
+  flex: 24.5%;
+  max-width: 24%;
   padding: 0 4px;
 }
 
 .column img {
- // margin-top: 8px;
- // vertical-align: middle;
- // width: 100%;
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
@@ -192,13 +203,12 @@
     flex: 100%;
     max-width: 100%;
   }
- }
+}
  .center {
 	margin: auto;
 	width: 95%;
 	border: 3px solid #73AD21;
-	padding: 100px 10px;
-	top: 100px;
+	padding: 120px 10px 0px 0px;
 }
   
 
@@ -225,49 +235,37 @@
 
 
 
-<body style="height: 100%;  background-color:#131824;" onresize="ChangeSize()" onload=" Start(); Loaded()">
+<body style="height: 100%;   background-color:#131824;" onresize="ChangeSize()" onload=" Start(); Loaded()">
 
 <div class="center">
-    <img src="images/gifs/Money.webp" style="width:100%;">
-</div>
+    <img src="images/website/banner.png" style="width:100%;">
+</div>	
+	
+	
+
 
 <div class="row"> 
   <div class="column">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
+    <img src="images/gifs/Money.webp" style="width:100%">
+    <img src="images/gifs/dancingCat.gif" style="width:100%">
+    <img src="images/gifs/syro.gif" style="width:100%">
   </div>
   <div class="column">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-  </div>  
-  <div class="column">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
+    <img src="images/gifs/Money.webp" style="width:100%">
+    <img src="images/gifs/dancingCat.gif" style="width:100%">
+    <img src="images/gifs/syro.gif" style="width:100%">
   </div>
   <div class="column">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
-    <img src="images/gifs/vrEyes.gif" style="width:100%">
+    <img src="images/gifs/Money.webp" style="width:100%">
+    <img src="images/gifs/dancingCat.gif" style="width:100%">
+    <img src="images/gifs/syro.gif" style="width:100%">
   </div>
+  <div class="column">
+    <img src="images/gifs/Money.webp" style="width:100%">
+    <img src="images/gifs/dancingCat.gif" style="width:100%">
+    <img src="images/gifs/syro.gif" style="width:100%">
+  </div>
+  
 </div>
 
 
@@ -298,6 +296,8 @@
  <img style="padding:0px; width:100px;" class="swap-on-hover__back-image" src="images/website/about2.png"/>
  </div>
 </div>
+
+</body>
 
 <script>
 
