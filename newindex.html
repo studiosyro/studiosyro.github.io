@@ -50,7 +50,10 @@
 }
 
 .tab {
+	left: 0px;
+	top: 0px;
 	padding: 20px;
+	width: 150px;
 	cursor: pointer;
 }
 
@@ -61,14 +64,14 @@
 }
 
 #centerAnnouncement{
-position: absolute;
-top: 50%;
-left: 50%;
-width: 50%;
-height: 50%;
-z-index: 100;
--ms-transform:translate(-50%, -50%);
-transform:translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	z-index: 100;
+	-ms-transform:translate(-50%, -50%);
+	transform:translate(-50%, -50%);
 }
 
 
@@ -144,13 +147,13 @@ transform:translate(-50%, -50%);
 	//max-width: 400px;
 }
 
-/* Select the image and make it absolute to the container */
 .swap-on-hover img {
 	position: absolute;
 	top:0;
 	left:0;
 	overflow: hidden;
 	width: 150px;
+	padding: 20px;
 }
 
 .swap-on-hover .swap-on-hover__front-image {
@@ -159,8 +162,19 @@ transform:translate(-50%, -50%);
   cursor: pointer;
 }
 
+.swap-on-hover__back-image {
+  z-index: 9999;
+  transition: opacity .2s linear;
+  cursor: pointer;
+  opacity: 0;
+}
+
 .swap-on-hover:hover > .swap-on-hover__front-image{
   opacity: 0;
+}
+
+.swap-on-hover:hover > .swap-on-hover__back-image{
+  opacity: 1;
 }
 
 </style>
@@ -257,15 +271,21 @@ src="images/watchInVr.png">
 <!--Logo Button-->
 
 <div id="logoButton" class="iconHolder">
-<div class="swap-on-hover">
- <img  class="swap-on-hover__front-image" src="https://static.wixstatic.com/media/2b30da_b0da74961769462ea9062ede99bdf00f~mv2.png/v1/fill/w_155,h_116,al_c,q_85,usm_0.66_1.00_0.01/2b30da_b0da74961769462ea9062ede99bdf00f~mv2.webp"/>
- <img class="swap-on-hover__back-image" src="https://static.wixstatic.com/media/2b30da_5141c358120b45be86f530821c1dc63b~mv2.png/v1/fill/w_155,h_116,al_c,q_85,usm_0.66_1.00_0.01/2b30da_5141c358120b45be86f530821c1dc63b~mv2.webp"/>
+<div class="swap-on-hover" onclick="window.location.href='index.html';">
+ <img  class="swap-on-hover__front-image" src="images/website/logo_1.png"/>
+ <img class="swap-on-hover__back-image" src="images/website/logo_2.png"/>
 </div>
 </div>
 
 <div class="tabHolder">
-<a class="tab">WORK</a>
-<a class="tab">ABOUT</a>
+<div style="position: absolute; left:0px;" class="swap-on-hover" onclick="window.location.href='work.html';">
+ <img style="padding:0px; width:100px;" class="swap-on-hover__front-image" src="images/website/work1.png"/>
+ <img style="padding:0px; width:100px;" class="swap-on-hover__back-image" src="images/website/work2.png"/>
+ </div>
+<div style="position: absolute; right:100px;" class="swap-on-hover" onclick="window.location.href='about.html';">
+ <img style="padding:0px; width:100px;" class="swap-on-hover__front-image" src="images/website/about1.png"/>
+ <img style="padding:0px; width:100px;" class="swap-on-hover__back-image" src="images/website/about2.png"/>
+ </div>
 </div>
 
 <script>
@@ -278,8 +298,8 @@ function Loaded(){
 
 contentIndex = 4;
 ChangeSize();
-$("#loadingBlock").animate({opacity: 0}, 2000);
-setTimeout(Hide, 2200);
+$("#loadingBlock").animate({opacity: 0}, 1500);
+setTimeout(Hide, 2000);
 
 }
 function Hide(){
