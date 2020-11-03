@@ -190,21 +190,25 @@
 	vertical-align: text-top;
 }
 
-@media only screen and (min-width: 0px){
+.rowButton img{
 
-	.row{
-
-	//	height: 256px;
-	}
-
+	height: 100%;
 }
-@media only screen and (min-width: 1547px){
 
-	.row{
+.rowButton video{
 
-	//	height: 286.1px;
-	}
+	height: 100%;
+	position: absolute;
+	display: none;
+	left: 0px;
+	opacity: 0;
+}
 
+#bannerHolder video{
+
+	position: absolute;
+	display: none;
+	opacity: 0;
 }
 
 
@@ -234,18 +238,37 @@
 <body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start(); Loaded()">
 
 <div class="center">
-    <img id="banner" src="images/website/banner.png">
-	
-	<div class="row">
-		<img class="rowButton" src="images/website/work/mau5.png">
-		<img class="rowButton" src="images/website/work/dawson.png">
-		<img class="rowButton" src="images/website/work/soda.png">
+
+    <div id="bannerHolder">
+		<img id="banner" src="images/website/work/banner.png">
+		<video autoplay muted loop src="images/videos/neonJungle.mp4" type="video/mp4"></video>
 	</div>
 	
 	<div class="row">
-    <img class="rowButton" src="images/website/slushii.png">
-    <img class="rowButton" src="images/website/bill.png">
-    <img class="rowButton" src="images/website/bill.png">
+		<div class="rowButton">
+			<img src="images/website/work/mau5.jpg">
+			<video autoplay muted loop src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4"></video>
+		</div>
+		<div class="rowButton">
+			<img class="rowButton" src="images/website/work/dawsonCrop.png">
+			<video autoplay muted loop src="images/videos/dawson.mp4" type="video/mp4"></video>
+		</div>
+		<div class="rowButton">
+			<img class="rowButton" src="images/website/work/sodaCrop.png">
+			<video autoplay muted loop src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4"></video>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="rowButton">
+			<img class="rowButton" src="images/website/work/slushii.jpg">
+			<video autoplay muted loop src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4"></video>
+		</div>
+		
+		<div class="rowButton">
+			<img class="rowButton" src="images/website/work/billCrop.png">
+			<video autoplay muted loop src="images/videos/bill.mp4" type="video/mp4"></video>
+		</div>
 	</div>
 
 </div>	
@@ -271,7 +294,7 @@
  <img style="padding:0px; width:90px;" class="swap-on-hover__front-image" src="images/website/work1.png"/>
  <img style="padding:0px; width:90px;" class="swap-on-hover__back-image" src="images/website/work2.png"/>
  </div>
-<div style="position: absolute; right:100px;" class="swap-on-hover" onclick="window.location.href='about.html';">
+<div style="position: absolute; right:110px;" class="swap-on-hover" onclick="window.location.href='about.html';">
  <img style="padding:0px; width:90px;" class="swap-on-hover__front-image" src="images/website/about1.png"/>
  <img style="padding:0px; width:90px;" class="swap-on-hover__back-image" src="images/website/about2.png"/>
  </div>
@@ -321,14 +344,75 @@ function ChangeSize(){
 
 	}
 	
-	$(body).find(".row").eq(0).css({width: "100%"});
+	//Control each row height
+	$(document.body).find(".row").each(function(index, element){
+	
+		if($(window).width() >= 1300){
+		
+			if(index == 0){
+				$(element).css({height: $("#banner").width() / 5.39,});
+			}
+			
+			if(index == 1){
+
+			}
+		}
+		
+		if($(window).width() < 1300){
+		
+			if(index == 0){
+				$(element).css({height: $("#banner").width() / 5.55,});
+			}
+		}
+	});
+	
+	
+	
+	$(document.body).find(".rowButton").each(function(index, element){
+	
+		$(element).mouseenter(function() {
+			
+			$(element).find('img').animate({opacity: 0}, 200);
+			$(element).find('video').animate({opacity: 1}, 200);
+			$(element).find('video').css({display: "inline-block",});
+		});
+		$(element).mouseleave(function() {
+			
+			$(element).find('img').animate({opacity: 1}, 200);
+			$(element).find('video').animate({opacity: 0}, 200);
+
+		});
+	});
+	
+	$("#bannerHolder").mouseenter(function() {
+			
+		$("#bannerHolder").find('img').animate({opacity: 0}, 200);
+		$("#bannerHolder").find('video').animate({opacity: 1}, 200);
+		$("#bannerHolder").find('video').css({display: "inline-block",});
+	});
+	
+	$("#bannerHolder").mouseleave(function() {
+			
+		$("#bannerHolder").find('img').animate({opacity: 1}, 200);
+		$("#bannerHolder").find('video').animate({opacity: 0}, 200);
+
+	});
+	
+	
+	$("#bannerHolder").find('video').eq(0).css({
+	width: $("#bannerHolder").width(),
+	left: "150px",
+	});
+
+	//$("#bannerHolder").find('video').eq(0).offset.left = $("#banner").offset.left;
+	//Row 0
 	
 	if($(window).width() >= 1500){
-	$(".row").css({height: $("#banner").width() / 5.605,});
+	//$(document.body).find(".row").eq(0).css({height: $("#banner").width() / 5.605,});
 	}
 	
 	if($(window).width() < 1500){
-	$(".row").css({height: $("#banner").width() / 5.63,});
+	//$(".row").css({height: $("#banner").width() / 5.63,});
 	}
 }
 
