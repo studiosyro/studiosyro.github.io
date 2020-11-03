@@ -108,7 +108,7 @@
 }
 
 
-/-------------------------------------
+//-------------------------------------
 .swap-on-hover {
 	position: relative;	
 	margin:  0 auto;
@@ -146,16 +146,67 @@
 }
 
 
+#banner{
+	width: 100%;
+}
 
-/----------------------------------------------
-
- .center {
+.center {
+	
 	margin: auto;
 	width: 85%;
-	border: 3px solid #73AD21;
-	padding: 120px 10px 0px 0px;
+	//border: 3px solid #73AD21;
+	padding: 120px 0px 0px 0px;
 }
   
+.row {
+	white-space: nowrap;
+	margin: auto;
+	width: 100%;
+	height: 256px;
+	//background-color: rgba(255,0,0,1);
+	//border: 3px solid #73AD21;
+	padding: 3px 0px;
+}
+
+.row:before {
+	display: inline-block;
+    width: 100%;
+}
+.row:after {
+	
+	display: block;
+    margin-top: -1.25em;
+}
+
+.rowButton{
+
+    padding: .025em .05em;
+    position: relative;
+	display: inline-block;
+	
+	//margin: auto;
+	//width: 33%;
+	height: 100%;
+	vertical-align: text-top;
+}
+
+@media only screen and (min-width: 0px){
+
+	.row{
+
+	//	height: 256px;
+	}
+
+}
+@media only screen and (min-width: 1547px){
+
+	.row{
+
+	//	height: 286.1px;
+	}
+
+}
+
 
 </style>
 
@@ -180,15 +231,25 @@
 
 
 
-<body style="height: 100%;   background-color:#131824;" onresize="ChangeSize()" onload=" Start(); Loaded()">
+<body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start(); Loaded()">
 
 <div class="center">
-    <img src="images/website/banner.png" style="width:100%;">
-	<img src="images/gifs/Money.webp" style="width:33%">
-    <img src="images/gifs/dancingCat.gif" style="width:33%">
-    <img src="images/gifs/syro.gif" style="width:33%">
-</div>	
+    <img id="banner" src="images/website/banner.png">
 	
+	<div class="row">
+		<img class="rowButton" src="images/website/work/mau5.png">
+		<img class="rowButton" src="images/website/work/dawson.png">
+		<img class="rowButton" src="images/website/work/soda.png">
+	</div>
+	
+	<div class="row">
+    <img class="rowButton" src="images/website/slushii.png">
+    <img class="rowButton" src="images/website/bill.png">
+    <img class="rowButton" src="images/website/bill.png">
+	</div>
+
+</div>	
+
 
 <!-- Base -->
 <div id="socialHolder">
@@ -258,6 +319,16 @@ function ChangeSize(){
 	if($("#videoContainer").width() > 900){
 		$("#centerAnnouncement").css({top: "70%"});
 
+	}
+	
+	$(body).find(".row").eq(0).css({width: "100%"});
+	
+	if($(window).width() >= 1500){
+	$(".row").css({height: $("#banner").width() / 5.605,});
+	}
+	
+	if($(window).width() < 1500){
+	$(".row").css({height: $("#banner").width() / 5.63,});
 	}
 }
 
