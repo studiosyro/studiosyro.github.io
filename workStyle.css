@@ -6,7 +6,10 @@
 	font-family: 'ASAP-SemiBold';
     src: url('https://studiosyro.com/fonts/Asap-SemiBold.ttf');
 }
-
+@font-face {
+	font-family: 'DIN-Next';
+    src: url('https://studiosyro.com/fonts/DINNext.ttf');
+}
 
 /*Core Elements----------------*/
 #logoButton{
@@ -105,17 +108,28 @@
 	//padding: 120px 0px 0px 0px;
 	top: 100px;
 }
+
 .topLeft {
-  position: absolute;
-  top: 8px;
-  left: 16px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	color: white;
+}
+.topText {
+	font-family:ASAP-SemiBold; 
+	font-size:25px;
+}
+
+.bottomText {
+	font-family:DIN-Next; 
+	font-size:18px; 
+	top:44px
 }
 
 #bannerHolder{
 	position: relative;
 	display: inline-block;
 	text-align: center;
-	color: white;
 }
 
 #banner{

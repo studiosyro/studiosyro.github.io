@@ -35,25 +35,30 @@ $(document).ready(function (){
 
 <div class="center">
     <div id="bannerHolder">
-		
 		<img id="banner" src="images/website/work/banner.png">
 		<video id="bannerVideo" autoplay muted loop src="images/videos/neonJungle.mp4" type="video/mp4"></video>
-		<div style="font-family:ASAP-SemiBold" class="topLeft">OCULUS</div>
-		<div class="topLeft">Tales from Soda Island</div>
+		<div class="topLeft topText">OCULUS</div>
+		<div class="topLeft bottomText">Tales from Soda Island</div>
 	</div>
 	
 	<div class="row">
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/sodaCrop.png">
 			<video autoplay muted loop src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4"></video>
+			<div class="topLeft topText">OCULUS</div>
+			<div class="topLeft bottomText">Tales from Soda Island</div>
 		</div>
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/dawsonCrop.png">
 			<video autoplay muted loop src="images/videos/dawson.mp4" type="video/mp4"></video>
+			<div class="topLeft topText">Dawson College</div>
+			<div class="topLeft bottomText">Virtual Vernissage</div>
 		</div>
 		<div class="rowButton">
 			<img src="images/website/work/mau5.jpg">
 			<video autoplay muted loop src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4"></video>
+			<div class="topLeft topText">deadmau5</div>
+			<div class="topLeft bottomText">deadmau5 & Mr.Bill 10.8</div>
 		</div>
 	</div>
 	
@@ -61,11 +66,15 @@ $(document).ready(function (){
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/slushii.jpg">
 			<video autoplay muted loop src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4"></video>
+			<div class="topLeft topText">Monstercat</div>
+			<div class="topLeft bottomText">Dreaming of You/Far Away</div>
 		</div>
 		
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/billCrop.png">
 			<video autoplay muted loop src="images/videos/bill.mp4" type="video/mp4"></video>
+			<div class="topLeft topText">Mr.Bill</div>
+			<div class="topLeft bottomText">Live show artwork</div>
 		</div>
 	</div>
 	
@@ -144,8 +153,6 @@ function LoadPage(){
 
 function ChangeSize(){
 
-	
-	
 	//Control each row height
 	$(document.body).find(".row").each(function(index, element){
 	
@@ -210,6 +217,39 @@ function ChangeSize(){
 	});
 	
 	
+	//Change font size on scale
+	$(document.body).find(".topText").each(function(index, element){
+	
+		if($(window).width() >= 1300){
+			$(element).css({fontSize: "25px"});
+			//console.log(element);
+		}
+	
+		if($(window).width() < 1300 && $(window).width() >= 800){
+			$(element).css({fontSize: "20px"});
+		}
+		
+		if($(window).width() < 800){
+			$(element).css({fontSize: "15px"});
+		}
+	});
+	$(document.body).find(".bottomText").each(function(index, element){
+	
+		if($(window).width() >= 1300){
+			$(element).css({top:"44px", fontSize: "18px"});
+			
+		}
+
+		if($(window).width() < 1300 && $(window).width() >= 800){
+			$(element).css({top:"39px", fontSize: "13px"});
+		}
+		
+		if($(window).width() < 800){
+			$(element).css({top:"34px", fontSize: "8px"});
+		}
+	});
+	
+//Core Functionality
 	//Set Logo and Page button positions
 	var centerLeft = $(document.body).find(".center").eq(0).offset().left;
 	$("#logoButton").css({left: centerLeft,});
