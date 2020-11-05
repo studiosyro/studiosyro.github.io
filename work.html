@@ -68,20 +68,20 @@ $(document).ready(function (){
 	
 </div>
 
-<div id="loadingBlock"
-style="
-position: fixed;
-top: 0px;
-left: 0px;
-width: 100%;
-height: 100%;
-z-index: 9;
-background-color: #131824;;
-"></div>
-
-
 <!-- Base -->
 <div>
+	<div id="loadingBlock"
+		style="
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9;
+		background-color: #131824;
+	">
+	</div>
+
 	<!-- Social Buttons -->
 	<div id="socialHolder">
 		<img class="socialIcon" src = "images/icons/facebookBlue.png" onclick="window.open('https://www.facebook.com/studiosyro/');" alt="facebook">
@@ -117,8 +117,8 @@ background-color: #131824;;
 function Start(){
 
 	ChangeSize();
-	$("#loadingBlock").animate({opacity: 0}, 500);
-	setTimeout(Hide, 500);
+	$("#loadingBlock").animate({opacity: 0}, 300);
+	setTimeout(Hide, 300);
 }
 
 function Hide(){

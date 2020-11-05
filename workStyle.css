@@ -145,6 +145,11 @@
 	vertical-align: text-top;
 }
 
+.rowButton h1{
+
+	height: 100%;
+}
+
 .rowButton img{
 
 	height: 100%;
