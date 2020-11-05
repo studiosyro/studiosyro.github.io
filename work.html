@@ -36,7 +36,7 @@ $(document).ready(function (){
 <div class="center">
     <div id="bannerHolder">
 		<img id="banner" src="images/website/work/banner.png">
-		<video id="bannerVideo" autoplay muted loop src="images/videos/neonJungle.mp4" type="video/mp4"></video>
+		<video id="bannerVideo" muted loop src="images/videos/neonJungle.mp4" type="video/mp4"></video>
 		<div class="topLeft topText">OCULUS</div>
 		<div class="topLeft bottomText">Tales from Soda Island</div>
 	</div>
@@ -44,19 +44,19 @@ $(document).ready(function (){
 	<div class="row">
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/sodaCrop.png">
-			<video autoplay muted loop src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4"></video>
+			<video muted loop src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">OCULUS</div>
 			<div class="topLeft bottomText">Tales from Soda Island</div>
 		</div>
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/dawsonCrop.png">
-			<video autoplay muted loop src="images/videos/dawson.mp4" type="video/mp4"></video>
+			<video muted loop src="images/videos/dawson.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">Dawson College</div>
 			<div class="topLeft bottomText">Virtual Vernissage</div>
 		</div>
 		<div class="rowButton">
 			<img src="images/website/work/mau5.jpg">
-			<video autoplay muted loop src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4"></video>
+			<video muted loop src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">deadmau5</div>
 			<div class="topLeft bottomText">deadmau5 & Mr.Bill 10.8</div>
 		</div>
@@ -65,14 +65,14 @@ $(document).ready(function (){
 	<div class="row">
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/slushii.jpg">
-			<video autoplay muted loop src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4"></video>
+			<video muted loop src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">Monstercat</div>
 			<div class="topLeft bottomText">Dreaming of You/Far Away</div>
 		</div>
 		
 		<div class="rowButton">
 			<img class="rowButton" src="images/website/work/billCrop.png">
-			<video autoplay muted loop src="images/videos/bill.mp4" type="video/mp4"></video>
+			<video muted loop src="images/videos/bill.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">Mr.Bill</div>
 			<div class="topLeft bottomText">Live show artwork</div>
 		</div>
@@ -153,6 +153,27 @@ function LoadPage(){
 
 function ChangeSize(){
 
+	//Animate Banner
+	$("#bannerHolder").mouseenter(function() {
+	
+		$("#bannerHolder").find('img').stop();
+		$("#bannerHolder").find('video').stop();
+		$("#bannerHolder").find('video').trigger('play');
+		$("#bannerHolder").find('img').animate({opacity: 0}, 300);
+		$("#bannerHolder").find('video').animate({opacity: 1}, 300);
+		$("#bannerHolder").find('video').css({display: "inline-block",});
+		$("#bannerHolder").find('img').css({display: "none",});
+	});
+	$("#bannerHolder").mouseleave(function() {
+	
+		$("#bannerHolder").find('img').stop();
+		$("#bannerHolder").find('video').stop();
+		$("#bannerHolder").find('img').css({display: "inline-block",});
+		$("#bannerHolder").find('img').animate({opacity: 1}, 300);
+		$("#bannerHolder").find('video').animate({opacity: 0}, 300);
+		$("#bannerHolder").find('video').css({display: "none",});
+	});
+
 	//Control each row height
 	$(document.body).find(".row").each(function(index, element){
 	
@@ -195,13 +216,14 @@ function ChangeSize(){
 		}
 	});
 	
-
 	//Animate swap to video on hover
 	$(document.body).find(".rowButton").each(function(index, element){
 	
 		$(element).mouseenter(function() {
+			
 			$(element).find('img').stop();
 			$(element).find('video').stop();
+			$(element).find('video').trigger('play');
 			$(element).find('img').animate({opacity: 0}, 200);
 			$(element).find('video').animate({opacity: 1}, 200);
 			$(element).find('video').css({display: "inline-block",});
@@ -300,25 +322,6 @@ function ChangeSize(){
 	
 	});
 	
-	//Animate Banner
-	$("#bannerHolder").mouseenter(function() {
-	
-		$("#bannerHolder").find('img').stop();
-		$("#bannerHolder").find('video').stop();
-		$("#bannerHolder").find('img').animate({opacity: 0}, 300);
-		$("#bannerHolder").find('video').animate({opacity: 1}, 300);
-		$("#bannerHolder").find('video').css({display: "inline-block",});
-		$("#bannerHolder").find('img').css({display: "none",});
-	});
-	$("#bannerHolder").mouseleave(function() {
-	
-		$("#bannerHolder").find('img').stop();
-		$("#bannerHolder").find('video').stop();
-		$("#bannerHolder").find('img').css({display: "inline-block",});
-		$("#bannerHolder").find('img').animate({opacity: 1}, 300);
-		$("#bannerHolder").find('video').animate({opacity: 0}, 300);
-		$("#bannerHolder").find('video').css({display: "none",});
-	});
 }
 
 </script>
