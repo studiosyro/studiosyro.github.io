@@ -27,6 +27,7 @@
 <script>
 $(document).ready(function (){
 	ChangeSize();
+	Start();
 });
 </script>
 
@@ -34,7 +35,7 @@ $(document).ready(function (){
 <body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start()">
 
 <div class="center">
-    <div id="bannerHolder">
+    <div id="bannerHolder" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/')">
 		<img id="banner" src="images/website/work/banner.png">
 		<video id="bannerVideo" muted loop src="images/videos/neonJungle.mp4" type="video/mp4"></video>
 		<div class="topLeft topText">OCULUS</div>
@@ -42,7 +43,7 @@ $(document).ready(function (){
 	</div>
 	
 	<div class="row">
-		<div class="rowButton">
+		<div class="rowButton" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/275325710172441/')">
 			<img class="rowButton" src="images/website/work/sodaCrop.png">
 			<video muted loop src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">OCULUS</div>
@@ -54,16 +55,16 @@ $(document).ready(function (){
 			<div class="topLeft topText">Dawson College</div>
 			<div class="topLeft bottomText">Virtual Vernissage</div>
 		</div>
-		<div class="rowButton">
+		<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=DFQHD9k5i54&ab_channel=deadmau5')">
 			<img src="images/website/work/mau5.jpg">
 			<video muted loop src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">deadmau5</div>
 			<div class="topLeft bottomText">deadmau5 & Mr.Bill 10.8</div>
 		</div>
 	</div>
-	
+
 	<div class="row">
-		<div class="rowButton">
+		<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=KXYCr2pGTfw&ab_channel=Slushii')">
 			<img class="rowButton" src="images/website/work/slushii.jpg">
 			<video muted loop src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">Monstercat</div>
@@ -129,8 +130,8 @@ $(document).ready(function (){
 function Start(){
 
 	ChangeSize();
-	$("#loadingBlock").animate({opacity: 0}, 300);
-	setTimeout(Hide, 300);
+	$("#loadingBlock").animate({opacity: 0}, 800);
+	setTimeout(Hide, 800);
 }
 
 function Hide(){
