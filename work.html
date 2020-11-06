@@ -26,9 +26,31 @@
 
 <script>
 $(document).ready(function (){
+
 	ChangeSize();
 	Start();
-});
+		
+	$('*').each(function(){ 
+		var backImgSource;
+		var randy = Math.floor((Math.random() * 3) + 0);
+
+		if(randy == 0){
+			backImgSource = "images/gifs/loading0.gif";
+		}
+		if(randy == 1){
+			backImgSource = "images/gifs/loading1.gif";
+		}
+		if(randy == 2){
+			backImgSource = "images/gifs/loading2.gif";
+		}
+		//backImgSource = "images/gifs/loading.gif";
+		if ($(this).is('img')) {
+			$(this).css("background-image", "url(" + backImgSource + ")");
+		}
+	});
+		
+		
+	});
 </script>
 
 
@@ -129,6 +151,13 @@ $(document).ready(function (){
 
 function Start(){
 
+	$('*').each(function(){ 
+		var backImgSource = "";
+		if ($(this).is('img')) {
+			$(this).css("background-image", "url("+ backImgSource +")");
+		}
+	});
+	
 	ChangeSize();
 	$("#loadingBlock").animate({opacity: 0}, 800);
 	setTimeout(Hide, 800);
