@@ -55,7 +55,7 @@ $(document).ready(function (){
 </script>
 
 
-<body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start()">
+<body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
 
 <div class="center">
     <div id="bannerHolder" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/')">
@@ -151,6 +151,12 @@ $(document).ready(function (){
 <script>
 
 function Start(){
+	ChangeSize();
+	$("#loadingBlock").animate({opacity: 0}, 800);
+	setTimeout(Hide, 800);
+}
+
+function OnPageLoad(){
 
 	$('*').each(function(){ 
 		var backImgSource = "";
@@ -158,10 +164,7 @@ function Start(){
 			$(this).css("background-image", "url("+ backImgSource +")");
 		}
 	});
-	
-	ChangeSize();
-	$("#loadingBlock").animate({opacity: 0}, 800);
-	setTimeout(Hide, 800);
+
 }
 
 function Hide(){
