@@ -3,6 +3,17 @@ img{
 
 }
 
+particle {
+	border-radius: 50%;
+	left: 0;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	opacity: 1;
+	background-color: #131824;
+	//box-shadow: 4px 4px 10px #0e1119, -4px -4px 10px #2b344d;
+}
+
 
 @font-face {
 	font-family: 'FredokaOne-Regular';

@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!--<script src="jquery.animate-shadow.js"></script>-->
 
 <head>
     <!--FACEBOOK-->
@@ -355,6 +356,138 @@ function ChangeSize(){
 	});
 	
 }
+
+//Particles
+
+// We first check if the browser supports the Web Animations API
+if (document.body.animate) {
+  // If yes, we add a click listener on our button
+  //document.querySelector('.moving_div').addEventListener('click', pop);
+}
+// The pop() function is called on every click
+function pop() { 
+  // Loop to generate 30 particles at once
+  //for (let i = 0; i < 1; i++) {
+	//var randy = Math.round(Math.random());
+	//console.log(randy);
+	//if(randy == 0)
+		createParticle($mouseX, $mouseY);
+  //}
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function createParticle(x, y) {
+	// Create a custom particle element
+	const particle = document.createElement('particle');
+	var jParticle = particle;
+	// Append the element into the body
+	document.body.appendChild(particle);
+	
+	// Calculate a random size from 5px to 25px
+	
+	const size = Math.floor(50 + Math.random() * 10);
+	// Apply the size on each particle
+	particle.style.width = `${size}px`;
+	particle.style.height = `${size}px`;
+	// Generate a random color in a blue/purple palette
+	//particle.style.background = "rgba(255,255,255,255)";
+	
+		// Generate a random x & y destination within a distance of 75px from the mouse
+	const destinationX = x + (Math.random() - 0.5) * 2 * 1;
+	const destinationY = y + (Math.random() - 0.5) * 2 * 1;
+	// Store the animation in a variable because we will need it later
+	const animation = particle.animate([
+		{
+		// Set the origin position of the particle
+		
+		// We offset the particle with half its size to center it around the mouse
+		transform: `translate(${x - (size / 2)}px, ${y - (size / 2)}px)`,
+		//transform: `translate(${x}px, ${y}px)`,
+		//transform: `scale(10)`,
+		//opacity: 1
+		//boxShadow: `4px 4px 10px #0e1119, -4px -4px 10px #2b344d`,
+		},
+		{
+		// We define the final coordinates as the second keyframe
+		transform: `translate(${x - (size / 2)}px, ${y - (size / 2)}px)`,
+		//transform: `translate(${destinationX}px, ${destinationY}px)`,
+		//transform: `translate(${x}px, ${y}px)`,
+		//transform: `scale(0)`,
+		//opacity: 0
+		//boxShadow: `1x 1px 10px #0e1119, -1px -1x 10px #2b344d`,
+		}
+	], {
+		// Set a random duration from 500 to 1500ms
+		//duration: 3000 + Math.random() * 5000,
+		duration: 3000,
+		easing: 'cubic-bezier(0, .9, .57, 1)',
+		// Delay every particle with a random value from 0ms to 200ms
+		delay: Math.random() * 1
+	});
+	
+	$(particle).animate({boxShadow: 'inset 4px 4px 10px #0e1119,inset -4px -4px 10px #2b344d'}, 500);
+	$(particle).animate({boxShadow: 'inset 0px 0px 10px #131824,inset -0px -0x 10px ##131824'}, 1500);
+	
+	animation.onfinish = () => {
+	particle.remove();
+	};
+}
+
+
+//Mouse follow thingy
+var $mouseX = 0, $mouseY = 0;
+var $xp = 0, $yp =0;
+var isOverWindow;
+var mouseMoving;
+
+$(document).mouseenter(function() {
+		
+	isOverWindow = true;
+});
+
+$(document).mouseleave(function() {
+		
+	isOverWindow = false;
+});
+
+$(".rowButton").mouseenter(function() {
+		
+	isOverWindow = false;
+});
+
+$(".rowButton").mouseleave(function() {
+		
+	isOverWindow = true;
+});
+var $resetMouseMove = setInterval(function(){
+	mouseMoving = false;
+}, 500);
+
+
+$(document).mousemove(function(e){
+    $mouseX = e.pageX;
+    $mouseY = e.pageY;
+	mouseMoving = true;
+});
+
+var $loop = setInterval(function(){
+	//if(mouseMoving)
+	//pop();
+	/*$(document.body).find(".moving_div").each(function(index, element){
+		//console.log(element);
+		// change 12 to alter damping higher is slower
+		
+		$xp += (($mouseX - $xp)/12);
+		$yp += (($mouseY - $yp)/12);
+		$(element).css({left:$xp +'px', top:$yp +'px'});
+	});
+	*/
+}, 250);
+
+
+
 
 </script>
 </body>
