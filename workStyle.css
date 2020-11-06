@@ -1,3 +1,9 @@
+img{
+	
+	loading: lazy;
+}
+
+
 @font-face {
 	font-family: 'FredokaOne-Regular';
     src: url('./fonts/FredokaOne-Regular.ttf');

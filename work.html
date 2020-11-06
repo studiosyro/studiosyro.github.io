@@ -136,6 +136,7 @@ function Start(){
 
 function Hide(){
 	$("#loadingBlock").css({display: "none"});
+	ChangeSize();
 }
 var pageURL;
 
@@ -218,10 +219,8 @@ function ChangeSize(){
 	});
 	
 	//Animate swap to video on hover
-	$(document.body).find(".rowButton").each(function(index, element){
-	
+	$(document.body).find(".rowButton").each(function(index, element){	
 		$(element).mouseenter(function() {
-			
 			$(element).find('img').stop();
 			$(element).find('video').stop();
 			$(element).find('video').trigger('play');
@@ -238,7 +237,6 @@ function ChangeSize(){
 
 		});
 	});
-	
 	
 	//Change font size on scale
 	$(document.body).find(".topText").each(function(index, element){
