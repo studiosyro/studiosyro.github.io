@@ -1,117 +1,10 @@
-img{
-	//background: url(https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif) no-repeat center;
-
-}
-
-@font-face {
-	font-family: 'FredokaOne-Regular';
-    src: url('./fonts/FredokaOne-Regular.ttf');
-}
-@font-face {
-	font-family: 'ASAP-SemiBold';
-    src: url('https://studiosyro.com/fonts/Asap-SemiBold.ttf');
-}
-@font-face {
-	font-family: 'DIN-Next';
-    src: url('https://studiosyro.com/fonts/DINNext.ttf');
-}
-
-/*Core Elements----------------*/
-#logoButton{
-	position: fixed;
-	top: 25px;
-	left: 80px;
-	width: 155px;
-	height: 65px;
-	//background-color: white;
-	cursor: pointer;
-}
-
-#logoButton img{
-	position: relative;
-	width: 100%;
-	display: block;
-}
-
-#tabHolder{
-	position: fixed;
-	top: 25px;
-	right: 120px;
-	width: 200px;
-	height: 65px;
-	//background-color: gray;
-}
-
-.tab {
-	position: relative;
-	display: inline-block;
-	width: 49%;
-	cursor: pointer;
-}
-.tab img{
-	display: block;
-	position: relative;
-	margin: auto;
-	width: 90%;
-}
-
-@media only screen and (min-width: 0px) {
-
-	#socialHolder{
-		position: fixed;
-		z-index: 1;
-		width: 100%;
-		right: 0px;
-		bottom: 60px;
-		display: flex;
-		align-items: center;
-		justify-content: center
-	}
-
-	.socialIcon{
-		width: 7%;
-		z-index: 1;
-		padding: 10px;
-		cursor: pointer;
-	}
-}
-
-@media only screen and (min-width: 901px) {
-
-	#socialHolder{
-		position: fixed;
-		z-index: 1;
-		width: 300px;
-		right: -40px;
-		bottom: 80px;
-		display: block;
-		align-items: ;
-		justify-content: ;
-	}
-
-	.socialIcon{
-		width: 10%;
-		z-index: 1;
-		padding: 10px;
-		cursor: pointer;
-		filter: brightness(100%)
-	}
-}
-
-.socialIcon:hover{
-	//filter: brightness(400%);
-    -webkit-filter: drop-shadow(-2px -2px 0px #FF5285);
-    filter: drop-shadow(-3px -3px 0px #FF5285);
-}
-/*-------------------------------*/
-
 .center {
 	position: relative;
 	margin: auto;
 	width: 85%;
 	//border: 1px solid #73AD21;
 	//padding: 120px 0px 0px 0px;
-	top: 100px;
+	top: 200px;
 }
 
 .topLeft {
@@ -129,6 +22,33 @@ img{
 	font-family:DIN-Next; 
 	font-size:18px; 
 	top:44px
+}
+
+#sideVideo{
+	width: 20%;
+	position: absolute;
+}
+
+#textHolder{
+	position: absolute;
+	color: white; 
+	padding-left: 25px;
+	width: 48%;
+}
+.header{
+	font-size: 72px;
+	font-family:ASAP-SemiBold;
+	padding: 0px 0px 10px 0px;
+	
+}
+.bodyText{
+	font-size: 26px;
+	font-family: DIN-Next;
+	line-height: 32px;
+}
+p i{
+	padding: 0px 20px;
+	font-size: 25px;
 }
 
 
