@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<title>Studio Syro</title>
+<title>Studio Syro: About</title>
 <link rel="icon" type="image/gif" href="./images/tiny-logo.ico"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="aboutStyle.css" media="screen"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!--<script src="jquery.animate-shadow.js"></script>-->
 
 <head>
     <!--FACEBOOK-->
@@ -15,306 +16,438 @@
     <meta property="og:image:type" content="image/png"/>
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.studiosyro.com/"/>
-    <meta property="og:title" content="Studio Syro" />
+    <meta property="og:title" content="Studio Syro: About" />
     <meta property="og:description" content="We’re a new VR animation studio with a focus on using VR tools like Quill to change the way we work and tell exciting new stories." />
 <head>
 
 
 <style>
-.iconHolder{
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	width: 80px;
-	height: 80px;
-	//background-color: white;
-	cursor: pointer;
-}
-
-
-.icon{
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	//padding: 20px;
-	width: 150px;
-}
-
-.tabHolder{
-	position: fixed;
-	top: 60px;
-	right: 20px;
-	width: 200px;
-	height: 80px;
-	//background-color: white;
-}
-
-.tab {
-	padding: 20px;
-	cursor: pointer;
-}
-
-.backgroundVideo{
-	position: absolute;
-	opacity: 0;
-	//width: 100%;
-}
-
-#centerAnnouncement{
-position: absolute;
-top: 50%;
-left: 50%;
-width: 50%;
-height: 50%;
-z-index: 100;
--ms-transform:translate(-50%, -50%);
-transform:translate(-50%, -50%);
-}
-
-
-#linkButton:hover {
-	//text-shadow: -2px -2px 4px #FF5285, 2px 2px 4px #3CECFF;
-	cursor: pointer;
-}
-
-.previewVideo{
-	position:absolute;
-	top:0px;
-	width: 100%;
-	height: 100%;
-	z-index: - 10;
-	opacity: 0;
-}
-
-
-@media only screen and (min-width: 0px) {
-
-	#socialHolder{
-		position: absolute;
-		z-index: 1;
-		width: 100%;
-		right: 0px;
-		bottom: 60px;
-		display: flex;
-		align-items: center;
-		justify-content: center
-	}
-
-	.socialIcon{
-		width: 7%;
-		z-index: 1;
-		padding: 10px;
-		cursor: pointer;
-	}
-}
-
-@media only screen and (min-width: 901px) {
-
-	#socialHolder{
-		position: absolute;
-		z-index: 1;
-		width: 300px;
-		right: -40px;
-		bottom: 80px;
-		display: block;
-		align-items: ;
-		justify-content: ;
-	}
-
-	.socialIcon{
-		width: 10%;
-		z-index: 1;
-		padding: 10px;
-		cursor: pointer;
-		filter: brightness(100%)
-	}
-}
-
-.socialIcon:hover{
-	//filter: brightness(400%);
-    -webkit-filter: drop-shadow(-2px -2px 0px #FF5285);
-    filter: drop-shadow(-3px -3px 0px #FF5285);
-}
-
-
-/* Make the container relative */
-.swap-on-hover {
-	position: relative;	
-	margin:  0 auto;
-	//max-width: 400px;
-}
-
-/* Select the image and make it absolute to the container */
-.swap-on-hover img {
-	position: absolute;
-	top:0;
-	left:0;
-	overflow: hidden;
-	width: 150px;
-}
-
-.swap-on-hover .swap-on-hover__front-image {
-  z-index: 9999;
-  transition: opacity .2s linear;
-  cursor: pointer;
-}
-
-.swap-on-hover:hover > .swap-on-hover__front-image{
-  opacity: 0;
-}
 
 </style>
 
 <script>
+$(document).ready(function (){
 
-	$(document).ready(function (){
+	ChangeSize();
+	Start();
+		
+	$('*').each(function(){ 
+		var backImgSource;
 		var randy = Math.floor((Math.random() * 3) + 0);
 
 		if(randy == 0){
-			$("#loadingGif").attr("src", "images/gifs/loading0.gif");
+		
+			backImgSource = "images/gifs/loading0.gif";
 		}
 		if(randy == 1){
-			$("#loadingGif").attr("src", "images/gifs/loading1.gif");
+			backImgSource = "images/gifs/loading1.gif";
 		}
 		if(randy == 2){
-			$("#loadingGif").attr("src", "images/gifs/loading2.gif");
+			backImgSource = "images/gifs/loading2.gif";
+		}
+		//backImgSource = "images/gifs/loading.gif";
+		if ($(this).is('img')) {
+			$(this).css({'background-image': "url(" + backImgSource + ")",'background-repeat': 'no-repeat', 'background-position' : 'center', 'background-size' : '25%'});
 		}
 	});
-
+		
+		
+	});
 </script>
 
 
+<body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
 
+<div class="center">
 
-<body style="height: 100%; overflow:hidden;" onresize="ChangeSize()" onload=" Start(); Loaded()">
-
-
-<div id="loadingBlock"
-style="
-position: fixed;
-top: 0px;
-left: 0px;
-width: 100%;
-height: 100%;
-z-index: 100;
-background-color: black;
-">
-<div style="
-position: absolute;
-top: 50%;
-left: 50%;
-width: 50%;
-height: 50%;
-z-index: 100;
--ms-transform:translate(-50%, -50%);
-transform:translate(-50%, -50%);
-">
-<img id="loadingGif" style=" height: 200px; margin:0; position:absolute; top:50%; left:50%; -ms-transform:translate(-50%, -50%); transform:translate(-50%, -50%);">
-</div>
+	<div style="font-family:ASAP-SemiBold; color: white; font-size:72px;">We're Studio Syro</div>
+	<div style="font-family:ASAP-SemiBold; color: white; font-size:72px;">We're Studio Syro</div>
+	
 </div>
 
+<!-- Base -->
+<div>
+	<div id="loadingBlock"
+		style="
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9;
+		background-color: #131824;
+	">
+	</div>
 
-<!-- Background Video -->
-<div id="videoContainer">
-<video autoplay muted loop class="backgroundVideo">
-<source src="images/videos/Neon_Jungle_Trailer_Cut_No_Title.mp4" type="video/mp4">
-</video>
+	<!-- Social Buttons -->
+	<div id="socialHolder">
+		<img class="socialIcon" src = "images/icons/facebookBlue.png" onclick="window.open('https://www.facebook.com/studiosyro/');" alt="facebook">
+		<img class="socialIcon" src = "images/icons/instagramBlue.png" onclick="window.open('https://www.instagram.com/studiosyro/');" alt="instagram">
+		<img class="socialIcon" src = "images/icons/linkedinBlue.png" onclick="window.open('https://www.linkedin.com/company/studio-syro/');" alt="linkedin">
+		<img class="socialIcon" src = "images/icons/vimeoBlue.png" onclick="window.open('https://vimeo.com/studiosyro');" alt="vimeo">
+	</div>
 
-<div id="socialHolder">
-<img class="socialIcon" src = "images/icons/facebookBlue.png" onclick="window.open('https://www.facebook.com/studiosyro/');" alt="facebook">
-<img class="socialIcon" src = "images/icons/instagramBlue.png" onclick="window.open('https://www.instagram.com/studiosyro/');" alt="instagram">
-<img class="socialIcon" src = "images/icons/linkedinBlue.png" onclick="window.open('https://www.linkedin.com/company/studio-syro/');" alt="linkedin">
-<img class="socialIcon" src = "images/icons/vimeoBlue.png" onclick="window.open('https://vimeo.com/studiosyro');" alt="vimeo">
+	<!-- Home Button -->
+	<div id="logoButton" onclick="Transition('newindex.html');">
+		<img src="images/website/logo_1.png"/>
+		<img style="opacity: 0" src="images/website/logo_2.png"/>
+	</div>
+
+	<!-- Page Buttons -->
+	<div id="tabHolder">
+		<div class="tab" onclick="Transition('work.html');">
+			<img style="" class="swap-on-hover__front-image" src="images/website/work1.png"/>
+			<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/work2.png"/>
+		</div>
+		<div class="tab" onclick="Transition('about.html');">
+			<img style="" class="swap-on-hover__front-image" src="images/website/about1.png"/>
+			<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/about2.png"/>
+		</div>
+	</div>
+	
 </div>
 
-<!-- Announcement Holder -->
-<div id ="centerAnnouncement">
-<img style="
-position: absolute;
-top: 60%;
-left: 50%;
-height: 40%;
-z-index: 100;
--ms-transform:translate(-50%, -50%);
-transform:translate(-50%, -50%);" 
-
-src="images/NeonJungleTitle.png">
-
-<!-- Link Button -->
-<img id="linkButton" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/');"
-style="
-position: absolute;
-top: 80%;
-left: 50%;
-height: 15%;
-z-index: 100;
--ms-transform:translate(-50%, -50%);
-transform:translate(-50%, -50%);" 
-src="images/watchInVr.png">
-</div>
-</div>
-
-<!--Logo Button-->
-
-<div id="logoButton" class="iconHolder">
-<div class="swap-on-hover">
- <img  class="swap-on-hover__front-image" src="https://static.wixstatic.com/media/2b30da_b0da74961769462ea9062ede99bdf00f~mv2.png/v1/fill/w_155,h_116,al_c,q_85,usm_0.66_1.00_0.01/2b30da_b0da74961769462ea9062ede99bdf00f~mv2.webp"/>
- <img class="swap-on-hover__back-image" src="https://static.wixstatic.com/media/2b30da_5141c358120b45be86f530821c1dc63b~mv2.png/v1/fill/w_155,h_116,al_c,q_85,usm_0.66_1.00_0.01/2b30da_5141c358120b45be86f530821c1dc63b~mv2.webp"/>
-</div>
-</div>
-
-<div class="tabHolder">
-<a class="tab">WORK</a>
-<a class="tab">ABOUT</a>
-</div>
+</body>
 
 <script>
 
+function Start(){
+	ChangeSize();
+	$("#loadingBlock").animate({opacity: 0}, 800);
+	setTimeout(Hide, 800);
+}
 
-$("#videoContainer").find(".backgroundVideo").eq(0).css({width: "100%", opacity: 1});
+function OnPageLoad(){
 
-
-function Loaded(){
-
-contentIndex = 4;
-ChangeSize();
-$("#loadingBlock").animate({opacity: 0}, 2000);
-setTimeout(Hide, 2200);
+	$('*').each(function(){ 
+		var backImgSource = "";
+		if ($(this).is('img')) {
+			$(this).css("background-image", "url("+ backImgSource +")");
+		}
+	});
 
 }
+
 function Hide(){
-$("#loadingBlock").css({display: "none"});
+	$("#loadingBlock").css({display: "none"});
+	ChangeSize();
+}
+var pageURL;
+
+function Transition(url){
+
+	$("#loadingBlock").css({display: "inline-block"});
+	$("#loadingBlock").animate({opacity: 1}, 500);
+	pageURL = url;
+	console.log(pageURL);
+	setTimeout(LoadPage, 500);
+}
+
+function LoadPage(){
+	window.location.href = pageURL;
 }
 
 function ChangeSize(){
 
-	//Full Screen Video-----
-	if($("#videoContainer").width()/1.777777777 > $("#videoContainer").height()){
-		$(".backgroundVideo").css({width: "100%"});
-		$(".backgroundVideo").offset({top: -$(".backgroundVideo").height()/2 +  $("#videoContainer").height()/2 , left: 0});
-	}
-
-	if($("#videoContainer").width()/1.777777777 < $("#videoContainer").height()){
-		$(".backgroundVideo").css({width: $("#videoContainer").height() * 1.77777777});
-		$(".backgroundVideo").offset({top: 0, left: -$(".backgroundVideo").width()/2 +  $("#videoContainer").width()/2});
-	}
-	//----------------------
+	//Animate Banner
+	$("#bannerHolder").mouseenter(function() {
 	
-
-	if($("#videoContainer").width() < 901){
-		$("#centerAnnouncement").css({top: "60%"});
-	}
+		$("#bannerHolder").find('img').stop();
+		$("#bannerHolder").find('video').stop();
+		$("#bannerHolder").find('video').trigger('play');
+		$("#bannerHolder").find('img').animate({opacity: 0}, 300);
+		$("#bannerHolder").find('video').animate({opacity: 1}, 300);
+		$("#bannerHolder").find('video').css({display: "inline-block",});
+		$("#bannerHolder").find('img').css({display: "none",});
+	});
+	$("#bannerHolder").mouseleave(function() {
 	
-	if($("#videoContainer").width() > 900){
-		$("#centerAnnouncement").css({top: "70%"});
+		$("#bannerHolder").find('img').stop();
+		$("#bannerHolder").find('video').stop();
+		$("#bannerHolder").find('img').css({display: "inline-block",});
+		$("#bannerHolder").find('img').animate({opacity: 1}, 300);
+		$("#bannerHolder").find('video').animate({opacity: 0}, 300);
+		$("#bannerHolder").find('video').css({display: "none",});
+	});
 
-	}
+	//Control each row height
+	$(document.body).find(".row").each(function(index, element){
+	
+		if($(window).width() >= 1662){
+		
+			//if(index == 0){
+				$(element).css({height: $("#banner").width() / 5.39,});
+			//}
+			
+			//if(index == 1){
+			//	$(element).css({height: $("#banner").width() / 5.39,});
+			//}
+		}
+		
+		
+		if($(window).width() < 1662 && $(window).width() >= 1350){
+		
+			//if(index == 0){
+			$(element).css({height: $("#banner").width() / 5.4,});
+			//}
+		}
+
+		if($(window).width() < 1350 && $(window).width() >= 1139){
+		
+			//if(index == 0){
+			$(element).css({height: $("#banner").width() / 5.42,});
+			//}
+		}
+		if($(window).width() < 1139 && $(window).width() >= 900){
+		
+			//if(index == 0){
+			$(element).css({height: $("#banner").width() / 5.43,});
+			//}
+		}
+		if($(window).width() < 900){
+		
+			//if(index == 0){
+			$(element).css({height: $("#banner").width() / 5.44,});
+			//}
+		}
+	});
+	
+	//Animate swap to video on hover
+	$(document.body).find(".rowButton").each(function(index, element){	
+		$(element).mouseenter(function() {
+			$(element).find('img').stop();
+			$(element).find('video').stop();
+			$(element).find('video').trigger('play');
+			$(element).find('img').animate({opacity: 0}, 200);
+			$(element).find('video').animate({opacity: 1}, 200);
+			$(element).find('video').css({display: "inline-block",});
+		});
+		$(element).mouseleave(function() {
+		
+			$(element).find('img').stop();
+			$(element).find('video').stop();
+			$(element).find('img').animate({opacity: 1}, 200);
+			$(element).find('video').animate({opacity: 0}, 200);
+
+		});
+	});
+	
+	//Change font size on scale
+	$(document.body).find(".topText").each(function(index, element){
+	
+		if($(window).width() >= 1300){
+			$(element).css({fontSize: "25px"});
+			//console.log(element);
+		}
+	
+		if($(window).width() < 1300 && $(window).width() >= 800){
+			$(element).css({fontSize: "20px"});
+		}
+		
+		if($(window).width() < 800){
+			$(element).css({fontSize: "15px"});
+		}
+	});
+	$(document.body).find(".bottomText").each(function(index, element){
+	
+		if($(window).width() >= 1300){
+			$(element).css({top:"44px", fontSize: "18px"});
+			
+		}
+
+		if($(window).width() < 1300 && $(window).width() >= 800){
+			$(element).css({top:"39px", fontSize: "13px"});
+		}
+		
+		if($(window).width() < 800){
+			$(element).css({top:"34px", fontSize: "8px"});
+		}
+	});
+	
+//Core Functionality
+	//Set Logo and Page button positions
+	var centerLeft = $(document.body).find(".center").eq(0).offset().left;
+	$("#logoButton").css({left: centerLeft,});
+	$("#logoButton").find('img').eq(1).css({top: -$("#logoButton").find('img').eq(0).height()});
+	$("#tabHolder").css({right: centerLeft,});
+	
+	//Animate Logo Button
+	$("#logoButton").mouseenter(function() {
+		
+		$("#logoButton").find('img').eq(0).stop();
+		$("#logoButton").find('img').eq(1).stop();
+		$("#logoButton").find('img').eq(0).animate({opacity: 0}, 300);
+		$("#logoButton").find('img').eq(1).animate({opacity: 1}, 300);
+	});
+	$("#logoButton").mouseleave(function() {
+		
+		$("#logoButton").find('img').eq(0).stop();
+		$("#logoButton").find('img').eq(1).stop();
+		$("#logoButton").find('img').eq(0).animate({opacity: 1}, 300);
+		$("#logoButton").find('img').eq(1).animate({opacity: 0}, 300);
+	});
+	
+	//Animate Page Buttons
+	$("#tabHolder").find(".tab").each(function(index, element){
+		
+		$(element).find('img').eq(1).css({top: -$(element).find('img').eq(0).height()});
+		
+		$(element).css({
+			top: $("#tabHolder").height()/2 - $(element).find('img').eq(0).height()/2,
+			height:$(element).find('img').eq(0).height(),
+		});
+	
+		$(element).mouseenter(function() {
+			
+			$(element).find('img').eq(0).stop();
+			$(element).find('img').eq(1).stop();
+			$(element).find('img').eq(0).animate({opacity: 0}, 300);
+			$(element).find('img').eq(1).animate({opacity: 1}, 300);
+		});
+		$(element).mouseleave(function() {
+			
+			$(element).find('img').eq(0).stop();
+			$(element).find('img').eq(1).stop();
+			$(element).find('img').eq(0).animate({opacity: 1}, 300);
+			$(element).find('img').eq(1).animate({opacity: 0}, 300);
+
+		});
+	
+	});
+	
 }
 
-function Start(){
+//Particles
 
-	ChangeSize();
+// We first check if the browser supports the Web Animations API
+if (document.body.animate) {
+  // If yes, we add a click listener on our button
+  //document.querySelector('.moving_div').addEventListener('click', pop);
 }
+// The pop() function is called on every click
+function pop() { 
+  // Loop to generate 30 particles at once
+  //for (let i = 0; i < 1; i++) {
+	//var randy = Math.round(Math.random());
+	//console.log(randy);
+	//if(randy == 0)
+		createParticle($mouseX, $mouseY);
+  //}
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function createParticle(x, y) {
+	// Create a custom particle element
+	const particle = document.createElement('particle');
+	var jParticle = particle;
+	// Append the element into the body
+	document.body.appendChild(particle);
+	
+	// Calculate a random size from 5px to 25px
+	
+	const size = Math.floor(50 + Math.random() * 10);
+	// Apply the size on each particle
+	particle.style.width = `${size}px`;
+	particle.style.height = `${size}px`;
+	// Generate a random color in a blue/purple palette
+	//particle.style.background = "rgba(255,255,255,255)";
+	
+		// Generate a random x & y destination within a distance of 75px from the mouse
+	const destinationX = x + (Math.random() - 0.5) * 2 * 1;
+	const destinationY = y + (Math.random() - 0.5) * 2 * 1;
+	// Store the animation in a variable because we will need it later
+	const animation = particle.animate([
+		{
+		// Set the origin position of the particle
+		
+		// We offset the particle with half its size to center it around the mouse
+		transform: `translate(${x - (size / 2)}px, ${y - (size / 2)}px)`,
+		//transform: `translate(${x}px, ${y}px)`,
+		//transform: `scale(10)`,
+		//opacity: 1
+		//boxShadow: `4px 4px 10px #0e1119, -4px -4px 10px #2b344d`,
+		},
+		{
+		// We define the final coordinates as the second keyframe
+		transform: `translate(${x - (size / 2)}px, ${y - (size / 2)}px)`,
+		//transform: `translate(${destinationX}px, ${destinationY}px)`,
+		//transform: `translate(${x}px, ${y}px)`,
+		//transform: `scale(0)`,
+		//opacity: 0
+		//boxShadow: `1x 1px 10px #0e1119, -1px -1x 10px #2b344d`,
+		}
+	], {
+		// Set a random duration from 500 to 1500ms
+		//duration: 3000 + Math.random() * 5000,
+		duration: 3000,
+		easing: 'cubic-bezier(0, .9, .57, 1)',
+		// Delay every particle with a random value from 0ms to 200ms
+		delay: Math.random() * 1
+	});
+	
+	$(particle).animate({boxShadow: 'inset 4px 4px 10px #0e1119,inset -4px -4px 10px #2b344d'}, 500);
+	$(particle).animate({boxShadow: 'inset 0px 0px 10px #131824,inset -0px -0x 10px ##131824'}, 1500);
+	
+	animation.onfinish = () => {
+	particle.remove();
+	};
+}
+
+
+//Mouse follow thingy
+var $mouseX = 0, $mouseY = 0;
+var $xp = 0, $yp =0;
+var isOverWindow;
+var mouseMoving;
+
+$(document).mouseenter(function() {
+		
+	isOverWindow = true;
+});
+
+$(document).mouseleave(function() {
+		
+	isOverWindow = false;
+});
+
+$(".rowButton").mouseenter(function() {
+		
+	isOverWindow = false;
+});
+
+$(".rowButton").mouseleave(function() {
+		
+	isOverWindow = true;
+});
+var $resetMouseMove = setInterval(function(){
+	mouseMoving = false;
+}, 500);
+
+
+$(document).mousemove(function(e){
+    $mouseX = e.pageX;
+    $mouseY = e.pageY;
+	mouseMoving = true;
+});
+
+var $loop = setInterval(function(){
+	//if(mouseMoving)
+	//pop();
+	/*$(document.body).find(".moving_div").each(function(index, element){
+		//console.log(element);
+		// change 12 to alter damping higher is slower
+		
+		$xp += (($mouseX - $xp)/12);
+		$yp += (($mouseY - $yp)/12);
+		$(element).css({left:$xp +'px', top:$yp +'px'});
+	});
+	*/
+}, 250);
+
+
+
 
 </script>
 </body>
