@@ -243,8 +243,8 @@ transform:translate(-50%, -50%);
 
 <!-- Background Video -->
 <div id="videoContainer">
-<video autoplay muted loop class="backgroundVideo">
-<source src="images/videos/Neon_Jungle_Trailer_Cut_No_Title.mp4" type="video/mp4">
+<video autoplay muted loop playsinline class="backgroundVideo">
+<source src="videos/Neon_Jungle_Trailer_Cut_No_Title.mp4" type="video/mp4">
 </video>
 </div>
 
@@ -311,8 +311,8 @@ function Loaded(){
 
 contentIndex = 4;
 ChangeSize();
-$("#loadingBlock").animate({opacity: 0}, 300);
-setTimeout(Hide, 300);
+$("#loadingBlock").animate({opacity: 0}, 800);
+setTimeout(Hide, 800);
 
 }
 function Hide(){
@@ -324,10 +324,10 @@ var pageURL;
 function Transition(url){
 
 	$("#loadingBlock").css({display: "inline-block"});
-	$("#loadingBlock").animate({opacity: 1}, 300);
+	$("#loadingBlock").animate({opacity: 1}, 500);
 	pageURL = url;
 	console.log(pageURL);
-	setTimeout(LoadPage, 300);
+	setTimeout(LoadPage, 500);
 }
 
 function LoadPage(){
