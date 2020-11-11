@@ -48,7 +48,7 @@ $(document).ready(function (){
 		}
 		//backImgSource = "images/gifs/loading.gif";
 		if ($(this).is('img')) {
-			$(this).css({'background-image': "url(" + backImgSource + ")",'background-repeat': 'no-repeat', 'background-position' : 'center', 'background-size' : '25%'});
+		//	$(this).css({'background-image': "url(" + backImgSource + ")",'background-repeat': 'no-repeat', 'background-position' : 'center', 'background-size' : '25%'});
 		}
 	});
 		
@@ -69,19 +69,19 @@ $(document).ready(function (){
 	
 	<div class="row">
 		<div class="rowButton" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/275325710172441/')">
-			<img class="rowButton" src="images/website/work/sodaCrop.png">
+			<img src="images/website/work/bakery.png">
 			<video muted loop src="images/videos/Bakery_Trailer_Cut.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">OCULUS</div>
 			<div class="topLeft bottomText">Tales from Soda Island</div>
 		</div>
-		<div class="rowButton">
-			<img class="rowButton" src="images/website/work/dawsonCrop.png">
+		<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=YTrCMGBbikU&ab_channel=StudioSyro')">
+			<img src="images/website/work/dawsonCrop.png">
 			<video muted loop src="images/videos/dawson.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">Dawson College</div>
 			<div class="topLeft bottomText">Virtual Vernissage</div>
 		</div>
 		<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=DFQHD9k5i54&ab_channel=deadmau5')">
-			<img src="images/website/work/mau5.jpg">
+			<img src="images/website/work/deadmau5.png">
 			<video muted loop src="images/videos/billDeadmausHighlight3Mbps.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">deadmau5</div>
 			<div class="topLeft bottomText">deadmau5 & Mr.Bill 10.8</div>
@@ -90,14 +90,14 @@ $(document).ready(function (){
 
 	<div class="row">
 		<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=KXYCr2pGTfw&ab_channel=Slushii')">
-			<img class="rowButton" src="images/website/work/slushii.jpg">
+			<img src="images/website/work/slushii.png">
 			<video muted loop src="images/videos/slushiiHighlight3Mbps.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">Monstercat</div>
 			<div class="topLeft bottomText">Dreaming of You/Far Away</div>
 		</div>
 		
 		<div class="rowButton">
-			<img class="rowButton" src="images/website/work/billCrop.png">
+			<img src="images/website/work/bill.png">
 			<video muted loop src="images/videos/bill.mp4" type="video/mp4"></video>
 			<div class="topLeft topText">Mr.Bill</div>
 			<div class="topLeft bottomText">Live show artwork</div>
@@ -105,6 +105,10 @@ $(document).ready(function (){
 	</div>
 	
 </div>
+<!--
+<div class="moving_div" style="width: 100px; height: 100px; background-color: blue; position: absolute;">
+
+</div>-->
 
 <!-- Base -->
 <div>
@@ -188,6 +192,11 @@ function LoadPage(){
 	window.location.href = pageURL;
 }
 
+$(window).resize(function(){
+	ChangeSize();
+	ChangeSize();
+});
+
 function ChangeSize(){
 
 	//Animate Banner
@@ -209,52 +218,57 @@ function ChangeSize(){
 		$("#bannerHolder").find('img').animate({opacity: 1}, 300);
 		$("#bannerHolder").find('video').animate({opacity: 0}, 300);
 		$("#bannerHolder").find('video').css({display: "none",});
+		$("#bannerHolder").find('video').trigger('pause');
 	});
-
+	
+	var rowWidth;
 	//Control each row height
 	$(document.body).find(".row").each(function(index, element){
-	
-		if($(window).width() >= 1662){
 		
-			//if(index == 0){
-				$(element).css({height: $("#banner").width() / 5.39,});
-			//}
-			
-			//if(index == 1){
-			//	$(element).css({height: $("#banner").width() / 5.39,});
-			//}
-		}
-		
-		
-		if($(window).width() < 1662 && $(window).width() >= 1350){
-		
-			//if(index == 0){
-			$(element).css({height: $("#banner").width() / 5.4,});
-			//}
-		}
-
-		if($(window).width() < 1350 && $(window).width() >= 1139){
-		
-			//if(index == 0){
-			$(element).css({height: $("#banner").width() / 5.42,});
-			//}
-		}
-		if($(window).width() < 1139 && $(window).width() >= 900){
-		
-			//if(index == 0){
-			$(element).css({height: $("#banner").width() / 5.43,});
-			//}
-		}
-		if($(window).width() < 900){
-		
-			//if(index == 0){
-			$(element).css({height: $("#banner").width() / 5.44,});
-			//}
+		if(index == 0)
+		{
+			rowWidth = $(element).width();
+			//$(element).css({'background-color': "green"});
+			$(element).css({height: $(document.body).find(".rowButton").eq(0).height()});
 		}
 	});
+	
 	
 	//Animate swap to video on hover
 	$(document.body).find(".rowButton").each(function(index, element){	
+		
+		//console.log(rowWidth);
+		$(element).css({left: 0, top: $(element).parent().offset.top, width: (rowWidth/3)- 8});
+		
+		if(index == 0)
+		{
+			$(element).css({left: 0});
+		}
+		if(index == 1)
+		{
+			$(element).css({left: $(document.body).find(".rowButton").eq(0).width() + 12});
+		}
+		if(index == 2)
+		{
+			$(element).css({left: rowWidth - $(element).width()});
+		}
+		
+		
+		if(index == 3)
+		{
+			$(element).css({left: 0});
+		}
+		if(index == 4)
+		{
+			$(element).css({left: $(element).width() + 12});
+		}
+		if(index == 5)
+		{
+			$(element).css({left: rowWidth - $(element).width()});
+		}
+		
+		//$(element).find('img').css({height: $(element).height()});
+	
 		$(element).mouseenter(function() {
 			$(element).find('img').stop();
 			$(element).find('video').stop();
@@ -262,6 +276,7 @@ function ChangeSize(){
 			$(element).find('img').animate({opacity: 0}, 200);
 			$(element).find('video').animate({opacity: 1}, 200);
 			$(element).find('video').css({display: "inline-block",});
+			
 		});
 		$(element).mouseleave(function() {
 		
@@ -269,6 +284,7 @@ function ChangeSize(){
 			$(element).find('video').stop();
 			$(element).find('img').animate({opacity: 1}, 200);
 			$(element).find('video').animate({opacity: 0}, 200);
+			$(element).find('video').trigger('pause');
 
 		});
 	});
@@ -304,6 +320,9 @@ function ChangeSize(){
 			$(element).css({top:"34px", fontSize: "8px"});
 		}
 	});
+	
+	
+	
 	
 //Core Functionality
 	//Set Logo and Page button positions
@@ -355,140 +374,7 @@ function ChangeSize(){
 		});
 	
 	});
-	
 }
-
-//Particles
-
-// We first check if the browser supports the Web Animations API
-if (document.body.animate) {
-  // If yes, we add a click listener on our button
-  //document.querySelector('.moving_div').addEventListener('click', pop);
-}
-// The pop() function is called on every click
-function pop() { 
-  // Loop to generate 30 particles at once
-  //for (let i = 0; i < 1; i++) {
-	//var randy = Math.round(Math.random());
-	//console.log(randy);
-	//if(randy == 0)
-		createParticle($mouseX, $mouseY);
-  //}
-}
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function createParticle(x, y) {
-	// Create a custom particle element
-	const particle = document.createElement('particle');
-	var jParticle = particle;
-	// Append the element into the body
-	document.body.appendChild(particle);
-	
-	// Calculate a random size from 5px to 25px
-	
-	const size = Math.floor(50 + Math.random() * 10);
-	// Apply the size on each particle
-	particle.style.width = `${size}px`;
-	particle.style.height = `${size}px`;
-	// Generate a random color in a blue/purple palette
-	//particle.style.background = "rgba(255,255,255,255)";
-	
-		// Generate a random x & y destination within a distance of 75px from the mouse
-	const destinationX = x + (Math.random() - 0.5) * 2 * 1;
-	const destinationY = y + (Math.random() - 0.5) * 2 * 1;
-	// Store the animation in a variable because we will need it later
-	const animation = particle.animate([
-		{
-		// Set the origin position of the particle
-		
-		// We offset the particle with half its size to center it around the mouse
-		transform: `translate(${x - (size / 2)}px, ${y - (size / 2)}px)`,
-		//transform: `translate(${x}px, ${y}px)`,
-		//transform: `scale(10)`,
-		//opacity: 1
-		//boxShadow: `4px 4px 10px #0e1119, -4px -4px 10px #2b344d`,
-		},
-		{
-		// We define the final coordinates as the second keyframe
-		transform: `translate(${x - (size / 2)}px, ${y - (size / 2)}px)`,
-		//transform: `translate(${destinationX}px, ${destinationY}px)`,
-		//transform: `translate(${x}px, ${y}px)`,
-		//transform: `scale(0)`,
-		//opacity: 0
-		//boxShadow: `1x 1px 10px #0e1119, -1px -1x 10px #2b344d`,
-		}
-	], {
-		// Set a random duration from 500 to 1500ms
-		//duration: 3000 + Math.random() * 5000,
-		duration: 3000,
-		easing: 'cubic-bezier(0, .9, .57, 1)',
-		// Delay every particle with a random value from 0ms to 200ms
-		delay: Math.random() * 1
-	});
-	
-	$(particle).animate({boxShadow: 'inset 4px 4px 10px #0e1119,inset -4px -4px 10px #2b344d'}, 500);
-	$(particle).animate({boxShadow: 'inset 0px 0px 10px #131824,inset -0px -0x 10px ##131824'}, 1500);
-	
-	animation.onfinish = () => {
-	particle.remove();
-	};
-}
-
-
-//Mouse follow thingy
-var $mouseX = 0, $mouseY = 0;
-var $xp = 0, $yp =0;
-var isOverWindow;
-var mouseMoving;
-
-$(document).mouseenter(function() {
-		
-	isOverWindow = true;
-});
-
-$(document).mouseleave(function() {
-		
-	isOverWindow = false;
-});
-
-$(".rowButton").mouseenter(function() {
-		
-	isOverWindow = false;
-});
-
-$(".rowButton").mouseleave(function() {
-		
-	isOverWindow = true;
-});
-var $resetMouseMove = setInterval(function(){
-	mouseMoving = false;
-}, 500);
-
-
-$(document).mousemove(function(e){
-    $mouseX = e.pageX;
-    $mouseY = e.pageY;
-	mouseMoving = true;
-});
-
-var $loop = setInterval(function(){
-	//if(mouseMoving)
-	//pop();
-	/*$(document.body).find(".moving_div").each(function(index, element){
-		//console.log(element);
-		// change 12 to alter damping higher is slower
-		
-		$xp += (($mouseX - $xp)/12);
-		$yp += (($mouseY - $yp)/12);
-		$(element).css({left:$xp +'px', top:$yp +'px'});
-	});
-	*/
-}, 250);
-
-
-
 
 </script>
 </body>

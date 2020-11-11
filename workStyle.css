@@ -43,33 +43,23 @@
 }
   
 .row {
-	white-space: nowrap;
-	margin: auto;
+	//white-space: nowrap;
 	width: 100%;
 	height: 256px;
 	//background-color: rgba(255,0,0,1);
 	//border: 3px solid #73AD21;
-	padding: 3px 0px;
-}
-
-.row:before {
-	display: inline-block;
-    width: 100%;
-}
-.row:after {
-	display: block;
-    margin-top: -1.25em;
+	padding: 5.5px 0px;
 }
 
 .rowButton{
 
-    padding: .025em .05em;
-    position: relative;
-	display: inline-block;
+    //padding: 10px;
+    position: absolute;
+	//display: inline-block;
 	
-	//margin: auto;
+	//margin: 10px;
 	//width: 33%;
-	height: 100%;
+	//height: 100%;
 	vertical-align: text-top;
 }
 
@@ -80,12 +70,14 @@
 
 .rowButton img{
 
-	height: 100%;
+	//height: 100%;
+	width: 100%;
+	margin:0px;
 }
 
 .rowButton video{
 
-	height: 100%;
+	width: 100%;
 	position: absolute;
 	display: none;
 	left: 0px;
