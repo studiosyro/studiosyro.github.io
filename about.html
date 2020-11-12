@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<!--<script src="jquery.animate-shadow.js"></script>-->
+<script src="CoreFunctionality.js"></script>
 
 <head>
     <!--FACEBOOK-->
@@ -29,6 +29,7 @@
 <script>
 $(document).ready(function (){
 
+	ClickMenuButton();
 	ChangeSize();
 	Start();
 		
@@ -57,7 +58,7 @@ $(document).ready(function (){
 </script>
 
 
-<body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
+<body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start();">
 
 <div class="center">
 
@@ -90,27 +91,27 @@ $(document).ready(function (){
 
 <!-- Base -->
 <div>
-	<div id="loadingBlock"
-		style="
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100%;
-		z-index: 9;
-		background-color: #131824;
-	">
+	<div id="loadingBlock"></div>
+	
+	<div id="menuHolder">
+		<div id="menu">
+			<div id="tabHolder">
+			<div class="tab" onclick="Transition('newindex.html');">
+				<img style="" class="swap-on-hover__front-image" src="images/website/home1.png"/>
+				<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/home2.png"/>
+			</div>
+			<div class="tab" onclick="Transition('work.html');">
+				<img style="" class="swap-on-hover__front-image" src="images/website/work1.png"/>
+				<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/work2.png"/>
+			</div>
+			<div class="tab" onclick="Transition('about.html');">
+				<img style="" class="swap-on-hover__front-image" src="images/website/about1.png"/>
+				<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/about2.png"/>
+			</div>			
+	</div>
+		</div>
 	</div>
 
-	<!-- Social Buttons 
-	<div id="socialHolder">
-		<img class="socialIcon" src = "images/icons/facebookBlue.png" onclick="window.open('https://www.facebook.com/studiosyro/');" alt="facebook">
-		<img class="socialIcon" src = "images/icons/instagramBlue.png" onclick="window.open('https://www.instagram.com/studiosyro/');" alt="instagram">
-		<img class="socialIcon" src = "images/icons/linkedinBlue.png" onclick="window.open('https://www.linkedin.com/company/studio-syro/');" alt="linkedin">
-		<img class="socialIcon" src = "images/icons/vimeoBlue.png" onclick="window.open('https://vimeo.com/studiosyro');" alt="vimeo">
-	</div>
-	-->
-	
 	<!-- Home Button -->
 	<div id="logoButton" onclick="Transition('newindex.html');">
 		<img src="images/website/logo_1.png"/>
@@ -118,119 +119,16 @@ $(document).ready(function (){
 	</div>
 
 	<!-- Page Buttons -->
-	<div id="tabHolder">
-		<div class="tab" onclick="Transition('work.html');">
-			<img style="" class="swap-on-hover__front-image" src="images/website/work1.png"/>
-			<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/work2.png"/>
-		</div>
-		<div class="tab" onclick="Transition('about.html');">
-			<img style="" class="swap-on-hover__front-image" src="images/website/about1.png"/>
-			<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/about2.png"/>
-		</div>
+	<div id="hamburgerHolder">
+		<i style="" class="fas fa-grip-horizontal"></i>
 	</div>
 	
 </div>
+<!-- End Base -->
 
 </body>
 
 <script>
-
-function Start(){
-	ChangeSize();
-	$("#loadingBlock").animate({opacity: 0}, 800);
-	setTimeout(Hide, 800);
-}
-
-function OnPageLoad(){
-
-	$('*').each(function(){ 
-		var backImgSource = "";
-		if ($(this).is('img')) {
-			$(this).css("background-image", "url("+ backImgSource +")");
-		}
-	});
-
-}
-
-function Hide(){
-	$("#loadingBlock").css({display: "none"});
-	ChangeSize();
-}
-var pageURL;
-
-function Transition(url){
-
-	$("#loadingBlock").css({display: "inline-block"});
-	$("#loadingBlock").animate({opacity: 1}, 500);
-	pageURL = url;
-	console.log(pageURL);
-	setTimeout(LoadPage, 500);
-}
-
-function LoadPage(){
-	window.location.href = pageURL;
-}
-
-function ChangeSize(){
-
-	$("#textHolder").css({left: $("#sideVideo").width(),});
-	
-//Core Functionality
-	//Set Logo and Page button positions
-	var centerLeft = $(document.body).find(".center").eq(0).offset().left;
-	$("#logoButton").css({left: centerLeft,});
-	$("#logoButton").find('img').eq(1).css({top: -$("#logoButton").find('img').eq(0).height()});
-	$("#tabHolder").css({right: centerLeft,});
-	
-	//Animate Logo Button
-	$("#logoButton").mouseenter(function() {
-		
-		$("#logoButton").find('img').eq(0).stop();
-		$("#logoButton").find('img').eq(1).stop();
-		$("#logoButton").find('img').eq(0).animate({opacity: 0}, 300);
-		$("#logoButton").find('img').eq(1).animate({opacity: 1}, 300);
-	});
-	$("#logoButton").mouseleave(function() {
-		
-		$("#logoButton").find('img').eq(0).stop();
-		$("#logoButton").find('img').eq(1).stop();
-		$("#logoButton").find('img').eq(0).animate({opacity: 1}, 300);
-		$("#logoButton").find('img').eq(1).animate({opacity: 0}, 300);
-	});
-	
-	//Animate Page Buttons
-	$("#tabHolder").find(".tab").each(function(index, element){
-		
-		$(element).find('img').eq(1).css({top: -$(element).find('img').eq(0).height()});
-		
-		$(element).css({
-			top: $("#tabHolder").height()/2 - $(element).find('img').eq(0).height()/2,
-			height:$(element).find('img').eq(0).height(),
-		});
-	
-		$(element).mouseenter(function() {
-			
-			$(element).find('img').eq(0).stop();
-			$(element).find('img').eq(1).stop();
-			$(element).find('img').eq(0).animate({opacity: 0}, 300);
-			$(element).find('img').eq(1).animate({opacity: 1}, 300);
-		});
-		$(element).mouseleave(function() {
-			
-			$(element).find('img').eq(0).stop();
-			$(element).find('img').eq(1).stop();
-			$(element).find('img').eq(0).animate({opacity: 1}, 300);
-			$(element).find('img').eq(1).animate({opacity: 0}, 300);
-
-		});
-	
-	});
-	
-}
-
-
-
-
 
 </script>
 </body>

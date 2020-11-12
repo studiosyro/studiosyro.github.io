@@ -1,12 +1,3 @@
-.center {
-	position: relative;
-	margin: auto;
-	width: 85%;
-	//border: 1px solid #73AD21;
-	//padding: 120px 0px 0px 0px;
-	top: 100px;
-}
-
 .topLeft {
 	position: absolute;
 	top: 15px;
@@ -88,22 +79,6 @@
 	display: none;
 	left: 0px;
 	opacity: 0;
-}
-
-#menuHolder{
-	position: absolute;
-	width: 100%;
-	height: 100%;	
-	left: 0px;
-	top: 0px;
-	z-index: 102;
-}
-
-#menu{
-	position: relative;
-	width: 100%;
-	height: 100%;	
-	background-color: blue;
 }
 
 
