@@ -43,6 +43,15 @@ particle {
 	transform:translate(-50%, -50%);
 	
 }
+#titleImage{
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	height: 40%;
+	z-index: 99;
+	-ms-transform:translate(-50%, -50%);
+	transform:translate(-50%, -50%);
+}
 
 #loadingBlock{
 	position: fixed;
