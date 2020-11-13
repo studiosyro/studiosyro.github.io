@@ -5,6 +5,7 @@ var isMobile;
 
 //Core Vars-------
 var isOpen = false;
+var lastValue;
 //----------------
 
 function Start(){
@@ -116,6 +117,8 @@ function ChangeSize(){
 	{
 		$('#menu').css({width: $(window).width(), left: $(window).width()});
 		$('#menuHolder').css({width: $(window).width()});
+		$(".center").css({top: 110});
+		$("#logoButton").css({});
 	}
 	
 	//Animate Logo Button
@@ -223,15 +226,44 @@ function Animations(){
 	
 	//Animate hamburgerHolder
 	$('#hamburgerHolder').mouseenter(function() {
-		$('#hamburgerHolder').find('i').eq(0).stop();
-		$('#hamburgerHolder').find('i').eq(0).animate({opacity: 0.5}, 150);
+		if(!isMobile)
+		{
+			$('#hamburgerHolder').find('i').eq(0).stop();
+			$('#hamburgerHolder').find('i').eq(0).animate({opacity: 0.5}, 150);
+		}
 		
 	});
 	$('#hamburgerHolder').mouseleave(function() {
-		$('#hamburgerHolder').find('i').eq(0).stop();
-		$('#hamburgerHolder').find('i').eq(0).animate({opacity: 1}, 150);
+		if(!isMobile)
+		{
+			$('#hamburgerHolder').find('i').eq(0).stop();
+			$('#hamburgerHolder').find('i').eq(0).animate({opacity: 1}, 150);
+		}
 		
 	});
+}
+
+function RandomLoadingGif(){
+	$('*').each(function(){ 
+		var backImgSource;
+		var randy = Math.floor((Math.random() * 3) + 0);
+
+		if(randy == 0){
+		
+			backImgSource = "images/gifs/loading0.gif";
+		}
+		if(randy == 1){
+			backImgSource = "images/gifs/loading1.gif";
+		}
+		if(randy == 2){
+			backImgSource = "images/gifs/loading2.gif";
+		}
+		//backImgSource = "images/gifs/loading.gif";
+		if ($(this).is('img')) {
+		//	$(this).css({'background-image': "url(" + backImgSource + ")",'background-repeat': 'no-repeat', 'background-position' : 'center', 'background-size' : '25%'});
+		}
+	});
+	
 }
 
 //Open Menu Animation
@@ -239,7 +271,55 @@ function ClickMenuButton(){
 	$('#hamburgerHolder').click(function() {
 		$('#menu').stop();
 		isOpen = !isOpen;
-		console.log(isOpen);
+		//console.log(isOpen);
+		
+		var backImgSource;
+		var maxRandomValue = 8;
+		var randy = Math.floor((Math.random() * maxRandomValue) + 0);
+		
+		if(isOpen)
+		{	
+			//Dont allow doops just add one if less than max
+			if(lastValue == randy)
+			{
+				if(randy < maxRandomValue)
+				{
+					randy++;
+				}
+				if(randy == maxRandomValue)
+				{
+					randy = 0;
+				}
+			}
+			if(randy == 0){
+				backImgSource = "images/gifs/blueGreenWaves.gif";
+			}
+			if(randy == 1){
+				backImgSource = "images/gifs/bluePurpleAmbient.gif";
+			}
+			if(randy == 2){
+				backImgSource = "images/gifs/water.gif";
+			}
+			if(randy == 3){
+			
+				backImgSource = "images/gifs/Money.webp";
+			}
+			if(randy == 4){
+				backImgSource = "images/gifs/dancingCat.gif";
+			}
+			if(randy == 5){
+				backImgSource = "images/gifs/vrEyes.gif";
+			}
+			if(randy == 6){
+				backImgSource = "images/gifs/datBoi.gif";
+			}
+			if(randy == 7){
+				backImgSource = "images/gifs/dolphin.gif";
+			}
+			
+			$('#menu').css({'background-image': "url(" + backImgSource + ")"});
+			lastValue = randy;
+		}
 		
 		if(!isMobile)
 		{	
@@ -265,14 +345,14 @@ function ClickMenuButton(){
 				$('#menu').animate({
 				left: 0,
 				
-				},800,);
+				},400,);
 			}
 			if(!isOpen)
 			{
 				$('#menu').animate({
 				left: $(window).width(),
 				
-				},800);
+				},400);
 			}
 		}
 	}); 

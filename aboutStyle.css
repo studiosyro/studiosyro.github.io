@@ -1,7 +1,7 @@
 .center {
 	position: relative;
 	margin: auto;
-	width: 85%;
+	width: 10%;
 	//border: 1px solid #73AD21;
 	//padding: 120px 0px 0px 0px;
 	top: 200px;
@@ -38,7 +38,7 @@
 .header{
 	font-size: 72px;
 	font-family:ASAP-SemiBold;
-	padding: 0px 0px 10px 0px;
+	//padding: 0px 0px 10px 0px;
 	
 }
 .bodyText{

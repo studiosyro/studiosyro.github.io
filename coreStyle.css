@@ -156,11 +156,13 @@ particle {
 	//background-color: blue;
 	//background-image: url('images/gifs/blueGreenWaves.gif');
 	//background-image: url('images/gifs/bluePurpleAmbient.gif');
-	background-image: url('images/gifs/water.gif');
+	//background-image: url('images/gifs/water.gif');
+	background-image: url('images/gifs/Money.webp');
+	//background-color: #2b344d;
 	
 	//background-size: 100px;
 	//background-repeat: no-repeat;
-	background-size: 1000;
+	background-size: 100px;
 	pointer-events: auto;
 	//box-shadow: 8px 8px 40px black;
 	

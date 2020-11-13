@@ -9,6 +9,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="CoreFunctionality.js"></script>
+<script src="AboutFunctionality.js"></script>
 
 <head>
     <!--FACEBOOK-->
@@ -32,29 +33,13 @@ $(document).ready(function (){
 	ClickMenuButton();
 	ChangeSize();
 	Start();
-		
-	$('*').each(function(){ 
-		var backImgSource;
-		var randy = Math.floor((Math.random() * 3) + 0);
+	
+	if(isMobile)
+	{
+		MobileScaling();
+	}
+});
 
-		if(randy == 0){
-		
-			backImgSource = "images/gifs/loading0.gif";
-		}
-		if(randy == 1){
-			backImgSource = "images/gifs/loading1.gif";
-		}
-		if(randy == 2){
-			backImgSource = "images/gifs/loading2.gif";
-		}
-		//backImgSource = "images/gifs/loading.gif";
-		if ($(this).is('img')) {
-		//	$(this).css({'background-image': "url(" + backImgSource + ")",'background-repeat': 'no-repeat', 'background-position' : 'center', 'background-size' : '25%'});
-		}
-	});
-		
-		
-	});
 </script>
 
 
@@ -67,7 +52,7 @@ $(document).ready(function (){
 	</div>
 	<div id="textHolder">
 		<div class="header">We're Studio Syro</div>
-		<div class="bodyText">we're an international team of designers, animators and developers using a VR painting tool called Quill to produce hand-crafted experiences both in and out of VR ･ﾟ✧</div>
+		<div class="bodyText">An international team of designers, animators and developers using a VR painting tool called Quill to produce hand-crafted experiences both in and out of VR ･ﾟ✧</div>
 		<div class="bodyText" style="padding-top: 30px; font-size:20px">For all inquiries please reach out at <a style="cursor: pointer; text-decoration: underline;" onclick="window.open('mailto:hello@studiosyro.com')">hello@studiosyro.com</a>
 			<p>
 				<i style="padding: 0px 20px 0px 0px" class="fab fa-instagram"></i>
@@ -120,7 +105,7 @@ $(document).ready(function (){
 
 	<!-- Page Buttons -->
 	<div id="hamburgerHolder">
-		<i style="" class="fas fa-grip-horizontal"></i>
+		<i style="" class="fas fa-bars"></i>
 	</div>
 	
 </div>
@@ -129,7 +114,24 @@ $(document).ready(function (){
 </body>
 
 <script>
+$(window).resize(function(){
+	if(isMobile)
+	{
+		$("#sideVideo").css({display: "default"});
+	}
+});
 
+$(document).ready(function (){
+
+	ClickMenuButton();
+	ChangeSize();
+	Start();
+	
+	if(isMobile)
+	{
+		MobileScaling();
+	}
+});
 </script>
 </body>
 </html>
