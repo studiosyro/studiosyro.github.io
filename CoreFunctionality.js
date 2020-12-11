@@ -10,18 +10,23 @@ var lastValue;
 
 function Start(){
 
-	//Check the window size and set isMobile
+	//Check the window size and set isMobile if less than 500
 	if($(window).width() <= 500)
 	{
 		isMobile = true;
 		$("#standard").css({display: "none"});
 		$("#mobile").css({display: ""});
+		$("#hamburgerHolder").css({display: ""});
+		$("#menuButtonHolder").css({display: "none"});
+		
 	}
 	if($(window).width() > 500)
 	{
 		isMobile = false;
 		$("#standard").css({display: ""});
 		$("#mobile").css({display: "none"});
+		$("#hamburgerHolder").css({display: "none"});
+		$("#menuButtonHolder").css({display: ""});
 	}
 	ChangeSize();
 	ChangeSize();
@@ -47,10 +52,10 @@ function Hide(){
 function Transition(url){
 
 	$("#loadingBlock").css({display: "inline-block"});
-	$("#loadingBlock").animate({opacity: 1}, 500);
+	$("#loadingBlock").animate({opacity: 1}, 800);
 	pageURL = url;
 	console.log(pageURL);
-	setTimeout(LoadPage, 500);
+	setTimeout(LoadPage, 800);
 }
 
 function LoadPage(){
@@ -85,17 +90,24 @@ $(window).resize(function(){
 
 function ChangeSize(){
 
-	if(!isMobile)
-	{
-		StandardController ();
-		StandardController ();
-	}
 	
 	if(isMobile)
 	{
 		MobileController ();
 		MobileController ();
+		
+		$("#hamburgerHolder").css({display: ""});
+		$("#menuButtonHolder").css({display: "none"});
 	}
+	
+	if(!isMobile)
+	{
+		StandardController ();
+		StandardController ();
+		$("#hamburgerHolder").css({display: "none"});
+		$("#menuButtonHolder").css({display: ""});
+	}
+	
 	
 	Animations();
 	
@@ -106,6 +118,7 @@ function ChangeSize(){
 	$("#logoButton").css({left: centerLeft,});
 	$("#logoButton").find('img').eq(1).css({top: -$("#logoButton").find('img').eq(0).height()});
 	$("#hamburgerHolder").css({right: centerLeft,});
+	$("#menuButtonHolder").css({right: centerLeft,});
 	$("#textHolder").css({left: $("#sideVideo").width(),});
 	
 	if(!isMobile)
@@ -164,6 +177,36 @@ function ChangeSize(){
 		});
 	
 	});
+	
+	//Menu Buttons
+	$("#menuButtonHolder").find(".menuButton").each(function(index, element){
+		
+		//$(element).find('img').eq(1).css({top: -$(element).find('img').eq(0).height()});
+		$(element).css({
+			left: ($(element).width() + 10) * index,
+			top:  $("#menuButtonHolder").height()/2 - $(element).height()/2,
+			width: $("#menuButtonHolder").width()/2 - 3,
+			//height:$(element).find('img').eq(0).height(),
+		});
+	
+		$(element).mouseenter(function() {
+			
+			$(element).find('img').eq(0).stop();
+			$(element).find('img').eq(1).stop();
+			$(element).find('img').eq(0).animate({opacity: 0}, 300);
+			$(element).find('img').eq(1).animate({opacity: 1}, 300);
+		});
+		$(element).mouseleave(function() {
+			
+			$(element).find('img').eq(0).stop();
+			$(element).find('img').eq(1).stop();
+			$(element).find('img').eq(0).animate({opacity: 1}, 300);
+			$(element).find('img').eq(1).animate({opacity: 0}, 300);
+
+		});
+	
+	});
+	
 	
 //-------------------------
 }
@@ -271,7 +314,7 @@ function ClickMenuButton(){
 	$('#hamburgerHolder').click(function() {
 		$('#menu').stop();
 		isOpen = !isOpen;
-		//console.log(isOpen);
+		console.log(isOpen);
 		
 		var backImgSource;
 		var maxRandomValue = 8;
@@ -279,7 +322,7 @@ function ClickMenuButton(){
 		
 		if(isOpen)
 		{	
-			//Dont allow doops just add one if less than max
+			//Dont allow doops just add one if there is a repeat and is less than max
 			if(lastValue == randy)
 			{
 				if(randy < maxRandomValue)
@@ -317,7 +360,7 @@ function ClickMenuButton(){
 				backImgSource = "images/gifs/dolphin.gif";
 			}
 			
-			$('#menu').css({'background-image': "url(" + backImgSource + ")"});
+			//$('#menu').css({'background-image': "url(" + backImgSource + ")"});
 			lastValue = randy;
 		}
 		
@@ -499,6 +542,8 @@ function MobileController (){
 	
 	//Size the Banner
 	$("#bannerHolder").css({left: 0, width: "100%",});
+	
+	
 	
 	var rowWidth;
 	//Control each row height

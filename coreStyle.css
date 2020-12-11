@@ -140,10 +140,39 @@ particle {
 	height: 100%;	
 	right: 0px;
 	top: 0px;
-	z-index: 99;
+	z-index: 98;
 	pointer-events: none;
 	
 }
+/* Menu buttons ------------------*/
+#menuButtonHolder{
+	position: absolute;
+	width: 200px;
+	height: 80px;	
+	right: 80px;
+	top: 25px;
+	z-index: 99;
+	//pointer-events: none;
+	//background-color: green;
+}
+
+.menuButton{
+	position: absolute;
+	display: inline-block;
+	top: 100px;
+	left: 150px;
+	width: 50%;
+	height: 33%;
+	cursor: pointer;
+	//background-color: #131824;
+	z-index: 100;
+}
+.menuButton img{
+	position: absolute;
+	margin: auto;
+	width: 100%;
+}
+/*--------------------------------*/
 
 #menu{
 	position: fixed;
@@ -157,8 +186,9 @@ particle {
 	//background-image: url('images/gifs/blueGreenWaves.gif');
 	//background-image: url('images/gifs/bluePurpleAmbient.gif');
 	//background-image: url('images/gifs/water.gif');
-	background-image: url('images/gifs/Money.webp');
+	//background-image: url('images/gifs/Money.webp');
 	//background-color: #2b344d;
+	background-color: rgba(0,0,0, 0.8);
 	
 	//background-size: 100px;
 	//background-repeat: no-repeat;
