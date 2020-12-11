@@ -38,7 +38,7 @@ particle {
 	left: 50%;
 	width: 50%;
 	height: 50%;
-	z-index: 99;
+	z-index: 98;
 	-ms-transform:translate(-50%, -50%);
 	transform:translate(-50%, -50%);
 	
@@ -144,7 +144,7 @@ particle {
 	pointer-events: none;
 	
 }
-/* Menu buttons ------------------*/
+/*Menu buttons ------------------*/
 #menuButtonHolder{
 	position: absolute;
 	width: 200px;
@@ -197,59 +197,6 @@ particle {
 	//box-shadow: 8px 8px 40px black;
 	
 }
-
-
-
-/*
-@media only screen and (min-width: 0px) {
-
-	#socialHolder{
-		position: fixed;
-		z-index: 1;
-		width: 100%;
-		right: 0px;
-		bottom: 60px;
-		display: flex;
-		align-items: center;
-		justify-content: center
-	}
-
-	.socialIcon{
-		width: 7%;
-		z-index: 1;
-		padding: 10px;
-		cursor: pointer;
-	}
-}
-
-@media only screen and (min-width: 901px) {
-
-	#socialHolder{
-		position: fixed;
-		z-index: 1;
-		width: 300px;
-		right: -40px;
-		bottom: 80px;
-		display: block;
-		align-items: ;
-		justify-content: ;
-	}
-
-	.socialIcon{
-		width: 10%;
-		z-index: 1;
-		padding: 10px;
-		cursor: pointer;
-		filter: brightness(100%)
-	}
-}
-
-.socialIcon:hover{
-	//filter: brightness(400%);
-    -webkit-filter: drop-shadow(-2px -2px 0px #FF5285);
-    filter: drop-shadow(-3px -3px 0px #FF5285);
-}
-*/
 
 
 

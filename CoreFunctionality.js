@@ -98,14 +98,37 @@ function ChangeSize(){
 		
 		$("#hamburgerHolder").css({display: ""});
 		$("#menuButtonHolder").css({display: "none"});
+		$("#sideLoopHolder").css({display: "none"});
+		
+		//Set the textHolder
+		$("#textHolder").css({
+			left: 0,
+			paddingLeft: 0,
+			width: '100%',
+		});
+		$(".header").css({
+			fontSize: 45,
+			padding: 10,
+			textAlign: 'center',
+		});
+		
+		$(".bodyText").css({
+			fontSize: 18,
+			padding: 10,
+			textAlign: 'center',
+
+		});
 	}
 	
 	if(!isMobile)
 	{
 		StandardController ();
 		StandardController ();
+		
 		$("#hamburgerHolder").css({display: "none"});
 		$("#menuButtonHolder").css({display: ""});
+		$("#sideLoopHolder").css({display: ""});
+		$("#textHolder").css({left: $("#sideVideo").width(),});
 	}
 	
 	
@@ -119,7 +142,7 @@ function ChangeSize(){
 	$("#logoButton").find('img').eq(1).css({top: -$("#logoButton").find('img').eq(0).height()});
 	$("#hamburgerHolder").css({right: centerLeft,});
 	$("#menuButtonHolder").css({right: centerLeft,});
-	$("#textHolder").css({left: $("#sideVideo").width(),});
+
 	
 	if(!isMobile)
 	{
@@ -542,8 +565,6 @@ function MobileController (){
 	
 	//Size the Banner
 	$("#bannerHolder").css({left: 0, width: "100%",});
-	
-	
 	
 	var rowWidth;
 	//Control each row height
