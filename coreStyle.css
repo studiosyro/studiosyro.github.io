@@ -144,6 +144,30 @@ particle {
 	pointer-events: none;
 	
 }
+#menu{
+	position: fixed;
+	left: 10000px;
+	//right: 0px;
+	width: 500px;
+	top: 0px;
+	bottom: 0px;
+	
+	//background-color: blue;
+	//background-image: url('images/gifs/blueGreenWaves.gif');
+	//background-image: url('images/gifs/bluePurpleAmbient.gif');
+	//background-image: url('images/gifs/water.gif');
+	//background-image: url('images/gifs/Money.webp');
+	//background-color: #2b344d;
+	background-color: rgba(0,0,0, 0.8);
+	
+	//background-size: 100px;
+	//background-repeat: no-repeat;
+	background-size: 100px;
+	pointer-events: auto;
+	//box-shadow: 8px 8px 40px black;
+	
+}
+
 /*Menu buttons ------------------*/
 #menuButtonHolder{
 	position: absolute;
@@ -174,27 +198,16 @@ particle {
 }
 /*--------------------------------*/
 
-#menu{
-	position: fixed;
-	left: 10000px;
-	//right: 0px;
-	width: 500px;
+#videoPlayerHolder{
+	position: absolute;
+	//display: none;
 	top: 0px;
-	bottom: 0px;
-	
-	//background-color: blue;
-	//background-image: url('images/gifs/blueGreenWaves.gif');
-	//background-image: url('images/gifs/bluePurpleAmbient.gif');
-	//background-image: url('images/gifs/water.gif');
-	//background-image: url('images/gifs/Money.webp');
-	//background-color: #2b344d;
+	left: 0px;
+	bottom: -1000px;
+	right: 0px;
 	background-color: rgba(0,0,0, 0.8);
+	overflow: hidden;
 	
-	//background-size: 100px;
-	//background-repeat: no-repeat;
-	background-size: 100px;
-	pointer-events: auto;
-	//box-shadow: 8px 8px 40px black;
 	
 }
 
