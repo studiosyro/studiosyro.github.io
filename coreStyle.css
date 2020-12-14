@@ -29,7 +29,7 @@ particle {
 	width: 85%;
 	//border: 1px solid #73AD21;
 	//padding: 120px 0px 0px 0px;
-	top: 100px;
+	top: 120px;
 }
 
 #centerAnnouncement{
@@ -76,7 +76,7 @@ particle {
 
 #logoButton{
 	position: absolute;
-	top: 25px;
+	top: 35px;
 	left: 80px;
 	width: 155px;
 	height: 65px;
@@ -174,7 +174,7 @@ particle {
 	width: 200px;
 	height: 80px;	
 	right: 80px;
-	top: 25px;
+	top: 35px;
 	z-index: 99;
 	//pointer-events: none;
 	//background-color: green;
@@ -199,12 +199,10 @@ particle {
 /*--------------------------------*/
 
 #videoPlayerHolder{
-	position: absolute;
+	position: fixed;
 	//display: none;
-	top: 0px;
-	left: 0px;
-	bottom: -1000px;
-	right: 0px;
+	width: 50%;
+	height: 50%;
 	background-color: rgba(0,0,0, 0.8);
 	overflow: hidden;
 	

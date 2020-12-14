@@ -113,7 +113,7 @@ function ChangeSize(){
 		});
 		
 		$(".bodyText").css({
-			fontSize: 18,
+			fontSize: 14,
 			padding: 10,
 			textAlign: 'center',
 
