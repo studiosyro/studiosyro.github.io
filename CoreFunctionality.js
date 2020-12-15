@@ -1,6 +1,7 @@
 //Global Vars ----
 var pageURL;
 var isMobile;
+var hasRow;
 //----------------
 
 //Core Vars-------
@@ -11,7 +12,7 @@ var lastValue;
 function Start(){
 
 	//Check the window size and set isMobile if less than 500
-	if($(window).width() <= 500)
+	if($(window).width() < 800)
 	{
 		isMobile = true;
 		$("#standard").css({display: "none"});
@@ -20,7 +21,7 @@ function Start(){
 		$("#menuButtonHolder").css({display: "none"});
 		
 	}
-	if($(window).width() > 500)
+	if($(window).width() >= 800)
 	{
 		isMobile = false;
 		$("#standard").css({display: ""});
@@ -116,7 +117,6 @@ function ChangeSize(){
 			fontSize: 14,
 			padding: 10,
 			textAlign: 'center',
-
 		});
 	}
 	
@@ -129,6 +129,68 @@ function ChangeSize(){
 		$("#menuButtonHolder").css({display: ""});
 		$("#sideLoopHolder").css({display: ""});
 		$("#textHolder").css({left: $("#sideVideo").width(),});
+		
+		//Set the textHolder
+		
+		if($(window).width() <= 1500 && $(window).width() > 1400){
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '48%',
+			});
+			
+			$(".header").css({
+				fontSize: 72,
+				padding: 0,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 26,
+				padding: 0,
+				textAlign: '',
+			});
+		}
+		if($(window).width() <= 1400 && $(window).width() > 1200){
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '48%',
+			});
+			
+			$(".header").css({
+				fontSize: 72,
+				padding: 0,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 26,
+				padding: 0,
+				textAlign: '',
+			});
+		}
+		
+		if($(window).width() <= 1200){
+
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '60%',
+			});
+			
+			$(".header").css({
+				fontSize: 68,
+				padding: 0,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 26,
+				padding: 0,
+				textAlign: '',
+			});
+		}
 	}
 	
 	
@@ -142,19 +204,64 @@ function ChangeSize(){
 	$("#logoButton").find('img').eq(1).css({top: -$("#logoButton").find('img').eq(0).height()});
 	$("#hamburgerHolder").css({right: centerLeft,});
 	$("#menuButtonHolder").css({right: centerLeft,});
-
+	
+	//Set social buttons for work page
+	if(hasRow){
+		if(!isMobile)
+		{
+			$("#socialHolder").css({
+				width: "",
+				right: centerLeft,
+				top: $(document.body).find(".row").eq(1).height() + $(document.body).find(".row").eq(1).offset().top + 13,
+			});
+		}
+	
+		if(isMobile)
+		{		
+			$("#socialHolder").css({
+				width: "100%",
+				right: 0,
+				top: $(document.body).find(".row").eq(4).height() + $(document.body).find(".row").eq(4).offset().top + 13,
+			});
+		}
+	}
+		
+	//Set social buttons for home page
+	if(!hasRow){
+		if(!isMobile)
+		{
+			$("#socialHolder").css({
+				width: "",
+				right: centerLeft,
+				top: $("#videoContainer").height() - 115,
+			});
+		}
+	
+		if(isMobile)
+		{		
+			$("#socialHolder").css({
+				width: "100%",
+				right: 0,
+				top: $("#videoContainer").height() - 115,
+			});
+		}
+	}
+	
 	
 	if(!isMobile)
 	{
 		$('#menu').css({width: $(window).width()/3, left: $(window).width()});
 		$('#menuHolder').css({width: $(window).width()/3});
+		
 	}
 	if(isMobile)
 	{
 		$('#menu').css({width: $(window).width(), left: $(window).width()});
 		$('#menuHolder').css({width: $(window).width()});
 		$(".center").css({top: 110});
-		$("#logoButton").css({});
+		$("#logoButton").css({
+			top: "25px",
+		});
 	}
 	
 	//Animate Logo Button
@@ -179,7 +286,7 @@ function ChangeSize(){
 		//$(element).find('img').eq(1).css({top: -$(element).find('img').eq(0).height()});
 		$(element).css({
 			left: $("#menu").width()/2 - $(element).width()/2,
-			top: 200 + 150 * index,
+			top: 150 + 150 * index,
 			//height:$(element).find('img').eq(0).height(),
 		});
 	
@@ -229,7 +336,6 @@ function ChangeSize(){
 		});
 	
 	});
-	
 	
 //-------------------------
 }
@@ -561,6 +667,11 @@ function MobileController (){
 		position: "absolute",
 		left: 0,
 		right: 0,
+		backgroundColor: "",
+	});
+	
+	$("#logoButton").css({
+		width: "130",
 	});
 	
 	//Size the Banner

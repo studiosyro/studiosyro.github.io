@@ -34,12 +34,13 @@ $(document).ready(function (){
 	ClickMenuButton();
 	ChangeSize();
 	Start();
+	hasRow = true;
 });
 
 </script>
 
 
-<body style="height: 100%; background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
+<body style="/*height: 1000px;*/ background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
 
 <div class="center">
     <div id="bannerHolder" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/')">
@@ -48,6 +49,7 @@ $(document).ready(function (){
 		<div class="topLeft topText">Oculus</div>
 		<div class="topLeft bottomText">Tales from Soda Island</div>
 	</div>
+	
 	
 	<div id="standard">
 		<div class="row" style="top:317px;">
@@ -104,6 +106,7 @@ $(document).ready(function (){
 				<div class="topLeft bottomText">Live show artwork</div>
 			</div>
 		</div>
+		
 	</div>
 	
 	<div id="mobile" style="display: none;">
@@ -154,8 +157,6 @@ $(document).ready(function (){
 	
 </div>
 
-
-
 <!-- Base -->
 <div>
 	<div id="loadingBlock"></div>
@@ -171,7 +172,6 @@ $(document).ready(function (){
 			<img style="opacity: 0" src="images/website/about2.png"/>
 		</div>	
 	</div>
-	
 	
 	<!-- Slide out Menu -->
 	<div id="menuHolder">
@@ -203,7 +203,16 @@ $(document).ready(function (){
 	<div id="hamburgerHolder">
 		<i style="" class="fas fa-bars"></i>
 	</div>
-	
+
+	<!-- Social Menu -->
+	<div>
+		<p id="socialHolder">
+			<i class="fab fa-instagram" onclick="window.open('https://www.instagram.com/studiosyro/')"></i>
+			<i class="fab fa-facebook"  onclick="window.open('https://www.facebook.com/studiosyro')"></i>
+			<i class="fab fa-twitter"   onclick="window.open('https://twitter.com/studiosyro/')"></i>
+			<i class="fab fa-linkedin"  onclick="window.open('https://www.linkedin.com/company/studio-syro/')"></i>
+		</p>
+	</div>
 	
 </div>
 <!-- End Base -->

@@ -25,7 +25,8 @@
 }
 
 #sideVideo{
-	width: 20%;
+	//height: 500px;
+	width: 21%;
 	position: absolute;
 }
 
@@ -50,6 +51,11 @@
 p i{
 	padding: 0px 20px;
 	font-size: 25px;
+	cursor: pointer;
+	
+}
+p i:hover{
+	color: #3BECFC;
 }
 
 

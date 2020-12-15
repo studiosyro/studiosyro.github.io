@@ -29,7 +29,7 @@ particle {
 	width: 85%;
 	//border: 1px solid #73AD21;
 	//padding: 120px 0px 0px 0px;
-	top: 120px;
+	top: 130px;
 }
 
 #centerAnnouncement{
@@ -71,7 +71,6 @@ particle {
 	z-index: 100;
 	-ms-transform:translate(-50%, -50%);
 	transform:translate(-50%, -50%);
-	
 }
 
 #logoButton{
@@ -118,7 +117,7 @@ particle {
 
 #hamburgerHolder{
 	position: absolute;
-	top: 45px;
+	top: 35px;
 	right: 120px;
 	width: 60px;
 	height: 40px;
@@ -129,8 +128,8 @@ particle {
 	//color: #3CECFF;
 	color: white;
 	position: absolute;
-	font-size: 45px;
-	right: 20px;
+	font-size: 35px;
+	right: 15px;
 	bottom: 0px;
 }
 
@@ -198,15 +197,33 @@ particle {
 }
 /*--------------------------------*/
 
+#socialHolder{
+	position: absolute;
+	right: 180px;
+	top: 0px;
+	color: white;
+	font-size: 25px;
+	//background-color: black;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#socialHolder i{
+	padding: 20px;
+	
+}
+
+#socialHolder i:hover{
+	color: #3BECFC;
+}
+
 #videoPlayerHolder{
 	position: fixed;
 	//display: none;
 	width: 50%;
 	height: 50%;
 	background-color: rgba(0,0,0, 0.8);
-	overflow: hidden;
-	
-	
+	overflow: hidden;	
 }
 
 
