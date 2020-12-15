@@ -25,15 +25,16 @@
 }
 
 #sideVideo{
-	//height: 500px;
-	width: 21%;
 	position: absolute;
+	height: 550px;
+	//width: 21%;
+	
 }
 
 #textHolder{
 	position: absolute;
 	color: white; 
-	padding-left: 25px;
+	padding-left: 125px;
 	width: 48%;
 	left: 0px;
 }

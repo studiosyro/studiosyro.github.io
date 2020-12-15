@@ -225,6 +225,9 @@ particle {
 	background-color: rgba(0,0,0, 0.8);
 	overflow: hidden;	
 }
+.noWrap{
+	white-space: nowrap;
+}
 
 
 

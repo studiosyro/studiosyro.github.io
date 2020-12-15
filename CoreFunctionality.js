@@ -90,89 +90,124 @@ $(window).resize(function(){
 });
 
 function ChangeSize(){
-
 	
 	if(isMobile)
 	{
 		MobileController ();
-		MobileController ();
-		
+		MobileController ();		
 		$("#hamburgerHolder").css({display: ""});
 		$("#menuButtonHolder").css({display: "none"});
 		$("#sideLoopHolder").css({display: "none"});
-		
-		//Set the textHolder
-		$("#textHolder").css({
-			left: 0,
-			paddingLeft: 0,
-			width: '100%',
-		});
-		$(".header").css({
-			fontSize: 45,
-			padding: 10,
-			textAlign: 'center',
-		});
-		
-		$(".bodyText").css({
-			fontSize: 14,
-			padding: 10,
-			textAlign: 'center',
-		});
 	}
 	
 	if(!isMobile)
 	{
 		StandardController ();
-		StandardController ();
-		
+		StandardController ();		
 		$("#hamburgerHolder").css({display: "none"});
 		$("#menuButtonHolder").css({display: ""});
-		$("#sideLoopHolder").css({display: ""});
-		$("#textHolder").css({left: $("#sideVideo").width(),});
-		
-		//Set the textHolder
-		
-		if($(window).width() <= 1500 && $(window).width() > 1400){
-			
-			$("#textHolder").css({
-				paddingLeft: 25,
-				width: '48%',
-			});
-			
-			$(".header").css({
-				fontSize: 72,
-				padding: 0,
-				textAlign: '',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 26,
-				padding: 0,
-				textAlign: '',
-			});
-		}
-		if($(window).width() <= 1400 && $(window).width() > 1200){
-			
-			$("#textHolder").css({
-				paddingLeft: 25,
-				width: '48%',
-			});
-			
-			$(".header").css({
-				fontSize: 72,
-				padding: 0,
-				textAlign: '',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 26,
-				padding: 0,
-				textAlign: '',
-			});
-		}
-		
-		if($(window).width() <= 1200){
+		$("#sideLoopHolder").css({display: ""});		
+	}
+	
+	
+//Scale the about page-----
+	if(isMobile)
+	{
+		if($(window).width() < 800 && $(window).width() > 600){
 
+			$("#textHolder").css({
+				left: 0,
+				paddingLeft: 0,
+				width: '100%',
+			});
+			$(".header").css({
+				fontSize: 45,
+				padding: 10,
+				//textAlign: 'center',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 23.3,
+				padding: 10,
+				//textAlign: 'center',
+			});
+		}
+		if($(window).width() <= 600 && $(window).width() > 500){
+
+			$("#textHolder").css({
+				left: 0,
+				paddingLeft: 0,
+				width: '100%',
+			});
+			$(".header").css({
+				fontSize: 45,
+				padding: 10,
+				//textAlign: 'center',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 20,
+				padding: 10,
+				//textAlign: 'center',
+			});
+		}
+		if($(window).width() <= 500){
+
+			$("#textHolder").css({
+				left: 0,
+				paddingLeft: 0,
+				width: '100%',
+			});
+			$(".header").css({
+				fontSize: 40,
+				padding: 10,
+				//textAlign: 'center',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 13,
+				padding: 10,
+				//textAlign: 'center',
+			});
+		}
+	}
+	
+	if(!isMobile)
+	{
+		$("#textHolder").css({
+			paddingLeft: 25,
+			width: '48%',
+			left: $("#sideVideo").width(),
+		});
+			
+		//Set the textHolder
+		if($(window).width() > 1600){
+			
+			$("#sideVideo").css({
+				height: $("#textHolder").height(),
+			});
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '48%',
+			});
+			
+			$(".header").css({
+				fontSize: 72,
+				padding: 0,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 26,
+				textAlign: '',
+			});
+		}
+		if($(window).width() <= 1600 && $(window).width() > 1500){
+			
+			$("#sideVideo").css({
+				height: 680,
+			});
 			
 			$("#textHolder").css({
 				paddingLeft: 25,
@@ -180,21 +215,106 @@ function ChangeSize(){
 			});
 			
 			$(".header").css({
-				fontSize: 68,
-				padding: 0,
+				fontSize: 65,
 				textAlign: '',
 			});
 			
 			$(".bodyText").css({
 				fontSize: 26,
-				padding: 0,
+				textAlign: '',
+			});
+		}
+		
+		if($(window).width() <= 1500 && $(window).width() > 1400){
+			
+			$("#sideVideo").css({
+				height: 670,
+			});
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '65%',
+			});
+			
+			$(".header").css({
+				fontSize: 65,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 26,
+				textAlign: '',
+			});
+		}
+		if($(window).width() <= 1400 && $(window).width() > 1300){
+			
+			$("#sideVideo").css({
+				height: 670,
+			});
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '70%',
+			});
+			
+			$(".header").css({
+				fontSize: 65,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 24,
+				textAlign: '',
+			});
+		}
+		
+		if($(window).width() <= 1300 && $(window).width() > 1000){
+			
+			$("#sideVideo").css({
+				height: 720,
+			});
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '60%',
+			});
+			
+			$(".header").css({
+				fontSize: 65,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 20,
+				textAlign: '',
+			});
+		}
+		if($(window).width() <= 1000 && $(window).width() >= 800){
+			
+			$("#sideVideo").css({
+				height: 300,
+			});
+			
+			$("#textHolder").css({
+				paddingLeft: 25,
+				width: '70%',
+			});
+			
+			$(".header").css({
+				fontSize: 45,
+				textAlign: '',
+			});
+			
+			$(".bodyText").css({
+				fontSize: 18,
 				textAlign: '',
 			});
 		}
 	}
 	
+	//-------------------------
 	
-	Animations();
+Animations();
 	
 	
 //Core Functionality---------
