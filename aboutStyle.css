@@ -28,14 +28,13 @@
 	position: absolute;
 	height: 550px;
 	//width: 21%;
-	
 }
 
 #textHolder{
 	position: absolute;
 	color: white; 
 	//padding-left: 25px;
-	width: 48%;
+	width: 60%;
 	left: 350px;
 }
 .header{
@@ -47,7 +46,7 @@
 .bodyText{
 	font-size: 26px;
 	font-family: DIN-Next;
-	line-height: 32px;
+	line-height: 35px;
 }
 p i{
 	padding: 0px 20px;

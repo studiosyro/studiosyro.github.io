@@ -23,15 +23,6 @@ particle {
 }
 
 /*Core Elements----------------*/
-.center {
-	position: relative;
-	margin: auto;
-	width: 85%;
-	//border: 1px solid #73AD21;
-	//padding: 120px 0px 0px 0px;
-	top: 130px;
-}
-
 #centerAnnouncement{
 	position: absolute;
 	top: 50%;
@@ -240,6 +231,13 @@ particle {
 	width:100%;
 }
 
+#videoPlayer div{
+	
+	color: white;
+	font-family: DIN-Next; 
+	font-size: 20px; 
+}
+
 #closeButton{
 	color: rgba(255,255,255, 0.2);
 	position: absolute;
@@ -252,14 +250,6 @@ particle {
 #closeButton:hover{
 	color: white;
 }
-
-#videoPlayer div{
-	
-	color: white;
-	font-family: DIN-Next; 
-	font-size: 20px; 
-}
-
 
 
 

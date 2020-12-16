@@ -114,7 +114,7 @@ function ChangeSize(){
 	if(isMobile)
 	{
 		if($(window).width() < 800 && $(window).width() > 600){
-
+			/*
 			$("#textHolder").css({
 				left: 0,
 				paddingLeft: 0,
@@ -131,53 +131,18 @@ function ChangeSize(){
 				padding: 10,
 				//textAlign: 'center',
 			});
+			*/
 		}
 		if($(window).width() <= 600 && $(window).width() > 500){
 
-			$("#textHolder").css({
-				left: 0,
-				paddingLeft: 0,
-				width: '100%',
-			});
-			$(".header").css({
-				fontSize: 45,
-				padding: 10,
-				//textAlign: 'center',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 20,
-				padding: 10,
-				//textAlign: 'center',
-			});
 		}
 		if($(window).width() <= 500){
 
-			$("#textHolder").css({
-				left: 0,
-				paddingLeft: 0,
-				width: '100%',
-			});
-			$(".header").css({
-				fontSize: 40,
-				padding: 10,
-				//textAlign: 'center',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 13,
-				padding: 10,
-				//textAlign: 'center',
-			});
 		}
 	}
 	
 	if(!isMobile)
 	{
-		
-		$("#sideVideo").css({
-			height: $("#textHolder").height(),
-		});
 			
 		//Set the textHolder
 		if($(window).width() > 1600){
@@ -185,7 +150,7 @@ function ChangeSize(){
 			$("#sideVideo").css({
 				height: $("#textHolder").height(),
 			});
-			
+			/*
 			$("#textHolder").css({
 				paddingLeft: 25,
 				width: '48%',
@@ -202,113 +167,29 @@ function ChangeSize(){
 				fontSize: 26,
 				textAlign: '',
 			});
+			*/
 		}
 		if($(window).width() <= 1600 && $(window).width() > 1500){
 			
-			$("#sideVideo").css({
-				height: 680,
-			});
 			
-			$("#textHolder").css({
-				paddingLeft: 25,
-				width: '60%',
-			});
-			
-			$(".header").css({
-				fontSize: 65,
-				textAlign: '',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 26,
-				textAlign: '',
-			});
 		}
 		
 		if($(window).width() <= 1500 && $(window).width() > 1400){
 			
-			$("#sideVideo").css({
-				height: 670,
-			});
 			
-			$("#textHolder").css({
-				paddingLeft: 25,
-				width: '65%',
-			});
-			
-			$(".header").css({
-				fontSize: 65,
-				textAlign: '',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 26,
-				textAlign: '',
-			});
 		}
 		if($(window).width() <= 1400 && $(window).width() > 1300){
 			
-			$("#sideVideo").css({
-				height: 670,
-			});
 			
-			$("#textHolder").css({
-				paddingLeft: 25,
-				width: '70%',
-			});
-			
-			$(".header").css({
-				fontSize: 65,
-				textAlign: '',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 24,
-				textAlign: '',
-			});
 		}
 		
 		if($(window).width() <= 1300 && $(window).width() > 1000){
 			
-			$("#sideVideo").css({
-				height: 720,
-			});
 			
-			$("#textHolder").css({
-				paddingLeft: 25,
-				width: '60%',
-			});
-			
-			$(".header").css({
-				fontSize: 65,
-				textAlign: '',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 20,
-				textAlign: '',
-			});
 		}
 		if($(window).width() <= 1000 && $(window).width() >= 800){
 			
-			$("#sideVideo").css({
-				height: 300,
-			});
 			
-			$("#textHolder").css({
-				paddingLeft: 25,
-				width: '70%',
-			});
-			
-			$(".header").css({
-				fontSize: 45,
-				textAlign: '',
-			});
-			
-			$(".bodyText").css({
-				fontSize: 18,
-				textAlign: '',
-			});
 		}
 	}
 	
@@ -346,14 +227,14 @@ Animations();
 		}
 	}
 		
-	//Set social buttons for home page
+	//Set social buttons for home and about page
 	if(!hasRow){
 		if(!isMobile)
 		{
 			$("#socialHolder").css({
 				width: "",
 				right: centerLeft,
-				top: $("#videoContainer").height() - 115,
+				top: $(document).height() - 115,
 			});
 		}
 	
