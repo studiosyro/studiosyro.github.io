@@ -24,6 +24,10 @@
 	top:44px
 }
 
+#sideLoopHolder{
+	
+}
+
 #sideVideo{
 	position: absolute;
 	height: 550px;
@@ -44,6 +48,13 @@
 	
 }
 .bodyText{
+	font-size: 16px;
+	font-family: DIN-Next;
+	line-height: 35px;
+}
+
+#coreText{
+	padding-top: 10px; 
 	font-size: 26px;
 	font-family: DIN-Next;
 	line-height: 35px;
