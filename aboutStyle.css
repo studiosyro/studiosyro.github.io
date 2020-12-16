@@ -34,9 +34,9 @@
 #textHolder{
 	position: absolute;
 	color: white; 
-	padding-left: 125px;
+	//padding-left: 25px;
 	width: 48%;
-	left: 0px;
+	left: 350px;
 }
 .header{
 	font-size: 72px;

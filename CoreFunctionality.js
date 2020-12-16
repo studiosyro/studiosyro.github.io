@@ -174,10 +174,9 @@ function ChangeSize(){
 	
 	if(!isMobile)
 	{
-		$("#textHolder").css({
-			paddingLeft: 25,
-			width: '48%',
-			left: $("#sideVideo").width(),
+		
+		$("#sideVideo").css({
+			height: $("#textHolder").height(),
 		});
 			
 		//Set the textHolder
@@ -190,6 +189,7 @@ function ChangeSize(){
 			$("#textHolder").css({
 				paddingLeft: 25,
 				width: '48%',
+				left: $("#sideVideo").height() * 0.5625,
 			});
 			
 			$(".header").css({
