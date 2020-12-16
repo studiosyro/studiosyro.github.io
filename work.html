@@ -33,8 +33,8 @@ $(document).ready(function (){
 
 	ClickMenuButton();
 	ChangeSize();
-	ChangeSize();
 	Start();
+	SetVideo();
 	hasRow = true;
 });
 
@@ -44,9 +44,13 @@ $(document).ready(function (){
 <body style="/*height: 1000px;*/ background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
 
 <div class="center">
-    <div id="bannerHolder" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/')">
+    <div id="bannerHolder" onclick="
+				OpenVideo('',
+				'The Quantum Race - Tales From Soda Island',
+				'',
+				'');">
 		<img id="banner" src="images/website/work/banner.png">
-		<video id="bannerVideo" muted loop src="videos/neonJungle.mp4" type="video/mp4"></video>
+		<video id="bannerVideo" muted loop src="videos/quantumRaceBanner.mp4" type="video/mp4"></video>
 		<div class="topLeft topText">Oculus</div>
 		<div class="topLeft bottomText">Tales from Soda Island</div>
 	</div>
@@ -54,53 +58,76 @@ $(document).ready(function (){
 	
 	<div id="standard">
 		<div class="row" style="top:317px;">
-			<!-- 
-			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=DFQHD9k5i54&ab_channel=deadmau5')">
+			<div class="rowButton" onclick="
+				OpenVideo(
+				'videos/website/Trailerep2_16x9_v03.mp4', 'The Neon Jungle - Tales from Soda Island',
+				'Continue your journey on Soda Island. Embark on an adventure through the Neon Jungle as you follow a Tadpolotl on its quest to deliver a package through the twisted depths of the jungle.',
+				'Watch now on Oculus TV and Quill Theater!');
+			SetLink('https://www.oculus.com/experiences/media/494265767871123/3609570935722172/');">
 				<img src="images/website/work/jungle.jpg">
 				<video muted loop src="videos/Neon_Jungle_Trailer_Cut_No_Title.mp4" type="video/mp4"></video>
 				<div class="topLeft topText">Oculus</div>
 				<div class="topLeft bottomText">Tales from Soda Island</div>
-			</div>	-->
+			</div>
 	
-			<div class="rowButton" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/275325710172441/')">
+			<div class="rowButton" onclick="
+				OpenVideo('videos/_old/Bakery_Trailer06.mp4',
+				'The Multiverse Bakery - Tales from Soda Island',
+				'Begin your journey to Soda Island! Plunge into the first chapter of the series, “The Multiverse Bakery,” where you will witness a strange ritual with shifting rooms, magical mayhem and cosmic delights.',
+				'Watch now on Oculus TV and Quill Theater!'); 
+			SetLink('https://www.oculus.com/experiences/media/494265767871123/275325710172441/');">
 				<img src="images/website/work/bakery.jpg">
 				<video muted loop src="videos/bakery.mp4" type="video/mp4"></video>
 				<div class="topLeft topText">Oculus</div>
 				<div class="topLeft bottomText">Tales from Soda Island</div>
 			</div>
-			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=YTrCMGBbikU&ab_channel=StudioSyro')">
+			
+			<div class="rowButton" onclick="
+				OpenVideo('videos/website/Dawson College Virtual Grad Shows.mp4',
+				'Dawson College - Virtual Vernissage',
+				'Due to the COVID19 pandemic we produced 6 virtual shows for the students of Dawson College!',
+				''); 
+			SetLink('');">
 				<img src="images/website/work/dawsonCrop.jpg">
 				<video muted loop src="videos/dawson.mp4" type="video/mp4"></video>
 				<div class="topLeft topText">Dawson College</div>
 				<div class="topLeft bottomText">Virtual Vernissage</div>
 			</div>
-
-			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=DFQHD9k5i54&ab_channel=deadmau5')">
+			
+		</div>
+	
+		<div class="row">
+			
+			<div class="rowButton" onclick="
+				OpenVideo('videos/website/deadmau5 & Mr. Bill.mp4',
+				'deadmau5 & Mr.Bill - 10.8',
+				'',
+				''); 
+			SetLink('');">
 				<img src="images/website/work/deadmau5.jpg">
 				<video muted loop src="videos/deadmau5.mp4" type="video/mp4"></video>
 				<div class="topLeft topText">deadmau5</div>
 				<div class="topLeft bottomText">deadmau5 & Mr.Bill 10.8</div>
 			</div>
-			
-		</div>
-	
-		<div class="row">
-			<!--
-			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=DFQHD9k5i54&ab_channel=deadmau5')">
-				<img src="images/website/work/deadmau5.jpg">
-				<video muted loop src="videos/deadmau5.mp4" type="video/mp4"></video>
-				<div class="topLeft topText">deadmau5</div>
-				<div class="topLeft bottomText">deadmau5 & Mr.Bill 10.8</div>
-			</div> -->
 
-			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=KXYCr2pGTfw&ab_channel=Slushii')">
+			<div class="rowButton" onclick="
+				OpenVideo('videos/website/Slushii.mp4',
+				'Slushii - Dreaming of You/Far Away',
+				'',
+				''); 
+			SetLink('');">
 				<img src="images/website/work/slushii.jpg">
 				<video muted loop src="videos/slushii.mp4" type="video/mp4"></video>
 				<div class="topLeft topText">Monstercat</div>
 				<div class="topLeft bottomText">Dreaming of You/Far Away</div>
 			</div>
 			
-			<div class="rowButton">
+			<div class="rowButton"onclick="
+				OpenVideo('videos/website/Mr.Bill2020.mov',
+				'Mr.Bill Tour',
+				'Visuals for Mr.Bill.',
+				''); 
+			SetLink('');">
 				<img src="images/website/work/bill.jpg">
 				<video muted loop src="videos/bill.mp4" type="video/mp4"></video>
 				<div class="topLeft topText">Mr.Bill</div>
@@ -113,33 +140,46 @@ $(document).ready(function (){
 	<div id="mobile" style="display: none;">
 	
 		<div class="row">	
+		
+			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=DFQHD9k5i54&ab_channel=deadmau5')">
+				<img src="images/website/work/jungle.jpg">
+				<div class="topLeft topText">Oculus</div>
+				<div class="topLeft bottomText">Tales from Soda Island</div>
+			</div>
+		
 			<div class="rowButton" onclick="window.open('https://www.oculus.com/experiences/media/494265767871123/275325710172441/')">	
 				<img src="images/website/work/bakery.jpg">	
 				<div class="topLeft topText">Oculus</div>
 				<div class="topLeft bottomText">Tales from Soda Island</div>	
 			</div>	
+			 	
+		</div> 	
+	
+		<div class="row">
+		
 			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=YTrCMGBbikU&ab_channel=StudioSyro')">	
 				<img src="images/website/work/dawsonCrop.jpg"> 	
 				<div class="topLeft topText">Dawson College</div> 	
 				<div class="topLeft bottomText">Virtual Vernissage</div> 	
-			</div> 	
-		</div> 	
-	
-		<div class="row">
+			</div>
+		
 			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=DFQHD9k5i54&ab_channel=deadmau5')"> 	
 				<img src="images/website/work/deadmau5.jpg"> 		
 				<div class="topLeft topText">deadmau5</div> 
 				<div class="topLeft bottomText">deadmau5 & Mr.Bill 10.8</div> 	
 			</div> 	
 			
+			
+		</div> 	
+		
+		<div class="row">
+		
 			<div class="rowButton" onclick="window.open('https://www.youtube.com/watch?v=KXYCr2pGTfw&ab_channel=Slushii')"> 
 				<img src="images/website/work/slushii.jpg"> 		
 				<div class="topLeft topText">Monstercat</div> 	
 				<div class="topLeft bottomText">Dreaming of You/Far Away</div> 	
 			</div> 	
-		</div> 	
 		
-		<div class="row"> 	
 			<div class="rowButton"> 	
 				<img src="images/website/work/bill.jpg"> 	
  	
@@ -148,14 +188,17 @@ $(document).ready(function (){
 			</div> 	
 		</div>
 
+	</div>	
+</div>
+
+<div id="videoPlayerHolder">
+	<div id="videoPlayer">
+		<div id="videoTitle" style="font-size:35px;" class="noWrap">Tales from Soda Island: The Multiverse Bakery</div>
+		<i id="closeButton"onclick="CloseVideo()" class="far fa-times-circle"></i>
+		<video id="video" controls loop src="videos/bakery.mp4" type="video/mp4"></video>
+		<div id="videoText">Begin your journey to Soda Island! Plunge into the first chapter of the series, “The Multiverse Bakery,” where you'll witness a strange ritual with shifting rooms, magical mayhem and cosmic delights.</div>
+		<div id="videoLink" onclick="OpenLink();">Watch now on Oculus TV and Quill Theater!</div>
 	</div>
-	
-	<!--
-	<div id="videoPlayerHolder">
-	
-	</div>
-	-->
-	
 </div>
 
 <!-- Base -->
@@ -164,9 +207,9 @@ $(document).ready(function (){
 	
 	<div id="menuButtonHolder">
 		
-		<div class="menuButton" onclick="Transition('newindex.html');">
-			<img style="" src="images/website/home1.png"/>
-			<img style="opacity: 0" src="images/website/home2.png"/>
+		<div class="menuButton" onclick="Transition('work.html');">
+			<img style="" src="images/website/work2.png"/>
+			<img style="opacity: 0" src="images/website/work1.png"/>
 		</div>
 		<div class="menuButton" onclick="Transition('about.html');">
 			<img style="" src="images/website/about1.png"/>
