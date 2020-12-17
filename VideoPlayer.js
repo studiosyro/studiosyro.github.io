@@ -82,7 +82,7 @@ function OpenVideo(url, title, bottomText, linkText){
 	$("#videoPlayer").css({
 		left: $("#videoPlayerHolder").width()/2 - $("#videoPlayer").width()/2,
 	});
-	$("#videoPlayerHolder").animate({opacity: 1}, 800);
+	$("#videoPlayerHolder").animate({opacity: 1}, 300);
 	$("#video").attr('src', url);
 	$("#video")[0].load();
 	$("#video")[0].volume = 0.25;
@@ -95,7 +95,7 @@ function CloseVideo(){
 	$("#videoPlayerHolder").stop();
 	videoOpen = false;
 	$('#video').trigger('pause');
-	$("#videoPlayerHolder").animate({opacity: 0}, 800);
+	$("#videoPlayerHolder").animate({opacity: 0}, 300);
 	setTimeout(Close, 800);	
 }
 
