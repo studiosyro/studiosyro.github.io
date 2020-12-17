@@ -180,7 +180,7 @@ function ChangeSize(){
 	
 	if(!isMobile)
 	{
-		$(".center").css({top: "160px"});
+		$(".center").css({top: "140px"});
 		//Set the textHolder
 		$("#textHolder").css({
 				paddingLeft: 20,
@@ -301,7 +301,7 @@ function ChangeSize(){
 		if($(window).width() < 970 && $(window).width() >= 800){
 			
 			$("#textHolder").css({
-				width: 490,
+				width: 510,
 			});
 			
 			$(".header").css({
@@ -390,7 +390,7 @@ Animations();
 				$("#socialHolder").css({
 					width: "100%",
 					right: 0,
-					top: $("#textHolder").height() + 115,
+					top: $("#formLink").offset().top + 115,
 				});
 			}
 		}
