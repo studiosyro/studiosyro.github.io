@@ -157,7 +157,7 @@ function ChangeSize(){
 		if($(window).width() <= 580 && $(window).width() >= 0){
 			
 			$("#textHolder").css({
-				left: $(window).width()/2 - $("#textHolder").width()/2 - 5,
+				left: $(window).width()/2 - $("#textHolder").width()/2 - 10,
 				width: '90%',
 			});
 			$(".header").css({
@@ -180,7 +180,7 @@ function ChangeSize(){
 	
 	if(!isMobile)
 	{
-		$(".center").css({top: "140px"});
+		$(".center").css({top: "200px"});
 		//Set the textHolder
 		$("#textHolder").css({
 				paddingLeft: 20,
@@ -919,7 +919,7 @@ function MobileController (){
 		$(element).css({
 			top:"35px",
 			left: "10px",
-			fontSize: "13px",
+			fontSize: "10px",
 		});
 	});
 	
