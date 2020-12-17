@@ -180,7 +180,7 @@ function ChangeSize(){
 	
 	if(!isMobile)
 	{
-		$(".center").css({top: "200px"});
+		$(".center").css({top: "160px"});
 		//Set the textHolder
 		$("#textHolder").css({
 				paddingLeft: 20,

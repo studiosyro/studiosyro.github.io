@@ -221,7 +221,7 @@ particle {
 }
 #videoPlayer{
 	left: 500px;
-	top: 100px;
+	top: 150px;
 	position: fixed;
 	width: 50%;
 	//background-color: grey;
@@ -255,13 +255,15 @@ particle {
 
 #videoTitle{
 	font-family:ASAP-SemiBold; 
-	font-size:35px;	
+	font-size:25px;	
 	font-weight: bold;
 }
 
 #videoText{
 	
 	padding-top: 10px;
+	font-size: 12px;
+	text-align: center;
 }
 
 #videoLink{
@@ -271,6 +273,7 @@ particle {
 	cursor:pointer; 
 	padding-top:10px;
 	white-space: nowrap;
+	text-align: center;
 	
 }
 

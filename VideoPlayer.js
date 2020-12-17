@@ -23,6 +23,34 @@ function SetVideo(){
 	$("#videoPlayer").css({
 		left: $("#videoPlayerHolder").width()/2 - $("#videoPlayer").width()/2,
 	});
+	
+	if(isMobile){
+		
+		$("#videoPlayer").css({
+			width: "100%",
+		});
+		
+		$("#videoTitle").css({
+			fontSize: "18px",
+			marginLeft: "10px"
+		});
+		
+		$("#videoText").css({
+			fontSize: "13px",
+			margin: "10px",
+		});
+		
+		$("#videoLink").css({
+			fontSize: "13px",
+			margin: "10px",
+		});
+		
+		$("#closeButton").css({
+			fontSize: "18px",
+			top: $("#videoTitle").offset().top,
+			marginRight: "10px",
+		});
+	}
 }
 
 function SetLink(url){
