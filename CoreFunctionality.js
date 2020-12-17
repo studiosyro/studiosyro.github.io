@@ -2,6 +2,7 @@
 var pageURL;
 var isMobile;
 var hasRow;
+var isAbout;
 //----------------
 
 //Core Vars-------
@@ -115,8 +116,6 @@ function ChangeSize(){
 	{
 		$(".center").css({top: "120px"});
 		
-		
-		
 		if($(window).width() <= 800 && $(window).width() > 765){
 			$("#textHolder").css({
 				left: 20,
@@ -136,7 +135,7 @@ function ChangeSize(){
 
 		}
 		
-		if($(window).width() <= 765 && $(window).width() > 600){
+		if($(window).width() <= 765 && $(window).width() > 580){
 			$("#textHolder").css({
 				left: 20,
 				width: '80%',
@@ -154,65 +153,26 @@ function ChangeSize(){
 			});
 
 		}
-		if($(window).width() <= 600 && $(window).width() > 580){
-			
-			$("#textHolder").css({
-				left: 10,
-				width: '80%',
-			});
-			$(".header").css({
-				fontSize: 60,
-			});
-			
-			$(".bodyText").css({
-				fontSize: 14,
-			});
-			
-			$("#coreText").css({
-				fontSize: 20,
-			});
-
-		}
 		
-		if($(window).width() <= 580 && $(window).width() > 400){
-			
-			//$(".noWrap").css({whiteSpace: "normal"});
+		if($(window).width() <= 580 && $(window).width() >= 0){
 			
 			$("#textHolder").css({
-				left: 0,
+				left: $(window).width()/2 - $("#textHolder").width()/2 - 5,
 				width: '90%',
 			});
 			$(".header").css({
-				fontSize: 45,
+				fontSize: 38,
 			});
 			
 			$(".bodyText").css({
-				fontSize: 12,
+				fontSize: 15,
+				marginRight: "30px",
 			});
 			
 			$("#coreText").css({
-				fontSize: 18,
-			});
-
-		}
-		
-		if($(window).width() <= 400){
-			
-			$("#textHolder").css({
-				left: 0,
-				width: '90%',
-			});
-			$(".header").css({
-				fontSize: 40,
-			});
-			
-			$(".bodyText").css({
-				fontSize: 9,
-				whiteSpace: "normal"
-			});
-			
-			$("#coreText").css({
-				fontSize: 13,
+				fontSize: 16.5,
+				lineHeight: "25px",
+				marginRight: "20px",
 			});
 
 		}
@@ -220,7 +180,7 @@ function ChangeSize(){
 	
 	if(!isMobile)
 	{
-			
+		$(".center").css({top: "200px"});
 		//Set the textHolder
 		$("#textHolder").css({
 				paddingLeft: 20,
@@ -232,9 +192,16 @@ function ChangeSize(){
 				left: "0px",
 		});
 		
+		$("#coreText").css({
+				lineHeight: "35px",
+				marginRight: "0px",
+		});
 		
-		
-		if($(window).width() < 1600 && $(window).width() >= 1147){
+		if($(window).width() >= 1600){
+			
+			$("#textHolder").css({
+				width: 750,
+			});
 			
 			$(".header").css({
 				fontSize: 72,
@@ -250,7 +217,75 @@ function ChangeSize(){
 			
 		}
 		
-		if($(window).width() < 1147 && $(window).width() >= 1086){
+		if($(window).width() < 1600 && $(window).width() >= 1190){
+			
+			$("#textHolder").css({
+				width: 750,
+			});
+			
+			$(".header").css({
+				fontSize: 72,
+			});
+			
+			$(".bodyText").css({
+				fontSize: 16,
+			});
+			
+			$("#coreText").css({
+				fontSize: 26,
+			});
+			
+		}
+		
+		if($(window).width() < 1190 && $(window).width() >= 1032){
+			
+			
+			$("#textHolder").css({
+				width: 520,
+			});
+			
+			$(".header").css({
+				fontSize: 65,
+			});
+			
+			$(".bodyText").css({
+				fontSize: 16,
+			});
+			
+			$("#coreText").css({
+				fontSize: 26,
+			});
+			
+			
+			$("#textHolder").css({
+
+				left: ($("#sideVideo").height() * 0.5625) - 30,
+			});
+			
+			$("#sideVideo").css({
+				height: $("#textHolder").height(),
+				left: "-30px",
+			});		
+						
+		}
+		
+		if($(window).width() < 1032 && $(window).width() >= 970){
+			
+			$("#textHolder").css({
+				width: 500,
+			});
+			
+			$(".header").css({
+				fontSize: 65,
+			});
+			
+			$(".bodyText").css({
+				fontSize: 16,
+			});
+			
+			$("#coreText").css({
+				fontSize: 26,
+			});
 			
 			$("#textHolder").css({
 
@@ -263,57 +298,38 @@ function ChangeSize(){
 			});			
 		}
 		
-		if($(window).width() < 1086 && $(window).width() >= 1060){
+		if($(window).width() < 970 && $(window).width() >= 800){
+			
+			$("#textHolder").css({
+				width: 490,
+			});
+			
+			$(".header").css({
+				fontSize: 50,
+			});
+			
+			$(".bodyText").css({
+				fontSize: 14,
+			});
+			
+			$("#coreText").css({
+				fontSize: 24,
+			});	
+			
+			$("#sideVideo").css({
+				height: $("#textHolder").height()/2,
+				left: "-30px",
+			});
 			
 			$("#textHolder").css({
 
-				left: ($("#sideVideo").height() * 0.5625) - 80,
+				left: ($("#sideVideo").height() * 0.5625) - 30,
 			});
 			
-			$("#sideVideo").css({
-				height: $("#textHolder").height(),
-				left: "-80px",
-			});			
+					
+		
 		}
 		
-		if($(window).width() < 1060 && $(window).width() >= 1000){
-			
-			$("#textHolder").css({
-
-				left: ($("#sideVideo").height() * 0.5625) - 120,
-			});
-			
-			$("#sideVideo").css({
-				height: $("#textHolder").height(),
-				left: "-120px",
-			});			
-		}
-		
-		if($(window).width() < 1000 && $(window).width() >= 900){
-			
-			$("#textHolder").css({
-
-				left: ($("#sideVideo").height() * 0.5625) - 240,
-			});
-			
-			$("#sideVideo").css({
-				height: $("#textHolder").height(),
-				left: "-240px",
-			});			
-		}
-		
-		if($(window).width() < 900 && $(window).width() >= 800){
-			
-			$("#textHolder").css({
-
-				left: ($("#sideVideo").height() * 0.5625) - 300,
-			});
-			
-			$("#sideVideo").css({
-				height: $("#textHolder").height(),
-				left: "-300px",
-			});			
-		}
 	}
 	
 	//-------------------------
@@ -366,8 +382,17 @@ Animations();
 			$("#socialHolder").css({
 				width: "100%",
 				right: 0,
-				top: $("#videoContainer").height() - 115,
+				top: $(document).height() - 115,
 			});
+			
+			if(isAbout)
+			{		
+				$("#socialHolder").css({
+					width: "100%",
+					right: 0,
+					top: $("#textHolder").height() + 115,
+				});
+			}
 		}
 	}
 	

@@ -221,7 +221,7 @@ particle {
 }
 #videoPlayer{
 	left: 500px;
-	top: 150px;
+	top: 100px;
 	position: fixed;
 	width: 50%;
 	//background-color: grey;

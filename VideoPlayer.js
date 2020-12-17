@@ -36,6 +36,13 @@ function OpenLink(){
 
 function OpenVideo(url, title, bottomText, linkText){
 	
+	$("#videoPlayerHolder").stop();
+	$("#videoPlayerHolder").click(function(){
+	
+		CloseVideo();
+	
+	});
+	
 	videoTitle = title;
 	videoText = bottomText;
 	videoLink = linkText;
@@ -57,6 +64,7 @@ function OpenVideo(url, title, bottomText, linkText){
 
 function CloseVideo(){
 	
+	$("#videoPlayerHolder").stop();
 	videoOpen = false;
 	$('#video').trigger('pause');
 	$("#videoPlayerHolder").animate({opacity: 0}, 800);
