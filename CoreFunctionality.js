@@ -912,12 +912,12 @@ function MobileController (){
 		$(element).css({
 			top: "10px",
 			left: "10px",
-			fontSize: "20px",
+			fontSize: "15px",
 		});
 	});
 	$("#bannerHolder").find(".bottomText").each(function(index, element){
 		$(element).css({
-			top:"35px",
+			top:"30px",
 			left: "10px",
 			fontSize: "10px",
 		});

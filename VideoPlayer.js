@@ -26,6 +26,10 @@ function SetVideo(){
 	
 	if(isMobile){
 		
+		$("#videoPlayerHolder").css({
+			height: "150%",
+		});
+		
 		$("#videoPlayer").css({
 			width: "100%",
 		});
