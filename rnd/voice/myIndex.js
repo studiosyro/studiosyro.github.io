@@ -2,7 +2,6 @@
 var client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
 
 var localTracks = {
-  videoTrack: null,
   audioTrack: null
 };
 var remoteUsers = {};
@@ -28,14 +27,8 @@ $(() => {
   }
 })
 
-function TestFunc(){
-	
-	console.log("HE PUSH THAT BUTTON");
-}
-
 $("#megaJoin").click(async function (e) {
   e.preventDefault();
-  $("#join").attr("disabled", true);
   $("#appid").val('d8c4ce2ba0e0488eaab5f6a84f55c82a');
   $("#token").val('006d8c4ce2ba0e0488eaab5f6a84f55c82aIABdFWDdfo6DXLcBUoxBZHCx15aFNz4HErpw+4hYj/vLgNchpy4AAAAAEABFd1n8E9EmYAEAAQAT0SZg');
   $("#channel").val('Test Room');
@@ -62,24 +55,37 @@ $("#leave").click(function (e) {
   leave();
 })
 
+function Join(){
+    join().then(val => {        
+    })
+}
+
+
 async function join() {
+	
+	$("#join").attr("disabled", true);
+	$("#leave").attr("disabled", false);	
+	$("#appid").val('d8c4ce2ba0e0488eaab5f6a84f55c82a');
+	$("#token").val('006d8c4ce2ba0e0488eaab5f6a84f55c82aIABdFWDdfo6DXLcBUoxBZHCx15aFNz4HErpw+4hYj/vLgNchpy4AAAAAEABFd1n8E9EmYAEAAQAT0SZg');
+	$("#channel").val('Test Room');
+	options.appid = $("#appid").val();
+    options.token = $("#token").val();
+    options.channel = $("#channel").val();
 
   // add event listener to play remote tracks when remote user publishs.
   client.on("user-published", handleUserPublished);
   client.on("user-unpublished", handleUserUnpublished);
 
   // join a channel and create local tracks, we can use Promise.all to run them concurrently
-  [ options.uid, localTracks.audioTrack, localTracks.videoTrack ] = await Promise.all([
+  [ options.uid, localTracks.audioTrack ] = await Promise.all([
     // join the channel
     client.join(options.appid, options.channel, options.token || null),
     // create local tracks, using microphone and camera
     AgoraRTC.createMicrophoneAudioTrack(),
-    AgoraRTC.createCameraVideoTrack()
+
   ]);
-  
-  // play local video track
-  localTracks.videoTrack.play("local-player");
-  $("#local-player-name").text(`localVideo(${options.uid})`);
+
+  $("#local-player-name").text(`localAudio(${options.uid})`);
 
   // publish local tracks to channel
   await client.publish(Object.values(localTracks));
@@ -114,16 +120,6 @@ async function subscribe(user, mediaType) {
   // subscribe to a remote user
   await client.subscribe(user, mediaType);
   console.log("subscribe success");
-  if (mediaType === 'video') {
-    const player = $(`
-      <div id="player-wrapper-${uid}">
-        <p class="player-name">remoteUser(${uid})</p>
-        <div id="player-${uid}" class="player"></div>
-      </div>
-    `);
-    $("#remote-playerlist").append(player);
-    user.videoTrack.play(`player-${uid}`);
-  }
   if (mediaType === 'audio') {
     user.audioTrack.play();
   }
