@@ -7,6 +7,14 @@
   <title>Agora Voice Test</title>
   <link rel="stylesheet" href="./vendor/bootstrap.min.css">
   <link rel="stylesheet" href="./index.css">
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Agora Voice Test.json", {onProgress: UnityProgress});
+  </script>
+  
 </head>
 <body>
   <div class="container-fluid banner">
@@ -61,6 +69,17 @@
         <button id="leave" type="button" class="btn btn-primary btn-sm" disabled>Leave</button>
       </div>
     </form>
+	
+	<div id="unityHolder">
+	<div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">Web Events Platform</div>
+      </div>
+    </div>
+	</div>
 
     <div class="row video-group">
       <div class="col">

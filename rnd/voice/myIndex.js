@@ -82,12 +82,13 @@ async function join() {
   [ options.uid, localTracks.audioTrack ] = await Promise.all([
     // join the channel
     client.join(options.appid, options.channel, options.token || null),
-    // create local tracks, using microphone and camera
+    // create local tracks, using microphone
     AgoraRTC.createMicrophoneAudioTrack(),
 
   ]);
   
   console.log("AHHHHHH: " + options.uid);
+  unityInstance.SendMessage('Local Player', 'SetUID', options.uid);
 
   $("#local-player-name").text(`localAudio(${options.uid})`);
 
