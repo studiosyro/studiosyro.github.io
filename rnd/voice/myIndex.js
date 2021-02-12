@@ -29,9 +29,9 @@ $(() => {
 
 $("#megaJoin").click(async function (e) {
   e.preventDefault();
-  $("#appid").val('d8c4ce2ba0e0488eaab5f6a84f55c82a');
-  $("#token").val('006d8c4ce2ba0e0488eaab5f6a84f55c82aIABdFWDdfo6DXLcBUoxBZHCx15aFNz4HErpw+4hYj/vLgNchpy4AAAAAEABFd1n8E9EmYAEAAQAT0SZg');
-  $("#channel").val('Test Room');
+  $("#appid").val(_appID);
+  $("#token").val(_token);
+  $("#channel").val(_channel);
   
   try {
     options.appid = $("#appid").val();
@@ -60,17 +60,19 @@ function Join(){
     })
 }
 
-
 async function join() {
 	
 	$("#join").attr("disabled", true);
 	$("#leave").attr("disabled", false);	
-	$("#appid").val('d8c4ce2ba0e0488eaab5f6a84f55c82a');
-	$("#token").val('006d8c4ce2ba0e0488eaab5f6a84f55c82aIABdFWDdfo6DXLcBUoxBZHCx15aFNz4HErpw+4hYj/vLgNchpy4AAAAAEABFd1n8E9EmYAEAAQAT0SZg');
-	$("#channel").val('Test Room');
+	$("#appid").val(_appID);
+	$("#token").val(_token);
+	$("#channel").val(_channel);
+	
 	options.appid = $("#appid").val();
     options.token = $("#token").val();
     options.channel = $("#channel").val();
+	
+	console.log(options.uid);
 
   // add event listener to play remote tracks when remote user publishs.
   client.on("user-published", handleUserPublished);
@@ -84,6 +86,8 @@ async function join() {
     AgoraRTC.createMicrophoneAudioTrack(),
 
   ]);
+  
+  console.log("AHHHHHH: " + options.uid);
 
   $("#local-player-name").text(`localAudio(${options.uid})`);
 
@@ -91,6 +95,19 @@ async function join() {
   await client.publish(Object.values(localTracks));
   console.log("publish success");
 }
+$("#megaJoin").click( function () {
+	
+	for (trackName in localTracks) {
+    var track = localTracks[trackName];
+    if(track) {
+      track.stop();
+      track.close();
+      localTracks[trackName] = undefined;
+    }
+  }
+	
+});
+
 
 async function leave() {
   for (trackName in localTracks) {
@@ -122,6 +139,7 @@ async function subscribe(user, mediaType) {
   console.log("subscribe success");
   if (mediaType === 'audio') {
     user.audioTrack.play();
+	console.log(user.audioTrack.getVolumeLevel());
   }
 }
 
