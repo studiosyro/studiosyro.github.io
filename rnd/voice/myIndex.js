@@ -89,6 +89,7 @@ async function join() {
   
   console.log("AHHHHHH: " + options.uid);
   unityInstance.SendMessage('Local Player', 'SetUID', options.uid);
+  setTimeout(SendUID(), 1000);
 
   $("#local-player-name").text(`localAudio(${options.uid})`);
 
@@ -96,6 +97,12 @@ async function join() {
   await client.publish(Object.values(localTracks));
   console.log("publish success");
 }
+
+function SendUID(){
+	
+	
+}
+
 $("#megaJoin").click( function () {
 	
 	for (trackName in localTracks) {
