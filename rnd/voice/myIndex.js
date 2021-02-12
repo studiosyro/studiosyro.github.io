@@ -88,7 +88,7 @@ async function join() {
   ]);
   
   console.log("AHHHHHH: " + options.uid);
-  unityInstance.SendMessage('Local Player', 'SetUID', options.uid);
+  
   setTimeout(SendUID(), 1000);
 
   $("#local-player-name").text(`localAudio(${options.uid})`);
@@ -100,6 +100,7 @@ async function join() {
 
 function SendUID(){
 	
+	unityInstance.SendMessage('Local Player', 'SetUID', options.uid);
 	
 }
 
