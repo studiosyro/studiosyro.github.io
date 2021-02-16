@@ -27,30 +27,6 @@ $(() => {
   }
 })
 
-$("#megaJoin").click(async function (e) {
-  e.preventDefault();
-  $("#appid").val(_appID);
-  $("#token").val(_token);
-  $("#channel").val(_channel);
-  
-  try {
-    options.appid = $("#appid").val();
-    options.token = $("#token").val();
-    options.channel = $("#channel").val();
-    await join();
-    if(options.token) {
-      $("#success-alert-with-token").css("display", "block");
-    } else {
-      $("#success-alert a").attr("href", `index.html?appid=${options.appid}&channel=${options.channel}&token=${options.token}`);
-      $("#success-alert").css("display", "block");
-    }
-  } catch (error) {
-    console.error(error);
-  } finally {
-    $("#leave").attr("disabled", false);
-  }
-})
-
 $("#leave").click(function (e) {
   leave();
 })
@@ -64,61 +40,42 @@ async function join() {
 	
 	$("#join").attr("disabled", true);
 	$("#leave").attr("disabled", false);	
-	$("#appid").val(_appID);
-	$("#token").val(_token);
-	$("#channel").val(_channel);
 	
-	options.appid = $("#appid").val();
-    options.token = $("#token").val();
-    options.channel = $("#channel").val();
+	options.appid = _appID;
+    options.token = _token;
+    options.channel = _channel;
 	console.log(_token);
 
-  // add event listener to play remote tracks when remote user publishs.
-  client.on("user-published", handleUserPublished);
-  client.on("user-unpublished", handleUserUnpublished);
-
-  // join a channel and create local tracks, we can use Promise.all to run them concurrently
-  [ options.uid, localTracks.audioTrack ] = await Promise.all([
-    // join the channel
-    client.join(options.appid, options.channel, options.token || null),
-    // create local tracks, using microphone
-    AgoraRTC.createMicrophoneAudioTrack(),
-
-  ]);
-  
-  console.log("AHHHHHH: " + options.uid);
-  
-  setTimeout(SendUID(), 10000);
-
-  $("#local-player-name").text(`localAudio(${options.uid})`);
-
-  // publish local tracks to channel
-  await client.publish(Object.values(localTracks));
-  console.log("publish success");
+	// add event listener to play remote tracks when remote user publishs.
+	client.on("user-published", handleUserPublished);
+	client.on("user-unpublished", handleUserUnpublished);
+	
+	// join a channel and create local tracks, we can use Promise.all to run them concurrently
+	[ options.uid, localTracks.audioTrack ] = await Promise.all([
+		// join the channel
+		client.join(options.appid, options.channel, options.token || null),
+		// create local tracks, using microphone
+		AgoraRTC.createMicrophoneAudioTrack(),
+	
+	]);
+	
+	console.log("My uid: " + options.uid);
+	
+	setTimeout(SendUID(), 10000);
+	
+	$("#local-player-name").text(`localAudio(${options.uid})`);
+	
+	// publish local tracks to channel
+	await client.publish(Object.values(localTracks));
+	console.log("publish success");
 }
 
 function SendUID(){
 	
 	console.log(options.uid);
-	var uid = options.uid;
-	console.log("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH: " + uid);
-	unityInstance.SendMessage('0', 'SetUID', uid);
+	unityInstance.SendMessage('Local Player', 'SetUID', options.uid);
 	
 }
-
-$("#megaJoin").click( function () {
-	
-	for (trackName in localTracks) {
-    var track = localTracks[trackName];
-    if(track) {
-      track.stop();
-      track.close();
-      localTracks[trackName] = undefined;
-    }
-  }
-	
-});
-
 
 async function leave() {
   for (trackName in localTracks) {
@@ -151,6 +108,7 @@ async function subscribe(user, mediaType) {
   if (mediaType === 'audio') {
     user.audioTrack.play();
 	console.log(user.audioTrack.getVolumeLevel());
+	SetVolue();
   }
 }
 

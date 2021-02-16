@@ -12,11 +12,11 @@
   <script src="TemplateData/UnityProgress.js"></script>
   <script src="Build/UnityLoader.js"></script>
   <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Agora Voice Test.json", {onProgress: UnityProgress});
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Please.json", {onProgress: UnityProgress});
   </script>
   
 </head>
-<body>
+<body onload="">
   <div class="container-fluid banner">
     <p class="banner-text">Basic Voice Call</p>
     <a style="color: rgb(255, 255, 255);fill: rgb(255, 255, 255);fill-rule: evenodd; position: absolute; right: 10px; top: 4px;"
@@ -67,8 +67,15 @@
       <div class="button-group">
         <button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();">Join</button>
         <button id="leave" type="button" class="btn btn-primary btn-sm" disabled>Leave</button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
+		
+		<div class="slidecontainer">
+			<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="">
+			<p>Value: <span id="demo"></span></p>
+		</div>
       </div>
     </form>
+	
 	
 	<div id="unityHolder">
 	<div class="webgl-content">
@@ -80,7 +87,8 @@
       </div>
     </div>
 	</div>
-
+	
+	
     <div class="row video-group" style="display: none;">
       <div class="col">
         <p id="local-player-name" class="player-name"></p>
@@ -99,4 +107,32 @@
   <script src="./myIndex.js"></script>
   <script src="./creds.js"></script>
 </body>
+<script>
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;
+
+	slider.oninput = function() 
+	{
+		output.innerHTML = this.value;
+	}
+	
+	function ReceiveVolumes(uid, volume)
+	{
+		var allUIDs = "";
+		for(var i=0; i < client.remoteUsers.length; i++)
+		{
+			if(client.remoteUsers[i].uid == uid)
+			{
+				allUIDs = allUIDs + client.remoteUsers[i].uid+",";
+				client.remoteUsers[i].audioTrack.setVolume(volume);
+			}
+			allUIDs = allUIDs + client.remoteUsers[i].uid+",";
+			console.log("Remote User " + i + " uid: "+client.remoteUsers[i].uid);
+		}
+	
+	}
+	
+</script>
+
 </html>
