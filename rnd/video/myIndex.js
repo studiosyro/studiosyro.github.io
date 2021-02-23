@@ -36,8 +36,8 @@ function TestFunc(){
 $("#megaJoin").click(async function (e) {
   e.preventDefault();
   $("#join").attr("disabled", true);
-  $("#appid").val('d8c4ce2ba0e0488eaab5f6a84f55c82a');
-  $("#token").val('006d8c4ce2ba0e0488eaab5f6a84f55c82aIABdFWDdfo6DXLcBUoxBZHCx15aFNz4HErpw+4hYj/vLgNchpy4AAAAAEABFd1n8E9EmYAEAAQAT0SZg');
+  $("#appid").val('2b077712baa54b21b5e4e17b6039d2e8');
+ // $("#token").val('006d8c4ce2ba0e0488eaab5f6a84f55c82aIABdFWDdfo6DXLcBUoxBZHCx15aFNz4HErpw+4hYj/vLgNchpy4AAAAAEABFd1n8E9EmYAEAAQAT0SZg');
   $("#channel").val('Test Room');
   
   try {

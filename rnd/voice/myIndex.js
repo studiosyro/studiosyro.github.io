@@ -42,9 +42,9 @@ async function join() {
 	$("#leave").attr("disabled", false);	
 	
 	options.appid = _appID;
-    options.token = _token;
+    //options.token = _token;
     options.channel = _channel;
-	console.log(_token);
+	//console.log(_token);
 
 	// add event listener to play remote tracks when remote user publishs.
 	client.on("user-published", handleUserPublished);
@@ -61,7 +61,7 @@ async function join() {
 	
 	console.log("My uid: " + options.uid);
 	
-	setTimeout(SendUID(), 10000);
+	setTimeout(SendUID(options.uid), 10000);
 	
 	$("#local-player-name").text(`localAudio(${options.uid})`);
 	
@@ -70,10 +70,10 @@ async function join() {
 	console.log("publish success");
 }
 
-function SendUID(){
+function SendUID(uid){
 	
 	console.log(options.uid);
-	unityInstance.SendMessage('Local Player', 'SetUID', options.uid);
+	unityInstance.SendMessage('Local Player', 'SetUID', uid);
 	
 }
 
@@ -108,7 +108,7 @@ async function subscribe(user, mediaType) {
   if (mediaType === 'audio') {
     user.audioTrack.play();
 	console.log(user.audioTrack.getVolumeLevel());
-	SetVolue();
+	//SetVolue();
   }
 }
 

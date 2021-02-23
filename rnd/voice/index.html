@@ -115,7 +115,11 @@
 	slider.oninput = function() 
 	{
 		output.innerHTML = this.value;
+		client.remoteUsers[0].audioTrack.setVolume(this.value);
 	}
+	
+	
+	
 	
 	function ReceiveVolumes(uid, volume)
 	{
@@ -125,7 +129,7 @@
 			if(client.remoteUsers[i].uid == uid)
 			{
 				allUIDs = allUIDs + client.remoteUsers[i].uid+",";
-				client.remoteUsers[i].audioTrack.setVolume(volume);
+				//client.remoteUsers[i].audioTrack.setVolume(volume);
 			}
 			allUIDs = allUIDs + client.remoteUsers[i].uid+",";
 			console.log("Remote User " + i + " uid: "+client.remoteUsers[i].uid);
