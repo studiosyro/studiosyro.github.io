@@ -17,6 +17,7 @@
   
 </head>
 <body onload="">
+<div style="display: none;">
   <div class="container-fluid banner">
     <p class="banner-text">Basic Voice Call</p>
     <a style="color: rgb(255, 255, 255);fill: rgb(255, 255, 255);fill-rule: evenodd; position: absolute; right: 10px; top: 4px;"
@@ -43,10 +44,11 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  
+</div> 
+
   <div class="container">
     <form id="join-form">
-      <div class="row join-info-group" style="display: none;">
+      <div class="row join-info-group"  style="display: none;">
           <div class="col-sm">
             <p class="join-info-text">AppID</p>
             <input id="appid" type="text" placeholder="enter appid">
@@ -67,7 +69,7 @@
       <div class="button-group">
         <button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();">Join</button>
         <button id="leave" type="button" class="btn btn-primary btn-sm" disabled>Leave</button>
-        <button type="button" class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
+        <button type="button" style="display: none;" class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
 		
 		<div class="slidecontainer">
 			<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="">
@@ -81,9 +83,8 @@
 	<div class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
       <div class="footer">
-        <div class="webgl-logo"></div>
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Web Events Platform</div>
+        <div class="title">Full Screen</div>
       </div>
     </div>
 	</div>
@@ -117,8 +118,6 @@
 		output.innerHTML = this.value;
 		client.remoteUsers[0].audioTrack.setVolume(this.value);
 	}
-	
-	
 	
 	
 	function ReceiveVolumes(uid, volume)

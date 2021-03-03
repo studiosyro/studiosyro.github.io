@@ -31,7 +31,11 @@ $("#leave").click(function (e) {
   leave();
 })
 
-function Join(){
+function Join(roomName, userID){
+	
+	console.log(roomName + userID);
+	options.channel = roomName;
+	userId = userID;
     join().then(val => {        
     })
 }
@@ -40,10 +44,10 @@ async function join() {
 	
 	$("#join").attr("disabled", true);
 	$("#leave").attr("disabled", false);	
-	
+	options.channel = _channel;
 	options.appid = _appID;
     //options.token = _token;
-    options.channel = _channel;
+    
 	//console.log(_token);
 
 	// add event listener to play remote tracks when remote user publishs.
@@ -59,11 +63,11 @@ async function join() {
 	
 	]);
 	
-	console.log("My uid: " + options.uid);
+	console.log("My userID: " + userId);
 	
 	setTimeout(SendUID(options.uid), 10000);
 	
-	$("#local-player-name").text(`localAudio(${options.uid})`);
+	//$("#local-player-name").text(`localAudio(${options.uid})`);
 	
 	// publish local tracks to channel
 	await client.publish(Object.values(localTracks));
@@ -72,8 +76,9 @@ async function join() {
 
 function SendUID(uid){
 	
-	console.log(options.uid);
-	unityInstance.SendMessage('Local Player', 'SetUID', uid);
+	console.log("userID:" + userId);
+	console.log("uid:" + uid);
+	unityInstance.SendMessage(userId + "", 'SetUID', options.uid+"");
 	
 }
 
