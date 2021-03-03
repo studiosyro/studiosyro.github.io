@@ -67,13 +67,17 @@
       </div>
 
       <div class="button-group">
-        <button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();">Join</button>
+        
+		<button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();">Join</button>
         <button id="leave" type="button" class="btn btn-primary btn-sm" disabled>Leave</button>
-        <button type="button" style="display: none;" class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
+		<div style="display: none;">
+        <button type="button"  class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
+		
 		
 		<div class="slidecontainer">
 			<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="">
 			<p>Value: <span id="demo"></span></p>
+		</div>
 		</div>
       </div>
     </form>
@@ -128,7 +132,7 @@
 			if(client.remoteUsers[i].uid == uid)
 			{
 				allUIDs = allUIDs + client.remoteUsers[i].uid+",";
-				//client.remoteUsers[i].audioTrack.setVolume(volume);
+				client.remoteUsers[i].audioTrack.setVolume(volume);
 			}
 			allUIDs = allUIDs + client.remoteUsers[i].uid+",";
 			console.log("Remote User " + i + " uid: "+client.remoteUsers[i].uid);
