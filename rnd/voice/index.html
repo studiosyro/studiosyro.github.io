@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="TemplateData/style.css">
   <script src="TemplateData/UnityProgress.js"></script>
   <script src="Build/UnityLoader.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
     var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Please.json", {onProgress: UnityProgress});
   </script>
@@ -86,10 +87,29 @@
 	<div id="unityHolder">
 	<div class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
+      <div class="footer" id="footer">
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
         <div class="title">Full Screen</div>
-        <div id="list">Hello World</div>		
+		<div id="list">Hello World</div>
+		<div id="playerList">
+			<div id="0">...</div>		
+			<div id="1">...</div>		
+			<div id="2">...</div>		
+			<div id="3">...</div>		
+			<div id="4">...</div>		
+			<div id="5">...</div>		
+			<div id="6">...</div>		
+			<div id="7">...</div>		
+			<div id="8">...</div>		
+			<div id="9">...</div>		
+			<div id="10">...</div>		
+			<div id="11">...</div>		
+			<div id="12">...</div>		
+			<div id="13">...</div>		
+			<div id="14">...</div>		
+			<div id="15">...</div>		
+			<div id="16">...</div>		
+		</div>
       </div>
     </div>
 	</div>
@@ -129,42 +149,35 @@
 		output.innerHTML = this.value;
 	//	client.remoteUsers[0].audioTrack.setVolume(slider.value);
 	}
-
+	
 	function ReceiveVolumes(uid, volume)
 	{
-		
 		console.log("Got uid: " + uid+"  ||||||||||||||||||");
 		console.log("Volume: " + volume);
 		console.log("Remote Users: " + client.remoteUsers.length);		
 		var targetID = "" + uid;
+		document.getElementById("list").innerHTML = "Remote Player List:";
+
+		for(var i=0; i < $("#playerList").children().length; i++)
+		{
+			$("#playerList").find("#" + i).eq(0).html("");
+			$("#playerList").find("#" + i).eq(0).css({display: "none"});
+		}
 		
-		//if(client.remoteUsers.length > 0)
-		//{
-			//client.remoteUsers[0].audioTrack.setVolume(volume);
-		//}
 		for(var i=0; i < client.remoteUsers.length; i++)
 		{	
-		
 			console.log(client.remoteUsers);
 			var remoteID = ""+ client.remoteUsers[i].uid;
 			if(client.remoteUsers[i].audioTrack)
 			{			
-				if(remoteID.slice(0,6) == targetID.slice(0,6))
-				{		
-					document.getElementById("list").innerHTML = ""+ client.remoteUsers[i].uid +" "+ volume;
+				if(remoteID.slice(0,6) == targetID)
+				{					
 					client.remoteUsers[i].audioTrack.setVolume(volume);
+					$("#playerList").find("#" + i).eq(0).html("name " + "UID: " + uid + " Volume: "+ volume);
+					$("#playerList").find("#" + i).eq(0).css({display: ""});
 				}
 			}
-			
-			//allUIDs = allUIDs + client.remoteUsers[i].uid+",";
-			
-			//	slider.value = volume;		
-			
-			
-			//document.getElementById("list").innerHTML = ""+ client.remoteUsers[0].uid +" "+ volume;
-			document.getElementById("list").innerHTML = ""+ uid +" "+ volume;
 		}
-	
 	}
 	
 </script>

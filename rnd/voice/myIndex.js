@@ -79,7 +79,7 @@ function SendUID(uid){
 	console.log("userID:" + userId);
 	console.log("uid:" + uid);
 	var ID = ""+uid;
-	unityInstance.SendMessage(userId + "", 'SetUID', ID);
+	unityInstance.SendMessage(userId + "", 'SetUID', ID.slice(0,6));
 	
 }
 
