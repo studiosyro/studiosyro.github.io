@@ -70,11 +70,7 @@
       <div class="button-group">
         <!--<div id="liveNotify" style="position: relative; width:50px; height: 50px; background-color: red; border-radius: 50px; dis"></div>-->
 		<button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();" style="display: none;">Join</button>
-        <button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">Leave</button>
-		<div style="display: none;">
-			<button type="button"  class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
-		
-		
+		<div style="display: none;">		
 			<div class="slidecontainer">
 				<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="SetVol();">
 				<p>Value: <span id="demo"></span></p>
@@ -87,9 +83,10 @@
 	
 	<div id="unityHolder">
 	<div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-	  <div id="list">Remote Player List:</div>
-	  <div id="playerList">
+		<button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">- Leave Voice Chat -</button>
+		<div id="unityContainer" style="width: 960px; height: 600px"></div>
+		<div id="list">Remote Player List:</div>
+		<div id="playerList">
 			<div id="0"></div>		
 			<div id="1"></div>		
 			<div id="2"></div>		
