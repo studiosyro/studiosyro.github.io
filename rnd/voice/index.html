@@ -66,9 +66,9 @@
             <p class="tips">If you don`t know what is your channel, checkout <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#channel">this</a></p>
           </div>
       </div>
-
       <div class="button-group">
         <!--<div id="liveNotify" style="position: relative; width:50px; height: 50px; background-color: red; border-radius: 50px; dis"></div>-->
+		
 		<button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();" style="display: none;">Join</button>
 		<div style="display: none;">		
 			<div class="slidecontainer">
@@ -79,8 +79,7 @@
 	</div>
      
     </form>
-	
-	
+
 	<div id="unityHolder">
 	<div class="webgl-content">
 		<button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">- Leave Voice Chat -</button>
@@ -123,6 +122,19 @@
       </div>
     </div>
   </div>
+  
+  	
+	<div id="instructions" style="line-height: 10px; position: absolute; left: 100px;">
+		<p>Cameras:</p>
+		<p>1 = First Person</p>
+		<p>2 = Third Person</p>
+		<p>3 = Forward View</p>
+		<p>4 = Ortho</p>
+		<p>Controls:</p>
+		<p>WASD / Arrow keys</p>
+		<p>Hold rightclick for "Advanced Controls"</p>
+	</div>
+	
 
   <script src="./vendor/jquery-3.4.1.min.js"></script>
   <script src="./vendor/bootstrap.bundle.min.js"></script>
