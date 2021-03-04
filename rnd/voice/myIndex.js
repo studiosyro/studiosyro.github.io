@@ -43,8 +43,8 @@ function Join(roomName, userID){
 
 async function join() {
 	
-	$("#join").attr("disabled", true);
-	$("#leave").attr("disabled", false);	
+	//$("#join").attr("disabled", true);
+	$("#leave").css({display : ""});
 	options.channel = _channel;
 	console.log(options.channel);
 	options.appid = _appID;
@@ -108,8 +108,7 @@ async function leave() {
   await client.leave();
 
   $("#local-player-name").text("");
-  $("#join").attr("disabled", false);
-  $("#leave").attr("disabled", true);
+  $("#leave").css({display : "none"});
   console.log("client leaves channel success");
 }
 
