@@ -33,8 +33,9 @@ $("#leave").click(function (e) {
 
 function Join(roomName, userID){
 	
-	console.log(roomName + userID);
-	options.channel = roomName;
+	//console.log(roomName);
+	_channel = "Test Room: " + roomName;
+	
 	userId = userID;
     join().then(val => {        
     })
@@ -45,6 +46,7 @@ async function join() {
 	$("#join").attr("disabled", true);
 	$("#leave").attr("disabled", false);	
 	options.channel = _channel;
+	console.log(options.channel);
 	options.appid = _appID;
     //options.token = _token;
     
@@ -76,12 +78,17 @@ async function join() {
 
 function SendUID(uid){
 	
-	console.log("userID:" + userId);
-	console.log("uid:" + uid);
 	var ID = ""+uid;
 	unityInstance.SendMessage(userId + "", 'SetUID', ID.slice(0,6));
 	
 }
+
+function Disconnect(){
+	
+	leave().then(val => {        
+    })
+}
+
 
 async function leave() {
   for (trackName in localTracks) {

@@ -68,18 +68,19 @@
       </div>
 
       <div class="button-group">
-        
+        <!--<div id="liveNotify" style="position: relative; width:50px; height: 50px; background-color: red; border-radius: 50px; dis"></div>-->
 		<button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();">Join</button>
         <button id="leave" type="button" class="btn btn-primary btn-sm" disabled>Leave</button>
 		<div style="display: none;">
-        <button type="button"  class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
+			<button type="button"  class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
 		
-		 </div>
-		<div class="slidecontainer">
-			<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="SetVol();">
-			<p>Value: <span id="demo"></span></p>
+		
+			<div class="slidecontainer">
+				<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="SetVol();">
+				<p>Value: <span id="demo"></span></p>
+			</div>
 		</div>
-		</div>
+	</div>
      
     </form>
 	
@@ -87,29 +88,28 @@
 	<div id="unityHolder">
 	<div class="webgl-content">
       <div id="unityContainer" style="width: 960px; height: 600px"></div>
+	  <div id="list">Remote Player List:</div>
+	  <div id="playerList">
+			<div id="0"></div>		
+			<div id="1"></div>		
+			<div id="2"></div>		
+			<div id="3"></div>		
+			<div id="4"></div>		
+			<div id="5"></div>		
+			<div id="6"></div>		
+			<div id="7"></div>		
+			<div id="8"></div>		
+			<div id="9"></div>		
+			<div id="10"></div>		
+			<div id="11"></div>		
+			<div id="12"></div>		
+			<div id="13"></div>		
+			<div id="14"></div>		
+			<div id="15"></div>		
+			<div id="16"></div>		
+		</div>
       <div class="footer" id="footer">
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Full Screen</div>
-		<div id="list">Hello World</div>
-		<div id="playerList">
-			<div id="0">...</div>		
-			<div id="1">...</div>		
-			<div id="2">...</div>		
-			<div id="3">...</div>		
-			<div id="4">...</div>		
-			<div id="5">...</div>		
-			<div id="6">...</div>		
-			<div id="7">...</div>		
-			<div id="8">...</div>		
-			<div id="9">...</div>		
-			<div id="10">...</div>		
-			<div id="11">...</div>		
-			<div id="12">...</div>		
-			<div id="13">...</div>		
-			<div id="14">...</div>		
-			<div id="15">...</div>		
-			<div id="16">...</div>		
-		</div>
       </div>
     </div>
 	</div>
@@ -151,13 +151,9 @@
 	}
 	
 	function ReceiveVolumes(uid, volume)
-	{
-		console.log("Got uid: " + uid+"  ||||||||||||||||||");
-		console.log("Volume: " + volume);
-		console.log("Remote Users: " + client.remoteUsers.length);		
+	{		
 		var targetID = "" + uid;
-		document.getElementById("list").innerHTML = "Remote Player List:";
-
+		
 		for(var i=0; i < $("#playerList").children().length; i++)
 		{
 			$("#playerList").find("#" + i).eq(0).html("");
@@ -166,14 +162,14 @@
 		
 		for(var i=0; i < client.remoteUsers.length; i++)
 		{	
-			console.log(client.remoteUsers);
+		
 			var remoteID = ""+ client.remoteUsers[i].uid;
 			if(client.remoteUsers[i].audioTrack)
 			{			
 				if(remoteID.slice(0,6) == targetID)
 				{					
 					client.remoteUsers[i].audioTrack.setVolume(volume);
-					$("#playerList").find("#" + i).eq(0).html("name " + "UID: " + uid + " Volume: "+ volume);
+					$("#playerList").find("#" + i).eq(0).html("" + "UID: " + uid + " Volume: "+ volume);
 					$("#playerList").find("#" + i).eq(0).css({display: ""});
 				}
 			}
