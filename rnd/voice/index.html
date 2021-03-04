@@ -73,13 +73,13 @@
 		<div style="display: none;">
         <button type="button"  class="btn btn-primary btn-sm" onclick="SendUID();">Check Users</button>
 		
-		
+		 </div>
 		<div class="slidecontainer">
-			<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="">
+			<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="SetVol();">
 			<p>Value: <span id="demo"></span></p>
 		</div>
 		</div>
-      </div>
+     
     </form>
 	
 	
@@ -89,6 +89,7 @@
       <div class="footer">
         <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
         <div class="title">Full Screen</div>
+        <div id="list">Hello World</div>		
       </div>
     </div>
 	</div>
@@ -123,19 +124,45 @@
 		client.remoteUsers[0].audioTrack.setVolume(this.value);
 	}
 	
-	
+	function SetVol() 
+	{
+		output.innerHTML = this.value;
+	//	client.remoteUsers[0].audioTrack.setVolume(slider.value);
+	}
+
 	function ReceiveVolumes(uid, volume)
 	{
-		var allUIDs = "";
+		
+		console.log("Got uid: " + uid+"  ||||||||||||||||||");
+		console.log("Volume: " + volume);
+		console.log("Remote Users: " + client.remoteUsers.length);		
+		var targetID = "" + uid;
+		
+		//if(client.remoteUsers.length > 0)
+		//{
+			//client.remoteUsers[0].audioTrack.setVolume(volume);
+		//}
 		for(var i=0; i < client.remoteUsers.length; i++)
-		{
-			if(client.remoteUsers[i].uid == uid)
-			{
-				allUIDs = allUIDs + client.remoteUsers[i].uid+",";
-				client.remoteUsers[i].audioTrack.setVolume(volume);
+		{	
+		
+			console.log(client.remoteUsers);
+			var remoteID = ""+ client.remoteUsers[i].uid;
+			if(client.remoteUsers[i].audioTrack)
+			{			
+				if(remoteID.slice(0,6) == targetID.slice(0,6))
+				{		
+					document.getElementById("list").innerHTML = ""+ client.remoteUsers[i].uid +" "+ volume;
+					client.remoteUsers[i].audioTrack.setVolume(volume);
+				}
 			}
-			allUIDs = allUIDs + client.remoteUsers[i].uid+",";
-			console.log("Remote User " + i + " uid: "+client.remoteUsers[i].uid);
+			
+			//allUIDs = allUIDs + client.remoteUsers[i].uid+",";
+			
+			//	slider.value = volume;		
+			
+			
+			//document.getElementById("list").innerHTML = ""+ client.remoteUsers[0].uid +" "+ volume;
+			document.getElementById("list").innerHTML = ""+ uid +" "+ volume;
 		}
 	
 	}
