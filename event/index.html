@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Agora Voice Test</title>
+  <link rel="stylesheet" href="./vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/SodaIsland.json", {onProgress: UnityProgress});
+  </script>
+  
+</head>
+<body onload="">
+<div style="display: none;">
+  <div class="container-fluid banner">
+    <p class="banner-text">Basic Voice Call</p>
+    <a style="color: rgb(255, 255, 255);fill: rgb(255, 255, 255);fill-rule: evenodd; position: absolute; right: 10px; top: 4px;"
+      class="Header-link " href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG/tree/master/Demo">
+      <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+    </a>
+  </div>
+
+  <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congratulations!</strong><span> You can invite others join this channel by click </span><a href="" target="_blank">here</a>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congratulations!</strong><span> Joined room successfully. </span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Congratulations!</strong><span> Joined room successfully. </span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div> 
+
+  <div class="container">
+    <form id="join-form">
+      <div class="row join-info-group"  style="display: none;">
+          <div class="col-sm">
+            <p class="join-info-text">AppID</p>
+            <input id="appid" type="text" placeholder="enter appid">
+            <p class="tips">If you don`t know what is your appid, checkout <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#a-nameappidaapp-id">this</a></p>
+          </div>
+          <div class="col-sm">
+            <p class="join-info-text">Token(optional)</p>
+            <input id="token" type="text" placeholder="enter token">
+            <p class="tips">If you don`t know what is your token, checkout <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#a-namekeyadynamic-key">this</a></p>
+          </div>
+          <div class="col-sm">
+            <p class="join-info-text">Channel</p>
+            <input id="channel" type="text" placeholder="enter channel name">
+            <p class="tips">If you don`t know what is your channel, checkout <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#channel">this</a></p>
+          </div>
+      </div>
+      <div class="button-group">
+        <!--<div id="liveNotify" style="position: relative; width:50px; height: 50px; background-color: red; border-radius: 50px; dis"></div>-->
+		
+		<button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();" style="display: none;">Join</button>
+		<div style="display: none;">		
+			<div class="slidecontainer">
+				<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="SetVol();">
+				<p>Value: <span id="demo"></span></p>
+			</div>
+		</div>
+	</div>
+     
+    </form>
+
+	<div id="unityHolder">
+	<div class="webgl-content">
+		<button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">- Leave Voice Chat -</button>
+		<div id="unityContainer" style="width: 960px; height: 600px"></div>
+		<div id="list">Remote Player List:</div>
+		<div id="playerList">
+			<div id="0"></div>		
+			<div id="1"></div>		
+			<div id="2"></div>		
+			<div id="3"></div>		
+			<div id="4"></div>		
+			<div id="5"></div>		
+			<div id="6"></div>		
+			<div id="7"></div>		
+			<div id="8"></div>		
+			<div id="9"></div>		
+			<div id="10"></div>		
+			<div id="11"></div>		
+			<div id="12"></div>		
+			<div id="13"></div>		
+			<div id="14"></div>		
+			<div id="15"></div>		
+			<div id="16"></div>		
+		</div>
+      <div class="footer" id="footer">
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+      </div>
+    </div>
+	</div>
+	
+	
+    <div class="row video-group" style="display: none;">
+      <div class="col">
+        <p id="local-player-name" class="player-name"></p>
+        <div id="local-player" class="player"></div>
+      </div>
+      <div class="w-100"></div>
+      <div class="col">
+        <div id="remote-playerlist"></div>
+      </div>
+    </div>
+  </div>
+  
+  	
+	<div id="instructions" style="line-height: 10px; position: absolute; left: 100px;">
+		<p>Cameras:</p>
+		<p>1 = First Person</p>
+		<p>2 = Third Person</p>
+		<p>3 = Forward View</p>
+		<p>4 = Ortho</p>
+		<p>Controls:</p>
+		<p>-WASD / Arrow keys</p>
+		<p>-Hold rightclick for "Advanced Controls"</p>
+	</div>
+	
+
+  <script src="./vendor/jquery-3.4.1.min.js"></script>
+  <script src="./vendor/bootstrap.bundle.min.js"></script>
+  <script src="./AgoraRTC_N-4.3.0.js"></script>
+  <script src="./myIndex.js"></script>
+  <script src="./creds.js"></script>
+</body>
+<script>
+	var slider = document.getElementById("myRange");
+	var output = document.getElementById("demo");
+	output.innerHTML = slider.value;
+
+	slider.oninput = function() 
+	{
+		output.innerHTML = this.value;
+		client.remoteUsers[0].audioTrack.setVolume(this.value);
+	}
+	
+	function SetVol() 
+	{
+		output.innerHTML = this.value;
+	//	client.remoteUsers[0].audioTrack.setVolume(slider.value);
+	}
+	
+	function ReceiveVolumes(uid, volume)
+	{		
+		var targetID = "" + uid;
+		
+		for(var i=0; i < $("#playerList").children().length; i++)
+		{
+			$("#playerList").find("#" + i).eq(0).html("");
+			$("#playerList").find("#" + i).eq(0).css({display: "none"});
+		}
+		
+		for(var i=0; i < client.remoteUsers.length; i++)
+		{	
+		
+			var remoteID = ""+ client.remoteUsers[i].uid;
+			if(client.remoteUsers[i].audioTrack)
+			{			
+				if(remoteID.slice(0,6) == targetID)
+				{					
+					client.remoteUsers[i].audioTrack.setVolume(volume);
+					$("#playerList").find("#" + i).eq(0).html("" + "UID: " + uid + " Volume: "+ volume);
+					$("#playerList").find("#" + i).eq(0).css({display: ""});
+				}
+			}
+		}
+	}
+	
+</script>
+
+</html>
