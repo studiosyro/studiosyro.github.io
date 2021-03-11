@@ -16,21 +16,8 @@
     var unityInstance = UnityLoader.instantiate("unityContainer", "Build/SodaIsland.json", {onProgress: UnityProgress});	
   </script>
   
-  <style>
-  #center {
-  overflow: hidden;
-  margin: auto;
-  width: 100%;
-}
-  </style>
-  
 </head>
 <body onload="" style="background-color: black; width: 100%; height: 100%;">
-
-<div style="width: 100%; height: 100%; position: fixed; z-index: 100; top: -100px; background-color: black;">
-<img id="center" src="backsoon.png">
-</div>
-
 <div style="display: none;">
   <div class="container-fluid banner">
     <p class="banner-text">Basic Voice Call</p>
@@ -93,7 +80,7 @@
      
     </form>
 
-	<div id="unityHolder" style="display: none;">
+	<div id="unityHolder">
 	<div class="webgl-content">
 		<button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">- Leave Voice Chat -</button>
 		<div id="unityContainer" style="width: 960px; height: 600px"></div>
@@ -105,8 +92,8 @@
 			<h6>Cameras:</h6>
 			<p>1 = First Person</p>
 			<p>2 = Third Person</p>
-			<p>3 = Forward View</p>
-			<p>4 = Ortho</p>			
+			<p>3 = My Player</p>
+			<p>4 = Orthographic View</p>		
 		</div>
 		<!--<div id="list">Remote Player List:</div>
 		<div id="playerList">
