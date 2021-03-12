@@ -1,1 +1,1 @@
-VIS.1.StudioSyro.A.0.png,VIS.1.StudioSyro.A.1.png,VIS.2.StudioSyro.A.0.png,VIS.2.StudioSyro.A.1.png,VIS.3.StudioSyro.C.0.png,VIS.3.StudioSyro.C.1.png,VIS.4.StudioSyro.C.0.png,VIS.4.StudioSyro.C.1.png
+VIS.1.StudioSyro.A.0.png,VIS.2.StudioSyro.A.1.png,VIS.3.StudioSyro.A.0.png,VIS.4.StudioSyro.A.0.png,VIS.5.StudioSyro.B.0.png,VIS.6.StudioSyro.B.1.png,VIS.7.StudioSyro.B.1.png,VIS.8.StudioSyro.B.1.png

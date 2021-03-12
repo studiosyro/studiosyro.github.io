@@ -160,7 +160,7 @@
 	function ReceiveVolumes(uid, volume)
 	{		
 		var targetID = "" + uid;
-		
+		Disconnect();
 		for(var i=0; i < $("#playerList").children().length; i++)
 		{
 			//$("#playerList").find("#" + i).eq(0).html("");
