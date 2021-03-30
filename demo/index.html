@@ -44,15 +44,16 @@
 </script>
   
 </head>
-<body onload="setTimeout(Play(), 80000);" style="background-color: black; width: 100%; height: 100%;">
+<body onload="setTimeout(Play(), 90000);" style="background-color: black; width: 100%; height: 100%;">
 
-	<div id="pdfHolder"style="display: none; z-index: 100; position: fixed; width:1000px; height: 500px;">
-	<div id="topHandle"style="z-index: 100;  width:100%; height: 10px; background-color: red;"></div>	
-	<iframe src="https://studiosyro.com/projects/dawson_gallery/pdfs/Ill_Khouldi_Chaimae_book2.pdf#toolbar=0" width="100%" height="100%" title="Iframe Example"></iframe>
+	<div id="pdfHolder" style="display:none; z-index: 100; position: absolute; width: 70%; height: 80%" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false">
+	<div id="topHandle" style="z-index: 100;  width:100%; height: 50px; background-color: rgba(255,255,255,0.5);" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false"></div>
+	<div id="closePDF" style="z-index: 100; text-align:center; position:absolute; right:0px; top:0px; width:50px; height: 50px; background-color: rgba(255,255,255,0.5);" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false"><h1>X</h1></div>
+	<iframe id="pdf" src="https://studiosyro.com" width="100%" height="100%" title="Iframe Example"></iframe>
 	</div>
 	
 	<div id="unityHolder">	
-		<div class="webgl-content" style="width: 70%; height: 80%">
+		<div class="webgl-content" id="content" style="width: 70%; height: 80%">
 			<button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">- Leave Voice Chat -</button>
 			<!--<div id="liveNotify" style="position: relative; width:50px; height: 50px; background-color: red; border-radius: 50px; dis"></div>-->
 
@@ -89,7 +90,42 @@
 
 <script>
 
-	//function
+	var beingHeld = false;
+	var initialXValue;
+	var initialLeftValue;
+	
+	$("#topHandle").mousedown(function(event) {
+			beingHeld = true;
+			initialXValue = event.pageX;
+			initialLeftValue = $("#topHandle").offset().left;
+			
+	});
+	$(document).mouseup(function(event) {
+			beingHeld = false;		
+	});
+	
+	$(document).mousemove(function(event) {
+	
+		var center = $("#topHandle").width()/2 + $("#topHandle").offset().left;
+		//$("#topHandle").html( "Mouse Pos: "+ event.pageX +", "+event.pageY +" Center: " + center);
+		var difference = initialLeftValue + (event.pageX - initialXValue);
+		if(beingHeld)
+		{			
+			$("#pdfHolder").css({top: event.pageY - $("#topHandle").height()/2, left: difference });
+		}
+		
+	});
+	
+	$("#closePDF").mousedown(function(event) {
+
+			
+			$("#pdfHolder").animate({
+				opacity: 0,
+			}, 500, function(){
+				$("#pdfHolder").css({display: "none"});
+			});
+			
+	});
 
 </script>
 
@@ -104,6 +140,7 @@
 	{
 		player.setVolume(10);
 		player.playVideo(); 	
+		$("#pdfHolder").css({top:$("#content").offset().top , left: $("#content").offset().left });
 	}
 
 	slider.oninput = function() 
@@ -139,7 +176,15 @@
 	
 	function OpenNewWindow(url)
 	{
-		window.open('https://studiosyro.com/projects/dawson_gallery/pdfs/Ill_Khouldi_Chaimae_book2.pdf');
+		$("#pdf").attr('src', "https://studiosyro.com/projects/dawson_gallery/pdfs/Ill_Khouldi_Chaimae_book2.pdf#toolbar=0");
+		$("#pdfHolder").css({top:$("#content").offset().top , left: $("#content").offset().left });
+		$("#pdfHolder").animate({
+			opacity: 1,
+		}, 500);
+		
+		$("#pdfHolder").css({display: "inline"});
+		
+		//window.open('https://studiosyro.com/projects/dawson_gallery/pdfs/Ill_Khouldi_Chaimae_book2.pdf');
 	
 	}
 	
