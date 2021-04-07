@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Quantum Race After Party</title>
+  <title>Photography Demo Gallery</title>
   <link rel="icon" type="image/gif" href="https://studiosyro.com/images/tiny-logo.ico"/>
   <link rel="stylesheet" href="./vendor/bootstrap.min.css">
   <link rel="stylesheet" href="./index.css">
@@ -13,126 +13,73 @@
   <script src="Build/UnityLoader.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>
-    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/SodaIsland.json", {onProgress: UnityProgress});	
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/PhotographyTest.json", {onProgress: UnityProgress});	
   </script>
   
+  <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() 
+	  {
+		player = new YT.Player('player', 
+		{
+          height: '0',
+          width: '0',
+          videoId: '5qap5aO4i9A',
+          events: 
+		  {
+           // 'onReady': Play,
+           // 'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+</script>
+  
 </head>
-<body onload="" style="background-color: black; width: 100%; height: 100%;">
-<div style="display: none;">
-  <div class="container-fluid banner">
-    <p class="banner-text">Basic Voice Call</p>
-    <a style="color: rgb(255, 255, 255);fill: rgb(255, 255, 255);fill-rule: evenodd; position: absolute; right: 10px; top: 4px;"
-      class="Header-link " href="https://github.com/AgoraIO-Community/AgoraWebSDK-NG/tree/master/Demo">
-      <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-    </a>
-  </div>
+<body onload="setTimeout(Play(), 90000);" style="background-color: black; width: 100%; height: 100%;">
 
-  <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Congratulations!</strong><span> You can invite others join this channel by click </span><a href="" target="_blank">here</a>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Congratulations!</strong><span> Joined room successfully. </span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div id="success-alert-with-token" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Congratulations!</strong><span> Joined room successfully. </span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-</div> 
+	<div id="pdfHolder" style="display:none; z-index: 100; position: absolute; width: 70%; height: 80%" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false">
+	<div id="topHandle" style="z-index: 100;  width:100%; height: 50px; background-color: rgba(255,255,255,0.5);" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false"></div>
+	<div id="closePDF" style="z-index: 100; text-align:center; position:absolute; right:0px; top:0px; width:50px; height: 50px; background-color: rgba(255,255,255,0.5);" onmousedown="event.preventDefault ? event.preventDefault() : event.returnValue = false"><h1>X</h1></div>
+	<iframe id="pdf" src="" width="100%" height="100%" title="Iframe Example"></iframe>
+	</div>
+	
+	<div id="unityHolder">	
+		<div class="webgl-content" id="content" style="width: 70%; height: 80%">
+			
+			<!--<div id="liveNotify" style="position: relative; width:50px; height: 50px; background-color: red; border-radius: 50px; dis"></div>-->
 
-  <div class="container">
-    <form id="join-form">
-      <div class="row join-info-group"  style="display: none;">
-          <div class="col-sm">
-            <p class="join-info-text">AppID</p>
-            <input id="appid" type="text" placeholder="enter appid">
-            <p class="tips">If you don`t know what is your appid, checkout <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#a-nameappidaapp-id">this</a></p>
-          </div>
-          <div class="col-sm">
-            <p class="join-info-text">Token(optional)</p>
-            <input id="token" type="text" placeholder="enter token">
-            <p class="tips">If you don`t know what is your token, checkout <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#a-namekeyadynamic-key">this</a></p>
-          </div>
-          <div class="col-sm">
-            <p class="join-info-text">Channel</p>
-            <input id="channel" type="text" placeholder="enter channel name">
-            <p class="tips">If you don`t know what is your channel, checkout <a href="https://docs.agora.io/en/Agora%20Platform/terms?platform=All%20Platforms#channel">this</a></p>
-          </div>
-      </div>
-      <div class="button-group">
-        <!--<div id="liveNotify" style="position: relative; width:50px; height: 50px; background-color: red; border-radius: 50px; dis"></div>-->
-		
-		<button id="join" type="button" class="btn btn-primary btn-sm" onclick="Join();" style="display: none;">Join</button>
-		<div style="display: none;">		
-			<div class="slidecontainer">
-				<input type="range" min="0" max="100" value="50" class="slider" id="myRange" onchange="SetVol();">
-				<p>Value: <span id="demo"></span></p>
+			<div id="unityContainer" style="width: 100%; height: 100%"></div>
+			
+			<div class="footer" id="footer">	  
+				<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+				<button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">- Leave Voice Chat -</button>
+				<div id="instructions" style="line-height: 20px; position: absolute; left: 0px; color: white;">
+				<p style="color: white;">Music Volume</p>
+				<input type="range" min="0" max="100" value="10" class="slider" id="myRange" style="width:100%"></input>	
+				<h6>Controls:</h6>
+				<p>- WASD / Arrow keys to move</p>
+				<p>- Hold Right Click for "Advanced Controls"</p>
+				<p>   </p>
+				<h6>Cameras:</h6>
+				<p>1 = First Person</p>
+				<p>2 = Third Person</p>
+				<p>3 = My Player</p>
+				<p>4 = Orthographic View</p>	
+			</div>
+				<div id="player"></div>	
+				<div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
 			</div>
 		</div>
 	</div>
-     
-    </form>
-
-	<div id="unityHolder">
-	<div class="webgl-content">
-		<button id="leave" type="button" class="btn btn-primary btn-sm" style="display: none;">- Leave Voice Chat -</button>
-		<div id="unityContainer" style="width: 960px; height: 600px"></div>
-		<div id="instructions" style="line-height: 20px; position: absolute; left: 0px; color: white;">
-			<h6>Controls:</h6>
-			<p>- WASD / Arrow keys to move</p>
-			<p>- Hold Right Click for "Advanced Controls"</p>
-			<p>   </p>
-			<h6>Cameras:</h6>
-			<p>1 = First Person</p>
-			<p>2 = Third Person</p>
-			<p>3 = My Player</p>
-			<p>4 = Orthographic View</p>		
-		</div>
-		<!--<div id="list">Remote Player List:</div>
-		<div id="playerList">
-			<div id="0"></div>		
-			<div id="1"></div>		
-			<div id="2"></div>		
-			<div id="3"></div>		
-			<div id="4"></div>		
-			<div id="5"></div>		
-			<div id="6"></div>		
-			<div id="7"></div>		
-			<div id="8"></div>		
-			<div id="9"></div>		
-			<div id="10"></div>		
-			<div id="11"></div>		
-			<div id="12"></div>		
-			<div id="13"></div>		
-			<div id="14"></div>		
-			<div id="15"></div>		
-			<div id="16"></div>		
-		</div>-->
-      <div class="footer" id="footer">
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-      </div>
-    </div>
-	</div>
-	
-	
-    <div class="row video-group" style="display: none;">
-      <div class="col">
-        <p id="local-player-name" class="player-name"></p>
-        <div id="local-player" class="player"></div>
-      </div>
-      <div class="w-100"></div>
-      <div class="col">
-        <div id="remote-playerlist"></div>
-      </div>
-    </div>
-  </div>
 
   <script src="./vendor/jquery-3.4.1.min.js"></script>
   <script src="./vendor/bootstrap.bundle.min.js"></script>
@@ -140,27 +87,71 @@
   <script src="./myIndex.js"></script>
   <script src="./creds.js"></script>
 </body>
+
+<script>
+
+	var beingHeld = false;
+	var initialXValue;
+	var initialLeftValue;
+	
+	$("#topHandle").mousedown(function(event) {
+			beingHeld = true;
+			initialXValue = event.pageX;
+			initialLeftValue = $("#topHandle").offset().left;
+			
+	});
+	$(document).mouseup(function(event) {
+			beingHeld = false;		
+	});
+	
+	$(document).mousemove(function(event) {
+	
+		var center = $("#topHandle").width()/2 + $("#topHandle").offset().left;
+		//$("#topHandle").html( "Mouse Pos: "+ event.pageX +", "+event.pageY +" Center: " + center);
+		var difference = initialLeftValue + (event.pageX - initialXValue);
+		if(beingHeld)
+		{			
+			$("#pdfHolder").css({top: event.pageY - $("#topHandle").height()/2, left: difference });
+		}
+		
+	});
+	
+	$("#closePDF").mousedown(function(event) {
+
+			
+			$("#pdfHolder").animate({
+				opacity: 0,
+			}, 500, function(){
+				$("#pdfHolder").css({display: "none"});
+			});
+			
+	});
+
+</script>
+
 <script>
 	var slider = document.getElementById("myRange");
-	var output = document.getElementById("demo");
-	output.innerHTML = slider.value;
+	//var output = document.getElementById("demo");
+	//output.innerHTML = slider.value;
+
+	var myVideo = document.getElementById("youtubeVideo"); 
+
+	function Play()
+	{
+		player.setVolume(10);
+		player.playVideo(); 	
+		$("#pdfHolder").css({top:$("#content").offset().top , left: $("#content").offset().left });
+	}
 
 	slider.oninput = function() 
 	{
-		output.innerHTML = this.value;
-		client.remoteUsers[0].audioTrack.setVolume(this.value);
-	}
-	
-	function SetVol() 
-	{
-		output.innerHTML = this.value;
-	//	client.remoteUsers[0].audioTrack.setVolume(slider.value);
+		player.setVolume(slider.value);
 	}
 	
 	function ReceiveVolumes(uid, volume)
 	{		
 		var targetID = "" + uid;
-		Disconnect();
+		
 		for(var i=0; i < $("#playerList").children().length; i++)
 		{
 			//$("#playerList").find("#" + i).eq(0).html("");
@@ -181,6 +172,20 @@
 				}
 			}
 		}
+	}
+	
+	function OpenNewWindow(url)
+	{
+		$("#pdf").attr('src', "https://studiosyro.com/projects/dawson_gallery/pdfs/Ill_Khouldi_Chaimae_book2.pdf#toolbar=0");
+		$("#pdfHolder").css({top:$("#content").offset().top , left: $("#content").offset().left });
+		$("#pdfHolder").animate({
+			opacity: 1,
+		}, 500);
+		
+		$("#pdfHolder").css({display: "inline"});
+		
+		//window.open('https://studiosyro.com/projects/dawson_gallery/pdfs/Ill_Khouldi_Chaimae_book2.pdf');
+	
 	}
 	
 </script>
