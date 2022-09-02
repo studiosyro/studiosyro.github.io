@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Character Placement tool",
+"productVersion": "0.1",
+"dataUrl": "PlacementTool_0.0.data.unityweb",
+"wasmCodeUrl": "PlacementTool_0.0.wasm.code.unityweb",
+"wasmFrameworkUrl": "PlacementTool_0.0.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.9f1"
+}

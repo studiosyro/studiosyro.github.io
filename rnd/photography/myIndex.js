@@ -35,6 +35,7 @@ function Join(roomName, userID){
 	
 	//console.log(roomName);
 	_channel = "Test Room: " + roomName;
+	console.log(_channel);
 	
 	userId = userID;
     join().then(val => {        

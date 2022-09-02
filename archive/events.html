@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<title>Studio Syro: Events</title>
+<link rel="icon" type="image/gif" href="./images/tiny-logo.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="workStyle.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="coreStyle.css" media="screen"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="CoreFunctionality.js"></script>
+<script src="VideoPlayer.js"></script>
+<!--<script src="jquery.animate-shadow.js"></script>-->
+
+<head>
+    <!--FACEBOOK-->
+    <meta property="og:image" content="https://studiosyro.com/images/social-logo-large.png"/>
+    <meta property="og:image:alt" content="https://studiosyro.com/images/logo-mini-box-b.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.studiosyro.com/"/>
+    <meta property="og:title" content="Studio Syro: Events" />
+    <meta property="og:description" content="We’re a new VR animation studio with a focus on using VR tools like Quill to change the way we work and tell exciting new stories." />
+<head>
+
+
+<style>
+ul{
+	
+
+}
+
+li{
+	text-align: left;
+	color: white;
+	font-family: 'DIN-Next';
+	line-height: 30px;
+}
+p {
+	color: white;
+	font-family: 'DIN-Next';
+}
+
+h1, h2{
+	font-family: 'ASAP-SemiBold';
+	color: white;
+}
+a {
+	text-decoration: none;
+	font-family: 'ASAP-SemiBold';
+}
+
+</style>
+
+<script>
+$(document).ready(function (){
+
+	ClickMenuButton();
+	ChangeSize();
+	Start();
+	SetVideo();
+	hasRow = true;
+});
+
+</script>
+
+
+<body style="/*height: 1000px;*/ background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
+
+<div class="center">
+
+	<div>
+		<img id="banner" src="images/weddingbanner.jpg">
+		<div class="topLeft topText" style="font-size: 50px;">Bienvenue</div>
+		<div class="topLeft bottomText" style="font-size: 30px; top: 80px;">À notre Cocktail Virtuel.</div>
+	</div>
+	
+	<div class="downloads" style=" text-align: center; padding: 30px;">
+		
+		
+
+		
+		<div style="margin-bottom:10px; display: flex; flex-flow: row; justify-content: center; align-items: center;">
+			<a target="_blank" href="https://www.dropbox.com/s/7rdvwx4f4cbom0q/CocktailVirtuelInstaller.exe?dl=1" 
+			style="display:inline-block; background-color:#000; color:#fff; border-radius:25px; padding:8px 20px 8px 30px; display:flex; align-items:center;">
+			PC Download <i style="font-size: 30px; padding-left: 10px;" class="fab fa-windows" aria-hidden="true"></i></a>
+			<a target="_blank" href="https://www.dropbox.com/s/1yy40f5ejam1ghd/CocktailVirtuel.zip?dl=1" 
+			style="display:inline-block; background-color:#000; color:#fff; border-radius:25px; padding:8px 20px 8px 30px; display:flex; align-items:center;">
+			Mac Download <i style="font-size: 30px;  padding-left: 10px;" class="fab fa-apple" aria-hidden="true"></i></a>
+		
+		</div>
+		<!--<p style="color:#fff; font-size: 20px; margin-bottom: 60px;">Please come back at 5:00pm EST for the download!</p>-->
+		<p style="color:#fff; font-size: 20px; margin-bottom: 60px;">Download is 250-350 MB and may take 5-10 minutes</p>
+		
+		<a style=" padding:10px 20px; background: #000; color: #fff; border-radius: 20px; font-size:16px; " 
+		class="dc_btn orange  " href="events-fr.html">
+		<span style="font-size:16px;; padding: 0 10px;">Version française</span></a>
+
+
+	</div>
+	
+	
+	
+	<div class="entry-content" style=" margin-top: 0px; align-items: center; margin: auto; width: 50%;">
+
+	<h2 style="text-align: center;">How do I access the virtual gallery?</h2>
+	<p style="text-align: center; margin-bottom: 0;">The virtual exhibition is a free multiplayer application that you can run on either <span class="rag">a Windows or Mac device.</span></p>
+	<p style="text-align: center; font-size: 12px; margin-top: 0;">Please note: The virtual gallery will not function on mobile devices such as smartphones or tablets and requires <span class="rag">a 64-bit operating system to run.</span></p>
+	<p>&nbsp;</p>
+	<h2>PC Instructions</h2>
+	<p><a href="https://www.youtube.com/watch?v=hsEDlnUqTC8" target="_blank" rel="noopener">Click here</a> <span style="color: #94a3b1;">for a video installation guide</span></p>
+	<ul >
+		<li>To install the application, click on the download button above. Download may take 5-10 minutes.</li>
+		<li>Navigate to your downloads folder.</li>
+		<li>Double-click on the installer “CocktailVirtuelInstaller.exe.”</li>
+		<li>If you experience a “Windows protected your PC” popup, click the “More Info” button and then click “Run Anyway.”</li>
+		<li>The Installer will take you through the remaining steps and will then prompt you to launch the application.</li>
+		<li>Firewalls and antivirus programs can sometimes cause trouble during installation. If you’re having trouble installing the virtual gallery, you may want to temporarily disable these types of programs and then re-install the app.</li>
+	</ul>
+	<br style="clear:both;">
+	<br>
+	<h2>MAC Instructions</h2>
+	<p><a href="https://www.youtube.com/watch?v=sDiqXv6IMVM" target="_blank" rel="noopener">Click here</a> <span style="color: #94a3b1;">for a video installation guide</span></p>
+	<ul>
+	<li>To run the application, click on the download button above. Download may take 5-10 minutes.<br>
+	You can track the progress by following the blue download bar at the top right corner of Safari.</li>
+		<li>When completed navigate to your downloads folder.</li>
+		<li>Click on the app “CocktailVirtuel.app”</li>
+		<li>A window will pop up and warn you that the app was downloaded from the Internet.</li>
+		<li>Click “Open” and the app will launch.</li>
+	</ul>
+	<br style="clear:both;">
+<br style="clear:both;"><br style="clear:both;">
+    </div>
+		
+	
+	
+</div>
+
+<!-- Base -->
+<div>
+	<div id="loadingBlock"></div>
+	
+	<div id="menuButtonHolder">
+		
+		<div class="menuButton" onclick="Transition('work.html');">
+			<img style="/*background-color: #f6598b*/" src="images/website/work1.png"/>
+			<img style="opacity: 0" src="images/website/work2.png"/>
+		</div>
+		<div class="menuButton" onclick="Transition('about.html');">
+			<img style="" src="images/website/about1.png"/>
+			<img style="opacity: 0" src="images/website/about2.png"/>
+		</div>	
+	</div>
+	
+	<!-- Slide out Menu -->
+	<div id="menuHolder">
+		<div id="menu">
+			<div id="tabHolder">
+				<div class="tab" onclick="Transition('index.html');">
+					<img style="" class="swap-on-hover__front-image" src="images/website/home1.png"/>
+					<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/home2.png"/>
+				</div>
+				<div class="tab" onclick="Transition('work.html');">
+					<img style="" class="swap-on-hover__front-image" src="images/website/work1.png"/>
+					<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/work2.png"/>
+				</div>
+				<div class="tab" onclick="Transition('about.html');">
+					<img style="" class="swap-on-hover__front-image" src="images/website/about1.png"/>
+					<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/about2.png"/>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+	<!-- Home Button -->
+	<div id="logoButton" onclick="Transition('index.html');">
+		<img src="images/website/logo_1.png"/>
+		<img style="opacity: 0" src="images/website/logo_2.png"/>
+	</div>
+
+	<!-- Page Buttons -->
+	<div id="hamburgerHolder">
+		<i style="" class="fas fa-bars"></i>
+	</div>
+
+	<!-- Social Menu -->
+	<div>
+		<p id="socialHolder">
+			<i class="fab fa-instagram" onclick="window.open('https://www.instagram.com/studiosyro/')"></i>
+			<i class="fab fa-facebook"  onclick="window.open('https://www.facebook.com/studiosyro')"></i>
+			<i class="fab fa-twitter"   onclick="window.open('https://twitter.com/studiosyro/')"></i>
+			<i class="fab fa-linkedin"  onclick="window.open('https://www.linkedin.com/company/studio-syro/')"></i>
+		</p>
+	</div>
+	
+</div>
+<!-- End Base -->
+
+</body>
+
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<title>Studio Syro: Events</title>
+<link rel="icon" type="image/gif" href="./images/tiny-logo.ico"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="workStyle.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="coreStyle.css" media="screen"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="CoreFunctionality.js"></script>
+<script src="VideoPlayer.js"></script>
+<!--<script src="jquery.animate-shadow.js"></script>-->
+
+<head>
+    <!--FACEBOOK-->
+    <meta property="og:image" content="https://studiosyro.com/images/social-logo-large.png"/>
+    <meta property="og:image:alt" content="https://studiosyro.com/images/logo-mini-box-b.png"/>
+    <meta property="og:image:type" content="image/png"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.studiosyro.com/"/>
+    <meta property="og:title" content="Studio Syro: Events" />
+    <meta property="og:description" content="We’re a new VR animation studio with a focus on using VR tools like Quill to change the way we work and tell exciting new stories." />
+<head>
+
+
+<style>
+ul{
+	
+
+}
+
+li{
+	text-align: left;
+	color: white;
+	font-family: 'DIN-Next';
+	line-height: 30px;
+}
+p {
+	color: white;
+	font-family: 'DIN-Next';
+}
+
+h1, h2{
+	font-family: 'ASAP-SemiBold';
+	color: white;
+}
+a {
+	text-decoration: none;
+	font-family: 'ASAP-SemiBold';
+}
+
+</style>
+
+<script>
+$(document).ready(function (){
+
+	ClickMenuButton();
+	ChangeSize();
+	Start();
+	SetVideo();
+	hasRow = true;
+});
+
+</script>
+
+
+<body style="/*height: 1000px;*/ background-color:#131824;" onresize="ChangeSize()" onload=" Start(); OnPageLoad();">
+
+<div class="center">
+
+	<div>
+		<img id="banner" src="images/weddingbanner.jpg">
+		<div class="topLeft topText" style="font-size: 50px;">Bienvenue</div>
+		<div class="topLeft bottomText" style="font-size: 30px; top: 80px;">À notre Cocktail Virtuel.</div>
+	</div>
+
+	
+	
+	<div class="downloads" style=" text-align: center; padding: 30px;">
+		
+		
+
+		
+		<div style="margin-bottom:10px; display: flex; flex-flow: row; justify-content: center; align-items: center;">
+			<a target="_blank" href="https://www.dropbox.com/s/7rdvwx4f4cbom0q/CocktailVirtuelInstaller.exe?dl=1" 
+			style="display:inline-block; background-color:#000; color:#fff; border-radius:25px; padding:8px 20px 8px 30px; display:flex; align-items:center;">
+			Téléchargement PC <i style="font-size: 30px; padding-left: 10px;" class="fab fa-windows" aria-hidden="true"></i></a>
+			<a target="_blank" href="https://www.dropbox.com/s/1yy40f5ejam1ghd/CocktailVirtuel.zip?dl=1" 
+			style="display:inline-block; background-color:#000; color:#fff; border-radius:25px; padding:8px 20px 8px 30px; display:flex; align-items:center;">
+			Téléchargement Mac <i style="font-size: 30px;  padding-left: 10px;" class="fab fa-apple" aria-hidden="true"></i></a>
+			
+		</div>
+		
+		<!--<p style="color:#fff; font-size: 20px; margin-bottom: 60px;">Veuillez revenir à 17 h 00 HNE pour le téléchargement!</p>-->
+		<p style="color:#fff; font-size: 20px; margin-bottom: 60px;">Le téléchargement peut prendre de 5 à 10 minutes (250-350 MB) </p>
+		
+		<a style=" padding:10px 20px; background: #000; color: #fff; border-radius: 20px; font-size:16px; " 
+		class="dc_btn orange  " href="events.html">
+		<span style="font-size:16px;; padding: 0 10px;">English Version</span></a>
+
+
+	</div>
+	
+	
+	
+	<div class="entry-content" style=" margin-top: 0px; align-items: center; margin: auto; width: 50%;">
+
+		<h2 style="text-align: center;">How do I access the virtual gallery?</h2>
+		<p style="text-align: center;">L’exposition virtuelle est une application multijoueur gratuite qui peut être installée sur des ordinateurs Mac et PC.</p>
+		<p style="text-align: center; font-size: 12px; margin-top: 0;">Veuillez noter que la galerie virtuelle ne fonctionne pas sur les appareils mobiles tels que les téléphones intelligents ou les tablettes. De plus, l’application requiert un système d’exploitation de 64 bits pour fonctionner.</p>
+		<p>&nbsp;</p>
+		<h2 class="p1">Instructions pour PC</h2>
+		<p class="p1"><a href="https://youtu.be/3kIxIa-1qPc" target="_blank" rel="noopener">Cliquez ici</a> <span style="color: #94a3b1;">si vous voulez suivre les étapes à travers notre vidéo explicative.</span></p>
+		<ul>
+			<li class="p1">Cliquez sur le bouton de «téléchargement» ci-dessus, pour installer l’application. Le téléchargement peut prendre de 5 à 10 minutes.</li>
+			<li class="p1">Le fichier téléchargé devrait se trouver dans le dossier de téléchargement de votre ordinateur.</li>
+			<li class="p1">Double-cliquez sur le fichier d’installation «*Installer.exe».</li>
+			<li>Si la fenêtre «Windows a protégé votre ordinateur» apparaît, cliquez sur le bouton « Informations complémentaires», puis sur le bouton «Exécuter quand même».</li>
+			<li class="p1">Suivez les étapes qui s’afficheront dans le programme d’installation. Ce dernier vous demandera de démarrer l’application.</li>
+			<li class="p1">Prenez note que les programmes antivirus et les pare-feux (firewalls) peuvent parfois venir en conflit avec ce type d’installation. Si vous éprouvez ces difficultés, vous pourriez considérer désactiver temporairement ces programmes de protection et ré-installer l’application.</li>
+		</ul>
+		<h2 class="p1">Instructions pour Mac</h2>
+		<p class="p3"><a href="https://www.youtube.com/watch?v=sDiqXv6IMVM" target="_blank" rel="noopener">Cliquez ici</a> <span style="color: #94a3b1;">si vous voulez suivre les étapes à travers notre vidéo explicative.</span></p>
+		<ul>
+			<li class="p1">Cliquez sur le bouton de téléchargement ci-dessus, pour installer l’application. Le téléchargement peut prendre de 5 à 10 minutes. Vous pouvez suivre l’évolution du téléchargement grâce à la barre bleue dans le coin supérieur droit de votre page Safari.</li>
+			<li class="p1">Le fichier téléchargé devrait se trouver dans le dossier de téléchargement de votre ordinateur.</li>
+			<li class="p3">Cliquez sur l’application “*Gallery.app”.</li>
+			<li class="p1">Une fenêtre va ouvrir vous avisant que l’application a été téléchargée d’internet.</li>
+			<li class="p1">Cliquez «ouvrir» et l’application débutera.</li>
+		</ul>
+		<br style="clear:both;"><br style="clear:both;">
+    </div>
+		
+	
+	
+</div>
+
+<!-- Base -->
+<div>
+	<div id="loadingBlock"></div>
+	
+	<div id="menuButtonHolder">
+		
+		<div class="menuButton" onclick="Transition('work.html');">
+			<img style="/*background-color: #f6598b*/" src="images/website/work1.png"/>
+			<img style="opacity: 0" src="images/website/work2.png"/>
+		</div>
+		<div class="menuButton" onclick="Transition('about.html');">
+			<img style="" src="images/website/about1.png"/>
+			<img style="opacity: 0" src="images/website/about2.png"/>
+		</div>	
+	</div>
+	
+	<!-- Slide out Menu -->
+	<div id="menuHolder">
+		<div id="menu">
+			<div id="tabHolder">
+				<div class="tab" onclick="Transition('index.html');">
+					<img style="" class="swap-on-hover__front-image" src="images/website/home1.png"/>
+					<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/home2.png"/>
+				</div>
+				<div class="tab" onclick="Transition('work.html');">
+					<img style="" class="swap-on-hover__front-image" src="images/website/work1.png"/>
+					<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/work2.png"/>
+				</div>
+				<div class="tab" onclick="Transition('about.html');">
+					<img style="" class="swap-on-hover__front-image" src="images/website/about1.png"/>
+					<img style="opacity: 0" class="swap-on-hover__back-image" src="images/website/about2.png"/>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+	<!-- Home Button -->
+	<div id="logoButton" onclick="Transition('index.html');">
+		<img src="images/website/logo_1.png"/>
+		<img style="opacity: 0" src="images/website/logo_2.png"/>
+	</div>
+
+	<!-- Page Buttons -->
+	<div id="hamburgerHolder">
+		<i style="" class="fas fa-bars"></i>
+	</div>
+
+	<!-- Social Menu -->
+	<div>
+		<p id="socialHolder">
+			<i class="fab fa-instagram" onclick="window.open('https://www.instagram.com/studiosyro/')"></i>
+			<i class="fab fa-facebook"  onclick="window.open('https://www.facebook.com/studiosyro')"></i>
+			<i class="fab fa-twitter"   onclick="window.open('https://twitter.com/studiosyro/')"></i>
+			<i class="fab fa-linkedin"  onclick="window.open('https://www.linkedin.com/company/studio-syro/')"></i>
+		</p>
+	</div>
+	
+</div>
+<!-- End Base -->
+
+</body>
+
+<script>
+
+</script>
+</body>
+</html>

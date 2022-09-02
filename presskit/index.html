@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+	<title>Studio Syro Press Kit</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<head>
+		<!--FACEBOOK-->
+		<meta property="og:image" content="https://studiosyro.com/images/social-logo-large.png"/>
+		<meta property="og:image:alt" content="https://studiosyro.com/images/logo-mini-box-b.png"/>
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.studiosyro.com/"/>
+		<meta property="og:title" content="Studio Syro" />
+		<meta property="og:description" content="Studio Syro Press Kit" />
+		
+		<!--Google-->
+		<meta name="description" content="Studio Syro Press Kit"/>
+	</head>
+	
+	<style>
+		@font-face {
+			font-family: 'FredokaOne-Regular';
+			src: url('./fonts/FredokaOne-Regular.ttf');
+		}
+		@font-face {
+			font-family: 'ASAP-SemiBold';
+			src: url('https://studiosyro.com/fonts/Asap-SemiBold.ttf');
+		}
+		@font-face {
+			font-family: 'DIN-Next';
+			src: url('https://studiosyro.com/fonts/DINNext.ttf');
+		}
+	
+		#mainHolder
+		{
+			position: absolute;
+			top: 50px;
+			left: 386px;
+			background-color: #131824;
+			width: 1130px;
+			height: 100%;
+			color:white;
+		}	
+
+		#sideNav
+		{
+			position: fixed;
+			background-color: #131824;
+			top: 15px;
+			width: 256px;
+			left: 386;
+			//height: 100%;
+		}
+		#navList{			
+			padding: 0;
+			list-style-type: none;
+			line-height: 30px;
+		}
+		#contentHolder
+		{	
+			position: absolute;		
+			background-color: #131824;
+			width: 874px;
+			height: 200%;
+			color:white;
+		}
+
+		#topImageHolder
+		{		
+			background-color: #131824;
+			height: 1%;
+		}
+
+		#factsheet
+		{	
+			position: absolute;
+			background-color: #131824;
+			color:white;
+			top:250px;
+		}
+
+		#coreContent
+		{	
+			position: absolute;
+			background-color: #131824;
+			color:white;
+			left:275px;
+			top:250px;
+		}
+
+		.title1
+		{
+			color: white;
+			font-family:ASAP-SemiBold; 
+			
+		}
+		.title2
+		{
+
+		}
+		a, p
+		{
+			text-decoration: none;
+			color: white;
+			font-family:DIN-Next; 
+		}
+		.link:link
+		{
+			color:white;
+			text-decoration: underline;
+		}
+		
+		.link:visited
+		{
+			color:white;
+			text-decoration: underline;
+		}
+		.stillImage
+		{
+			position: relative;
+			width: 266px;
+			cursor: pointer;
+		}
+		
+		#leftNames
+		{
+			position: absolute;
+			width:50%;
+		}
+		
+		#rightNames
+		{
+			position: relative;
+			width:50%;
+		}
+		#leftNames p
+		{
+			line-height: 15px;
+			margin: 8px;
+		}
+		#rightNames p
+		{
+			line-height: 15px;
+			margin: 8px;
+		}
+		.menuButton img
+		{
+			width: 97px;
+		}
+		#topNavBar
+		{
+			height: 93.156px;
+		}
+		#menuButtonHolder
+		{		
+			position: absolute;
+			top: 30px;
+			width: 310px;
+			height: 100px;
+			right: 0px;
+		}
+		.menuButton{
+			position: relative;
+			display: inline-block;
+			width: 97px;
+			cursor: pointer;
+			//background-color: #131824;
+			z-index: 100;
+		}
+		
+	</style>
+	
+	<script>		
+
+		function SetScale(){			
+
+			$("#contentHolder").css({
+				left:0,
+				width:$("#mainHolder").width(),
+			});
+
+			if($(window).width() < 857)
+			{
+				$("#mainHolder").css({left: 15});				
+				$("#mainHolder").width($(window).width() - 30);
+
+				$("#contentHolder").css({
+					top:$("#topNavBar").height(),
+					left: 0,
+					width: $("#mainHolder").width(),
+				});
+				
+				$("#coreContent").css({
+					left: 0,
+					top: $("#factsheet").height(),
+				});
+			}
+
+			if($(window).width() >= 857 &&  $(window).width() < 955)
+			{
+				$("#mainHolder").css({left: 15});
+				$("#mainHolder").width($(window).width() - 30);
+				$("#contentHolder").css({top: $("#topNavBar").height()});
+				
+				$("#coreContent").css({
+					left: $("#factsheet").width() + 10,
+					top: $("#topImg").height(),
+				});
+			}
+
+			if($(window).width() >= 955 && $(window).width() < 1260)
+			{			
+				$("#mainHolder").width(930);
+				$("#mainHolder").css({
+					left:$("body").width()/2 - $("#mainHolder").width()/2,
+				});
+				
+				$("#coreContent").css({
+					left: $("#factsheet").width() + 10,
+					top: $("#topImg").height(),
+				});
+			}
+
+			if($(window).width() >= 1260)
+			{
+				$("#mainHolder").width(1130);
+				$("#mainHolder").css({
+					left:$("body").width()/2 - $("#mainHolder").width()/2,
+				});
+				
+				$("#coreContent").css({
+					left: $("#factsheet").width() + 10,
+					top: $("#topImg").height(),
+				});
+			}
+
+			$("#topImageHolder").css({
+				left:0,
+				widht: $("#mainHolder").width(),
+				height: 250,
+			});			
+
+			
+			$("#factsheet").css({
+				top: $("#topImg").height(),
+			});
+			
+			$("#rightNames").css({
+				left:$("#leftNames").width(),
+				top: 0,
+				
+			});		
+
+		}
+
+		function OnLoad(){
+			SetScale();
+			if($(window).width() < 800)
+			{
+				$("#menuButtonHolder").css({display: "none"});
+			}
+			if($(window).width() >= 800)
+			{
+				$("#menuButtonHolder").css({display: "block"});
+			}
+		}
+
+	</script>
+	
+	<body style="height: 100%; width:100%; background-color:#131824;" onload="OnLoad();">
+	
+		<div id="mainHolder">
+			<div id="topNavBar">
+			<!-- Home Button -->
+				<div id="logoButton" >
+					<img style="width: 155px; padding-bottom: 20px; cursor:pointer;" onclick="window.location='https://studiosyro.com/'" src="https://studiosyro.com/images/website/logo_1.png"/>
+				
+					<div id="menuButtonHolder">				
+						<div class="menuButton" onclick="window.location.href = 'https://studiosyro.com/work'">
+							<img style="" src="https://studiosyro.com/images/website/work1.png"/>
+							<img style="opacity: 0" src="https://studiosyro.com/images/website/work2.png"/>
+						</div>
+						<div class="menuButton" onclick="window.location.href = 'https://studiosyro.com/about'">
+							<img style="" src="https://studiosyro.com/images/website/about1.png"/>
+							<img style="opacity: 0" src="https://studiosyro.com/images/website/about2.png"/>
+						</div>
+						<div class="menuButton" onclick="window.location.href = 'https://studiosyro.com/presskit'">
+							<img style="padding-left: 10px;" src="https://studiosyro.com/images/website/presskit1.png"/>
+							<img style="opacity: 0" src="https://studiosyro.com/images/website/presskit2.png"/>
+						</div>
+					</div>	
+				</div>
+							
+			</div>
+			<div id="contentHolder">				
+				<div id="topImageHolder">
+					<img id="topImg" style="width:100%" src ="https://studiosyro.com/presskit/stills/Presskit_header.png"></img>
+				</div>
+
+				<div id="factsheet">
+					<h1 class="title1" style="margin-bottom: 0px">Factsheet</h1>
+						<p>
+							<strong>Company:</strong><br>
+							<a>Studio Syro LLC</a><br>
+							Based in Florida, USA
+						</p>
+						<p>
+							<strong>Founding date:</strong><br>
+							January 1, 2020
+						</p>
+						<p>
+							<strong>Website:</strong><br>
+							<a href="https://studiosyro.com">studiosyro.com</a>
+						</p>
+						<p>
+							<strong>Press / Business contact:</strong><br>
+							<a href="mailto:nickladd@studiosyro.com">nickladd@studiosyro.com</a>
+						</p>        
+						<p>
+							<strong>Social:</strong><br>
+							<a href="http://twitter.com/studiosyro">twitter.com/studiosyro</a><br>
+							<a href="http://facebook.com/studiosyro">facebook.com/studiosyro<a><br>
+							<a href="http://instagram.com/studiosyro">instagram.com/studiosyro</a><br>
+						</p>
+						<p>
+							<strong>Projects:</strong><br>
+							<a href="https://www.oculus.com/experiences/media/494265767871123/275325710172441/">The Multiverse Bakery </a><br>
+							<a href="https://www.oculus.com/experiences/media/494265767871123/3609570935722172/">The Neon Jungle</a><br>
+							<a href="https://www.oculus.com/experiences/media/494265767871123/959731364557059/">The Quantum Race</a><br>
+							<a href="https://www.oculus.com/experiences/media/494265767871123/870612463526462/">The Golden Record</a><br>
+							<br>
+							<a href="https://studiosyro.com/work">Dawson College Virtual Exhibition 2021</a><br>
+							<br>
+							<a href="https://studiosyro.com/work">Slushii Dreaming of You/Far Away</a><br>						
+						</p>
+				</div>
+
+				<div id="coreContent" >
+					<h1 id="description" class="title1" style="margin-bottom: 0px">Description</h1>
+						<p>
+							Studio Syro is a small, independent VR animation and development company founded in 2020. They produce content using Quill and are best known for their animated series: 'Tales from Soda Island'.
+						</p>	
+					<h1 id="history" class="title1" style="margin-bottom: 0px">History</h1>
+						<p>The team met online through a shared common interest in VR art and animation; a new way of producing artwork that allows artists to immerse themselves in their paintings and draw 3D strokes in the air around them. The software of choice for Studio Syro is Quill which they use for all of their projects.  </p>							
+						<p>Their first project was a seven music video commissioned by Monstercat for the artist Slushii. The video is titled 'Dreaming of You/Far Away' and relied heavily on a hybrid of Quill and Unity.</p>	
+						<p>Their flagship project is an original series created for Oculus TV called 'Tales from Soda Island'. The series is made entirely in VR using Quill. It comes from the mind of creator Funilab and is directed by Dan Franke. The series tells stories from the world of independent music collective 'Soda Island' whose members also compose the music for the series.</p>	
+						<p>The first episode of the series: 'The Multiverse Bakery' was released in May 2020 and since then three more episodes have been released: 'The Neon Jungle', The Quantum Race', and most recently: 'The Golden Record.'  Each episode also releases alongside a collection of immersive supplementary content that serves to enrich the viewing experience by teaching viewers more about Soda Island and its inhabitants.  The series is available free for all Oculus users and can be found in the Quill theater section of Oculus TV. </p>	
+						<p>The company also has a development branch for building interactive experiences and games.</p>	 
+						<p>In 2021 they developed a web-based virtual platform which was used for hosting five unique virtual exhibitions for Dawson College.  The virtual event allowed students to connect with guests at a time when in-person meetings were not permitted and attendees could personalize their avatars, drink virtual beers and appreciate student artwork.</p>					
+					<h1 id="coverage" class="title1" style="margin-bottom: 0px">Coverage</h1>
+						<p><q>Tales from Soda Island is a Spectacular Animated Short Built Entirely in VR</q>
+						<br>- Scott Hayden, <a class="link" target="_blank" href="https://www.roadtovr.com/tales-from-soda-island-quill-vr-quest-rift/">Road to VR </a></p>
+						<p><q>New Quill Series 'Tales from Soda Island' Presents 'The Multiverse Bakery', a Galaxy-Spanning VR Short Film</q>
+						<br>- <a class="link" target="_blank" href="https://www.oculus.com/blog/new-quill-series-tales-from-soda-island-presents-the-multiverse-bakery-a-galaxy-spanning-vr-short-film/">Oculus Blog </a></p>
+						<p><q>11 Best Free Games and Experiences to Play First on Oculus Quest 2</q>
+						<br>- David Jagneaux, <a class="link" target="_blank" href="https://uploadvr.com/11-best-free-games-experiences-oculus-quest-2/">UploadVR </a></p>
+						<p><q>A Guide to Virtual Reality: Top 12 Experiences to Start on Oculus Quest</q>
+						<br>- Gibby Zobel, <a class="link" target="_blank" href="https://www.xrmust.com/xrmagazine/top-12-vr-experiences/">XR Must</a></p>
+						<p><q>Dawson College art students, stuck at home for graduation, create grand virtual vernissage</q>
+						<br>- Selena Ross, <a class="link" target="_blank" href="https://montreal.ctvnews.ca/dawson-college-art-students-stuck-at-home-for-graduation-create-grand-virtual-vernissage-1.4966761">CBC News</a></p>
+					<h1 id="logo" class="title1" style="margin-bottom: 0px">Logo</h1>
+					<p><a class="link" href="https://studiosyro.com/presskit/Studio_Syro_Logo.zip">Click here to download Logos</a></p>
+					<img onclick="window.open(this.src)" style="height:120px; cursor:pointer;" src ="https://studiosyro.com/presskit/logo/Studio_Syro_logo.png"></img>
+					<img class="stillImage" onclick="window.open(this.src)" style="top:10px" src ="https://studiosyro.com/presskit/logo/Studio_Syro_logo_text.png"></img>
+					<br>
+					<br>
+					<h1 id="images" class="title1" style="margin-bottom: 0px">Images</h1>
+					<p><a class="link" href="https://studiosyro.com/presskit/Studio_Syro_Stills.zip">Click here to download Images</a></p>
+					<br>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still00.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still01.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still02.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still03.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still04.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still05.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still06.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still07.jpg"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still08.jpg"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still09.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still10.png"></img>
+					<img onclick="window.open(this.src)" class="stillImage" src ="https://studiosyro.com/presskit/stills/still11.png"></img>
+					<h1 id="team" class="title1" style="margin-bottom: 0px">Team</h1>
+					<div id="leftNames" style="line-height: 10px;">
+						<p><strong>Peter Ariet - US</strong></p>
+						<p>Producer/CEO</p>
+						<br>
+						<p><strong>Funilab - UK</strong></p>
+						<p>Art Director/Writer</p>
+						<br>
+						<p><strong>Dan Franke - DE</strong></p>
+						<p>Director/Lead Animator</p>
+						<br>
+						<p><strong>Felix Stief - AT</strong></p>
+						<p>Lead Environment Artist</p>
+						<br>
+						<br>
+					</div>
+					<div id="rightNames" style="line-height: 10px;">
+					
+						<p><strong>Nick Ladd - CA</strong></p>
+						<p>Animator/Environment Artist</p>
+						<br>
+						<p><strong>Nick Diaz - US</strong></p>
+						<p>Animator/VFX</p>
+						<br>
+						<p><strong>Nick Saunders - US</strong></p>
+						<p>Developer/Web Designer</p>
+					</div>
+					<br>
+					<br>
+				</div>
+			</div>	
+		</div>
+	
+	</body>	
+	<script>
+
+		$(window).resize(function(){
+			SetScale();
+			if($(window).width() < 800)
+			{
+				$("#menuButtonHolder").css({display: "none"});
+			}
+			if($(window).width() >= 800)
+			{
+				$("#menuButtonHolder").css({display: "block"});
+			}
+		});
+
+
+	</script>
+</html>
