@@ -941,6 +941,22 @@ function MobileController (){
 		{
 			$(element).css({left: rowWidth - $(element).width()});
 		}
+		if(index == 6)
+		{
+			$(element).css({left: 0});
+		}
+		if(index == 7)
+		{
+			$(element).css({left: rowWidth - $(element).width()});
+		}
+		if(index == 8)
+		{
+			$(element).css({left: 0});
+		}
+		if(index == 9)
+		{
+			$(element).css({left: rowWidth - $(element).width()});
+		}
 	});
 	
 	//Change font size on buttons
