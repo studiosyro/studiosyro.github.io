@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Studio Syro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+            margin: 20px;
+            padding: 20px;
+            text-align: left;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> January 8, 2025</p>
+        <p><strong>Last Updated:</strong> January 8, 2025</p>
+
+        <p>Studio Syro ("we," "our," "us") respects your privacy and is committed to protecting it through compliance with this Privacy Policy. This Privacy Policy outlines how we handle user information for our early access demo and how we will update our practices if data collection begins in the future.</p>
+
+        <p>By using our early access demo ("Game"), you agree to this Privacy Policy.</p>
+
+        <h2>1. No Data Collection</h2>
+        <p>As of the current release of the early access demo, we do not collect, store, or process any personal information, gameplay data, or device-level data (e.g., headset or controller usage). Your privacy is fully protected, as no user data is stored on our servers or third-party platforms.</p>
+
+        <h2>2. Potential Future Updates</h2>
+        <p>If Studio Syro begins collecting data in the future (e.g., for gameplay analytics, feature improvements, or account-related purposes), we will:</p>
+        <ul>
+            <li>Update this Privacy Policy to specify the types of data collected, how it is used, and any third parties involved.</li>
+            <li>Notify users of the changes through in-app notifications or other appropriate methods before implementing any data collection.</li>
+            <li>Ensure compliance with applicable privacy laws, such as the General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and other relevant laws.</li>
+        </ul>
+
+        <h2>3. Your Privacy Rights</h2>
+        <p>Even though we are not collecting data at this time, we are committed to transparency and user rights. If data collection begins in the future, you will have the right to:</p>
+        <ul>
+            <li>Access any personal data collected.</li>
+            <li>Request correction or deletion of your data.</li>
+            <li>Opt out of certain types of data processing.</li>
+        </ul>
+        <p>Details on how to exercise these rights will be included in future updates to this Privacy Policy.</p>
+
+        <h2>4. Accessibility</h2>
+        <p>This Privacy Policy will be accessible at all times through the app and on our website. If you need it in another format for accessibility reasons, please contact us.</p>
+
+        <h2>5. Age Restrictions</h2>
+        <p>Our game is not directed toward children under the age of 13, and we do not knowingly collect data from minors. If we become aware that we have inadvertently collected personal information from a minor, we will delete it promptly.</p>
+
+        <h2>6. Changes to This Privacy Policy</h2>
+        <p>This Privacy Policy may be updated periodically. Any significant changes will be communicated to users through appropriate channels (e.g., in-app notifications or email).</p>
+        <p>We encourage users to review this Privacy Policy regularly to stay informed about how we protect your privacy.</p>
+
+        <h2>7. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+        <p><strong>Studio Syro</strong><br> 
+        <strong>Email:</strong> <a href="mailto:hello@studiosyro.com">hello@studiosyro.com</a><br>
+    </div>
+</body>
+</html>
